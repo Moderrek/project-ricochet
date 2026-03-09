@@ -1,0 +1,326 @@
+[gd_scene format=3 uid="uid://b3m1s8lds30yw"]
+
+[ext_resource type="PackedScene" uid="uid://0dahmcdfnjd5" path="res://scenes/levels/base_level.tscn" id="1_tkopl"]
+[ext_resource type="PackedScene" uid="uid://f0b327r50edc" path="res://scenes/interactables/level_end_area/level_end_area.tscn" id="2_13ghj"]
+[ext_resource type="PackedScene" uid="uid://bp4bmbtgpi3cn" path="res://scenes/interactables/cez_coin/cez_coin.tscn" id="3_d44nw"]
+[ext_resource type="PackedScene" uid="uid://b7t78m2mae27" path="res://scenes/interactables/door/door.tscn" id="4_4ptlp"]
+[ext_resource type="PackedScene" uid="uid://lvklfo0pscmv" path="res://scenes/interactables/vending_machine/vending_machine.tscn" id="5_ycf23"]
+[ext_resource type="PackedScene" uid="uid://c2lckjp47l84q" path="res://scenes/interactables/pallet/pallet.tscn" id="6_uh3ll"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_76yhm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13ghj"]
+size = Vector2(555, 24)
+
+[node name="Level_Test" unique_id=1806712695 instance=ExtResource("1_tkopl")]
+
+[node name="PlayerSpawnMarker" parent="." index="0" unique_id=1507377149]
+position = Vector2(779, 128)
+
+[node name="Wall" type="StaticBody2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="0" unique_id=196441471]
+position = Vector2(83, 199)
+physics_material_override = SubResource("PhysicsMaterial_76yhm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Wall" index="0" unique_id=541299069]
+position = Vector2(267.5, -2)
+shape = SubResource("RectangleShape2D_13ghj")
+
+[node name="ColorRect" type="ColorRect" parent="World/Wall" index="1" unique_id=1994894]
+offset_left = -10.0
+offset_top = -15.0
+offset_right = 545.0
+offset_bottom = 9.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Wall5" type="StaticBody2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="1" unique_id=1379993118]
+position = Vector2(88, 60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Wall5" index="0" unique_id=1200656994]
+position = Vector2(267.5, -2)
+shape = SubResource("RectangleShape2D_13ghj")
+
+[node name="ColorRect" type="ColorRect" parent="World/Wall5" index="1" unique_id=856048146]
+offset_left = -10.0
+offset_top = -15.0
+offset_right = 545.0
+offset_bottom = 9.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Wall2" type="StaticBody2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="2" unique_id=1089752053]
+position = Vector2(-483, 199)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Wall2" index="0" unique_id=1147775763]
+position = Vector2(267.5, -2)
+shape = SubResource("RectangleShape2D_13ghj")
+
+[node name="ColorRect" type="ColorRect" parent="World/Wall2" index="1" unique_id=1264702602]
+offset_left = -10.0
+offset_top = -14.0
+offset_right = 545.0
+offset_bottom = 10.0
+
+[node name="Wall8" type="StaticBody2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="3" unique_id=44577136]
+position = Vector2(-585, -743)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Wall8" index="0" unique_id=2083573270]
+position = Vector2(267.5, -2)
+shape = SubResource("RectangleShape2D_13ghj")
+
+[node name="ColorRect" type="ColorRect" parent="World/Wall8" index="1" unique_id=493118008]
+offset_left = -10.0
+offset_top = -14.0
+offset_right = 545.0
+offset_bottom = 10.0
+
+[node name="Wall10" type="StaticBody2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="4" unique_id=1915681151]
+position = Vector2(494, -743)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Wall10" index="0" unique_id=2107937961]
+position = Vector2(267.5, -2)
+shape = SubResource("RectangleShape2D_13ghj")
+
+[node name="ColorRect" type="ColorRect" parent="World/Wall10" index="1" unique_id=558167271]
+offset_left = -10.0
+offset_top = -14.0
+offset_right = 545.0
+offset_bottom = 10.0
+
+[node name="Wall11" type="StaticBody2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="5" unique_id=595063761]
+position = Vector2(-175, -345)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Wall11" index="0" unique_id=926723128]
+position = Vector2(267.5, -2)
+shape = SubResource("RectangleShape2D_13ghj")
+
+[node name="ColorRect" type="ColorRect" parent="World/Wall11" index="1" unique_id=1759839150]
+offset_left = -10.0
+offset_top = -14.0
+offset_right = 545.0
+offset_bottom = 10.0
+
+[node name="Wall12" type="StaticBody2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="6" unique_id=1639463329]
+position = Vector2(459, 628)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Wall12" index="0" unique_id=644946924]
+position = Vector2(267.5, -2)
+shape = SubResource("RectangleShape2D_13ghj")
+
+[node name="ColorRect" type="ColorRect" parent="World/Wall12" index="1" unique_id=1424310447]
+offset_left = -10.0
+offset_top = -14.0
+offset_right = 545.0
+offset_bottom = 10.0
+
+[node name="Wall13" type="StaticBody2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="7" unique_id=1948536572]
+position = Vector2(-490, 628)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Wall13" index="0" unique_id=105545282]
+position = Vector2(267.5, -2)
+shape = SubResource("RectangleShape2D_13ghj")
+
+[node name="ColorRect" type="ColorRect" parent="World/Wall13" index="1" unique_id=1837352927]
+offset_left = -10.0
+offset_top = -14.0
+offset_right = 545.0
+offset_bottom = 10.0
+
+[node name="Wall3" type="StaticBody2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="8" unique_id=475493928]
+position = Vector2(-586, -187)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Wall3" index="0" unique_id=34658213]
+position = Vector2(267.5, -2)
+shape = SubResource("RectangleShape2D_13ghj")
+
+[node name="ColorRect" type="ColorRect" parent="World/Wall3" index="1" unique_id=1920401029]
+offset_left = -10.0
+offset_top = -14.0
+offset_right = 545.0
+offset_bottom = 10.0
+
+[node name="Wall14" type="StaticBody2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="9" unique_id=1763337946]
+position = Vector2(237, 343)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Wall14" index="0" unique_id=671355460]
+position = Vector2(267.5, -2)
+shape = SubResource("RectangleShape2D_13ghj")
+
+[node name="ColorRect" type="ColorRect" parent="World/Wall14" index="1" unique_id=1310962000]
+offset_left = -10.0
+offset_top = -14.0
+offset_right = 545.0
+offset_bottom = 10.0
+
+[node name="Wall4" type="StaticBody2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="10" unique_id=813431634]
+position = Vector2(-586, -743)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Wall4" index="0" unique_id=2320876]
+position = Vector2(267.5, -2)
+shape = SubResource("RectangleShape2D_13ghj")
+
+[node name="ColorRect" type="ColorRect" parent="World/Wall4" index="1" unique_id=587002635]
+offset_left = -10.0
+offset_top = -14.0
+offset_right = 545.0
+offset_bottom = 10.0
+
+[node name="Wall6" type="StaticBody2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="11" unique_id=1510480284]
+position = Vector2(989, -165)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Wall6" index="0" unique_id=1082091122]
+position = Vector2(267.5, -2)
+shape = SubResource("RectangleShape2D_13ghj")
+
+[node name="ColorRect" type="ColorRect" parent="World/Wall6" index="1" unique_id=1821781273]
+offset_left = -10.0
+offset_top = -14.0
+offset_right = 545.0
+offset_bottom = 10.0
+
+[node name="Wall7" type="StaticBody2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="12" unique_id=731479778]
+position = Vector2(990, -711)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Wall7" index="0" unique_id=48337754]
+position = Vector2(267.5, -2)
+shape = SubResource("RectangleShape2D_13ghj")
+
+[node name="ColorRect" type="ColorRect" parent="World/Wall7" index="1" unique_id=2077593553]
+offset_left = -10.0
+offset_top = -14.0
+offset_right = 545.0
+offset_bottom = 10.0
+
+[node name="Wall9" type="StaticBody2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="13" unique_id=605296354]
+position = Vector2(-38, -742)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Wall9" index="0" unique_id=2083097827]
+position = Vector2(267.5, -2)
+shape = SubResource("RectangleShape2D_13ghj")
+
+[node name="ColorRect" type="ColorRect" parent="World/Wall9" index="1" unique_id=927034727]
+offset_left = -10.0
+offset_top = -14.0
+offset_right = 545.0
+offset_bottom = 10.0
+
+[node name="LevelEndArea" parent="World" parent_id_path=PackedInt32Array(104736592) index="14" unique_id=1251197318 instance=ExtResource("2_13ghj")]
+position = Vector2(-565.99994, 532)
+rotation = -3.1415927
+scale = Vector2(0.5368601, 2.6575568)
+
+[node name="CezCoin3" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="0" unique_id=454780902 instance=ExtResource("3_d44nw")]
+position = Vector2(-387, -155)
+
+[node name="CezCoin2" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="1" unique_id=305663391 instance=ExtResource("3_d44nw")]
+position = Vector2(-390, -77)
+
+[node name="CezCoin" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="2" unique_id=2146432856 instance=ExtResource("3_d44nw")]
+position = Vector2(-386, 28)
+
+[node name="CezCoin4" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="3" unique_id=1921659455 instance=ExtResource("3_d44nw")]
+position = Vector2(-295, -151)
+
+[node name="CezCoin5" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="4" unique_id=783594358 instance=ExtResource("3_d44nw")]
+position = Vector2(-298, -73)
+
+[node name="CezCoin7" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="5" unique_id=362593426 instance=ExtResource("3_d44nw")]
+position = Vector2(2, -219)
+
+[node name="CezCoin8" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="6" unique_id=1187961567 instance=ExtResource("3_d44nw")]
+position = Vector2(483, -139)
+
+[node name="CezCoin9" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="7" unique_id=1585474283 instance=ExtResource("3_d44nw")]
+position = Vector2(487, -34)
+
+[node name="CezCoin6" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="8" unique_id=814538711 instance=ExtResource("3_d44nw")]
+position = Vector2(-294, 32)
+
+[node name="CezCoin10" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="9" unique_id=518858995 instance=ExtResource("3_d44nw")]
+position = Vector2(-390, -430)
+
+[node name="CezCoin11" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="10" unique_id=1024367012 instance=ExtResource("3_d44nw")]
+position = Vector2(-393, -352)
+
+[node name="CezCoin12" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="11" unique_id=493279071 instance=ExtResource("3_d44nw")]
+position = Vector2(-389, -247)
+
+[node name="CezCoin13" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="12" unique_id=573661597 instance=ExtResource("3_d44nw")]
+position = Vector2(-298, -426)
+
+[node name="CezCoin14" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="13" unique_id=178791352 instance=ExtResource("3_d44nw")]
+position = Vector2(-301, -348)
+
+[node name="CezCoin15" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="14" unique_id=1762967533 instance=ExtResource("3_d44nw")]
+position = Vector2(483, -492)
+
+[node name="CezCoin16" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="15" unique_id=401403032 instance=ExtResource("3_d44nw")]
+position = Vector2(480, -414)
+
+[node name="CezCoin17" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="16" unique_id=1499114544 instance=ExtResource("3_d44nw")]
+position = Vector2(484, -309)
+
+[node name="CezCoin18" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="17" unique_id=1799156365 instance=ExtResource("3_d44nw")]
+position = Vector2(-297, -243)
+
+[node name="CezCoin19" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="18" unique_id=1358958316 instance=ExtResource("3_d44nw")]
+position = Vector2(-348, 321)
+
+[node name="CezCoin20" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="19" unique_id=1833828502 instance=ExtResource("3_d44nw")]
+position = Vector2(-351, 399)
+
+[node name="CezCoin21" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="20" unique_id=1705080490 instance=ExtResource("3_d44nw")]
+position = Vector2(-347, 504)
+
+[node name="CezCoin22" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="21" unique_id=1797474118 instance=ExtResource("3_d44nw")]
+position = Vector2(-256, 325)
+
+[node name="CezCoin23" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="22" unique_id=248922558 instance=ExtResource("3_d44nw")]
+position = Vector2(-259, 403)
+
+[node name="CezCoin24" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="23" unique_id=1838416874 instance=ExtResource("3_d44nw")]
+position = Vector2(141, 131)
+
+[node name="CezCoin25" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="24" unique_id=1107756801 instance=ExtResource("3_d44nw")]
+position = Vector2(332, 130)
+
+[node name="CezCoin26" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="25" unique_id=2050249165 instance=ExtResource("3_d44nw")]
+position = Vector2(496, 130)
+
+[node name="CezCoin27" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="26" unique_id=495157481 instance=ExtResource("3_d44nw")]
+position = Vector2(-255, 508)
+
+[node name="Door" parent="." index="5" unique_id=605632606 instance=ExtResource("4_4ptlp")]
+position = Vector2(1058, 503)
+next_level_path = "uid://roygbhglbhmm"
+
+[node name="VendingMachine" parent="." index="6" unique_id=635205341 instance=ExtResource("5_ycf23")]
+position = Vector2(109, -635)
+
+[node name="VendingMachine2" parent="." index="7" unique_id=1929378675 instance=ExtResource("5_ycf23")]
+position = Vector2(317, 426)
+coffee_count = 5
+
+[node name="Pallet" parent="." index="8" unique_id=1252356175 instance=ExtResource("6_uh3ll")]
+position = Vector2(-139, -417)
+
+[node name="Pallet2" parent="." index="9" unique_id=1374687587 instance=ExtResource("6_uh3ll")]
+position = Vector2(-140, -524)
+
+[node name="Pallet3" parent="." index="10" unique_id=1869191158 instance=ExtResource("6_uh3ll")]
+position = Vector2(342, 695)
+
+[node name="Pallet4" parent="." index="11" unique_id=904471221 instance=ExtResource("6_uh3ll")]
+position = Vector2(-676, 416)
+rotation = 1.6002066
+
+[node name="Pallet5" parent="." index="12" unique_id=58506799 instance=ExtResource("6_uh3ll")]
+position = Vector2(-681.00006, 553)
+rotation = 1.6002066
+
+[node name="Pallet6" parent="." index="13" unique_id=561013171 instance=ExtResource("6_uh3ll")]
+position = Vector2(-669, 696)
+rotation = 1.4521272

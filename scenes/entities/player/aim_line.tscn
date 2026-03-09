@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://crr81x7gnlhgu"]
+
+[ext_resource type="Script" uid="uid://cwq55tqkhg884" path="res://scenes/entities/player/aim_line.gd" id="1_0xpom"]
+
+[node name="AimLine" type="Node2D" unique_id=2122664174]
+script = ExtResource("1_0xpom")
+
+[node name="Line" type="Line2D" parent="." unique_id=105750693]
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 1
+antialiased = true
+
+[node name="RayCast" type="RayCast2D" parent="." unique_id=1897217193]
+
+[node name="ArrowPolygon" type="Polygon2D" parent="." unique_id=67670819]
+antialiased = true

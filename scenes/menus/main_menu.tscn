@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dso2nij2ym7hj"]
+
+[ext_resource type="Theme" uid="uid://dsthmqy2j18d5" path="res://resources/themes/soft_ui_theme.tres" id="1_ovrgc"]
+[ext_resource type="Script" uid="uid://desjhxanthuch" path="res://scenes/menus/main_menu.gd" id="1_xqga4"]
+
+[node name="MainMenu" type="Control" unique_id=455711551]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ovrgc")
+script = ExtResource("1_xqga4")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1767405530]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14059213, 0.28295305, 0.61985576, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1495805052]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=183248860]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1329175643]
+layout_mode = 2
+text = "CKZiU: 3 Minuty do Dzwonka"
+
+[node name="CoinLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2074514936]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=125277059]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1442164961]
+layout_mode = 2
+text = "ROZPOCZNIJ"
+
+[node name="PokedexButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=414701079]
+layout_mode = 2
+text = "ZDJĘCIA (0/50)"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1818704093]
+layout_mode = 2
+text = "WYJŚCIE"

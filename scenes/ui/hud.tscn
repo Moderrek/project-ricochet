@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://e8n7jbo5e5lr"]
+
+[ext_resource type="Script" uid="uid://3sqmgyh37fsh" path="res://scenes/ui/hud.gd" id="1_0mwgc"]
+[ext_resource type="FontFile" uid="uid://c4t6gw58eaj7x" path="res://assets/fonts/Rubik-Black.ttf" id="2_hqnrr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0mwgc"]
+bg_color = Color(0.13319641, 0.13319641, 0.13319638, 0.8509804)
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0, 0, 0, 0.15)
+shadow_size = 12
+shadow_offset = Vector2(0, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqnrr"]
+bg_color = Color(0.766427, 0.54483324, 0.38417402, 1)
+
+[node name="HUD" type="CanvasLayer" unique_id=1381379692]
+script = ExtResource("1_0mwgc")
+
+[node name="Control" type="Control" parent="." unique_id=269799380]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1106797544]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=556553326]
+layout_mode = 2
+
+[node name="CoinLabel" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=277786247]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_hqnrr")
+theme_override_font_sizes/font_size = 48
+text = "Monety: 150"
+
+[node name="Panel" type="Panel" parent="." unique_id=1170891233]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -134.5
+offset_right = 134.5
+offset_bottom = 96.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0mwgc")
+
+[node name="TimeLabel" type="Label" parent="Panel" unique_id=1092580615]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 18.0
+offset_right = 862.0
+offset_bottom = 75.0
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_hqnrr")
+theme_override_font_sizes/font_size = 48
+text = "03:12"
+
+[node name="BoostBar" type="ProgressBar" parent="." unique_id=1359085032]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -62.0
+offset_right = 509.0
+offset_bottom = -14.0
+grow_vertical = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_hqnrr")
+value = 59.36
+show_percentage = false

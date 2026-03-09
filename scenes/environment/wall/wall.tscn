@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://qsfvimesjvis"]
+
+[ext_resource type="Script" uid="uid://bbckv0w8wc505" path="res://scenes/environment/wall/wall.gd" id="1_mqi10"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltj23"]
+resource_local_to_scene = true
+size = Vector2(384, 20)
+
+[node name="Wall" type="StaticBody2D" unique_id=95733983]
+script = ExtResource("1_mqi10")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1978782948]
+shape = SubResource("RectangleShape2D_ltj23")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=477330344]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -10.0
+offset_right = 192.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2574, 0.28423998, 0.66, 1)

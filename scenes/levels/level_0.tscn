@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://roygbhglbhmm"]
+
+[ext_resource type="PackedScene" uid="uid://0dahmcdfnjd5" path="res://scenes/levels/base_level.tscn" id="1_n2h5a"]
+[ext_resource type="Script" uid="uid://pmt3vrml7m1s" path="res://scenes/levels/level_camera.gd" id="2_6ayib"]
+[ext_resource type="Shader" uid="uid://mb272d4b0hl6" path="res://shaders/blueprint.gdshader" id="2_53han"]
+[ext_resource type="PackedScene" uid="uid://bp4bmbtgpi3cn" path="res://scenes/interactables/cez_coin/cez_coin.tscn" id="3_1f54s"]
+[ext_resource type="Texture2D" uid="uid://dphek2jkg6fc6" path="res://assets/images/arrow_up.png" id="3_3mnpy"]
+[ext_resource type="PackedScene" uid="uid://qsfvimesjvis" path="res://scenes/environment/wall/wall.tscn" id="4_2vy66"]
+[ext_resource type="Texture2D" uid="uid://i8oc6vj7ysmw" path="res://assets/images/arrow_turn_right.png" id="4_6ayib"]
+[ext_resource type="PackedScene" uid="uid://f0b327r50edc" path="res://scenes/interactables/level_end_area/level_end_area.tscn" id="5_rtok4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dume2"]
+shader = ExtResource("2_53han")
+shader_parameter/blueprint_blue = Color(0, 0.467, 1, 1)
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_threshold = 0.6
+shader_parameter/line_smoothness = 0.02
+shader_parameter/grid_strength = 0.15
+shader_parameter/grid_scale = 120.0
+shader_parameter/grid_subdivisions = 4.0
+shader_parameter/scroll_speed = Vector2(0, 0)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nnnku"]
+friction = 0.0
+bounce = 0.7
+
+[node name="Level_0" unique_id=1806712695 instance=ExtResource("1_n2h5a")]
+
+[node name="LevelCamera" parent="." index="1" unique_id=602886328]
+script = ExtResource("2_6ayib")
+
+[node name="BlueprintBackground" type="ColorRect" parent="World" parent_id_path=PackedInt32Array(104736592) index="0" unique_id=1215941230]
+material = SubResource("ShaderMaterial_dume2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1834.0
+offset_top = -2462.0
+offset_right = 2166.0
+offset_bottom = 1538.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Corridor" type="StaticBody2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="1" unique_id=401448028]
+physics_material_override = SubResource("PhysicsMaterial_nnnku")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Corridor" index="0" unique_id=1279049814]
+use_parent_material = true
+build_mode = 1
+polygon = PackedVector2Array(-238, 242, 242, 241, 242, -599, 960, -599, 963, -1079, -240, -1076)
+
+[node name="Polygon2D" type="Polygon2D" parent="World/Corridor" index="1" unique_id=576800965]
+color = Color(0.09430001, 0.11465501, 0.23, 1)
+polygon = PackedVector2Array(-238, 242, 242, 241, 242, -599, 960, -599, 963, -1079, -240, -1076)
+uv = PackedVector2Array(-353, 13)
+
+[node name="ArrowUp" type="Sprite2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="2" unique_id=1181593021]
+position = Vector2(134, -92)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_3mnpy")
+
+[node name="Sprite2D" type="Sprite2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="3" unique_id=1762526116]
+position = Vector2(118, -544)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_6ayib")
+
+[node name="CezCoin" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="0" unique_id=454780902 instance=ExtResource("3_1f54s")]
+position = Vector2(1, 202)
+
+[node name="CezCoin2" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="1" unique_id=1359555862 instance=ExtResource("3_1f54s")]
+position = Vector2(-189, -569)
+
+[node name="CezCoin4" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="2" unique_id=154153162 instance=ExtResource("3_1f54s")]
+position = Vector2(-71, -713)
+
+[node name="CezCoin3" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="3" unique_id=971922968 instance=ExtResource("3_1f54s")]
+position = Vector2(205, -641)
+
+[node name="Wall" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="4" unique_id=95733983 instance=ExtResource("4_2vy66")]
+position = Vector2(49.00003, -720)
+rotation = -0.5820912
+size = Vector2(300, 20)
+
+[node name="LevelEndArea" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="5" unique_id=1251197318 instance=ExtResource("5_rtok4")]
+position = Vector2(862.99994, -839)
+scale = Vector2(1.9200048, 3.72)

@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://bqivdiyrejdfk"]
+
+[ext_resource type="FontFile" uid="uid://c4t6gw58eaj7x" path="res://assets/fonts/Rubik-Black.ttf" id="1_atpf1"]
+[ext_resource type="Script" uid="uid://c6bbrvlnkdijx" path="res://scenes/menus/end_screen.gd" id="1_yrivc"]
+[ext_resource type="Shader" uid="uid://mb272d4b0hl6" path="res://shaders/blueprint.gdshader" id="2_mi55a"]
+[ext_resource type="Shader" uid="uid://5pn8jkwlkc30" path="res://shaders/background_blur.gdshader" id="3_j3ecp"]
+[ext_resource type="Shader" uid="uid://itcqh3nb0wkl" path="res://shaders/vignette.gdshader" id="3_mi55a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ty7q8"]
+shader = ExtResource("2_mi55a")
+shader_parameter/blueprint_blue = Color(0, 0.467, 1, 1)
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_threshold = 0.6
+shader_parameter/line_smoothness = 0.02
+shader_parameter/grid_strength = 0.2950000140125
+shader_parameter/grid_scale = 120.0
+shader_parameter/grid_subdivisions = 4.0
+shader_parameter/scroll_speed = Vector2(-0.02, -0.01)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a4x1j"]
+resource_local_to_scene = true
+shader = ExtResource("3_j3ecp")
+shader_parameter/blur_amount = 1.4000000665
+shader_parameter/mix_color = Color(0.019607844, 0.039215688, 0.12156863, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j3ecp"]
+shader = ExtResource("3_mi55a")
+shader_parameter/vignette_power = 0.154000007315
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yrivc"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0, 0, 0, 0.11764706)
+shadow_size = 15
+shadow_offset = Vector2(0, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3ecp"]
+content_margin_left = 40.0
+content_margin_top = 15.0
+content_margin_right = 40.0
+content_margin_bottom = 15.0
+bg_color = Color(0.8784314, 0.8980392, 0.9254902, 1)
+border_width_bottom = 6
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="EndScreen" type="Control" unique_id=1823632353]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yrivc")
+
+[node name="Blueprint" type="ColorRect" parent="." unique_id=104360064]
+material = SubResource("ShaderMaterial_ty7q8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Blur" type="ColorRect" parent="." unique_id=251841542]
+material = SubResource("ShaderMaterial_a4x1j")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Vignette" type="ColorRect" parent="." unique_id=270499967]
+material = SubResource("ShaderMaterial_j3ecp")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Center" type="CenterContainer" parent="." unique_id=1191698721]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Center" unique_id=2072916828]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yrivc")
+
+[node name="Margin" type="MarginContainer" parent="Center/Panel" unique_id=168611920]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Center/Panel/Margin" unique_id=981333843]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="Center/Panel/Margin/VBoxContainer" unique_id=1914517009]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.33333334, 0.33333334, 0.33333334, 1)
+theme_override_fonts/font = ExtResource("1_atpf1")
+theme_override_font_sizes/font_size = 64
+text = "KONIEC LEKCJI"
+
+[node name="StatsLabel" type="Label" parent="Center/Panel/Margin/VBoxContainer" unique_id=1859119767]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.33333334, 0.33333334, 0.33333334, 1)
+theme_override_fonts/font = ExtResource("1_atpf1")
+theme_override_font_sizes/font_size = 32
+text = "5 monet | 1000 score"
+
+[node name="Control" type="Control" parent="Center/Panel/Margin/VBoxContainer" unique_id=1899331822]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HorizontalButtonContainer" type="HBoxContainer" parent="Center/Panel/Margin/VBoxContainer" unique_id=2132209720]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="MenuButton" type="Button" parent="Center/Panel/Margin/VBoxContainer/HorizontalButtonContainer" unique_id=144198409]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+theme_override_fonts/font = ExtResource("1_atpf1")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_j3ecp")
+text = "MENU"
+
+[node name="RetryButton" type="Button" parent="Center/Panel/Margin/VBoxContainer/HorizontalButtonContainer" unique_id=203912162]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+theme_override_fonts/font = ExtResource("1_atpf1")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_j3ecp")
+text = "RETRY"

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://0dahmcdfnjd5"]
+
+[ext_resource type="Script" uid="uid://b003vepsmgy1u" path="res://scenes/levels/base_level.gd" id="1_md458"]
+[ext_resource type="PackedScene" uid="uid://e8n7jbo5e5lr" path="res://scenes/ui/hud.tscn" id="2_uk53i"]
+
+[node name="BaseLevel" type="Node2D" unique_id=1806712695]
+script = ExtResource("1_md458")
+
+[node name="PlayerSpawnMarker" type="Marker2D" parent="." unique_id=1507377149]
+
+[node name="LevelCamera" type="Camera2D" parent="." unique_id=602886328]
+process_callback = 0
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="HUD" parent="." unique_id=1381379692 instance=ExtResource("2_uk53i")]
+
+[node name="World" type="Node2D" parent="." unique_id=104736592]
+
+[node name="Entities" type="Node2D" parent="." unique_id=1153031609]

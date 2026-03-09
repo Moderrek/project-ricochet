@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://f0b327r50edc"]
+
+[ext_resource type="Script" uid="uid://bwa168qongmrw" path="res://scenes/interactables/level_end_area/level_end_area.gd" id="1_e4r0y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mnqbl"]
+size = Vector2(51, 127)
+
+[sub_resource type="Gradient" id="Gradient_e4r0y"]
+offsets = PackedFloat32Array(0.3192771, 0.8915663)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8x6ow"]
+gradient = SubResource("Gradient_e4r0y")
+width = 256
+height = 128
+
+[node name="LevelEndArea" type="Area2D" unique_id=1251197318]
+script = ExtResource("1_e4r0y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=197755069]
+position = Vector2(24.5, 0.5)
+shape = SubResource("RectangleShape2D_mnqbl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=666897338]
+position = Vector2(-77, 0)
+texture = SubResource("GradientTexture2D_8x6ow")

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c2lckjp47l84q"]
+
+[ext_resource type="Texture2D" uid="uid://nr35w0xjkrgf" path="res://assets/images/pallet.png" id="1_t46a7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktdhu"]
+size = Vector2(128, 96)
+
+[node name="Pallet" type="RigidBody2D" unique_id=1252356175]
+mass = 15.0
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 15.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=764381822]
+texture = ExtResource("1_t46a7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=17288804]
+shape = SubResource("RectangleShape2D_ktdhu")

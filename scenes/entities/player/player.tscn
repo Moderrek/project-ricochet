@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://caqlu6s2tbsdc"]
+
+[ext_resource type="Script" uid="uid://d2rgn1galmcp" path="res://scenes/entities/player/player.gd" id="1_58kc7"]
+[ext_resource type="Texture2D" uid="uid://byp5m1ro6tas3" path="res://assets/images/player.png" id="2_nh4ur"]
+[ext_resource type="PackedScene" uid="uid://crr81x7gnlhgu" path="res://scenes/entities/player/aim_line.tscn" id="3_bjvvg"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rkbax"]
+friction = 0.0
+bounce = 0.8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
+radius = 32.0
+
+[node name="Player" type="RigidBody2D" unique_id=953439206 groups=["player"]]
+physics_material_override = SubResource("PhysicsMaterial_rkbax")
+gravity_scale = 0.0
+continuous_cd = 1
+contact_monitor = true
+max_contacts_reported = 3
+linear_damp = 2.0
+angular_damp = 2.0
+script = ExtResource("1_58kc7")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=883833528]
+emitting = false
+amount = 15
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+initial_velocity_min = 200.0
+initial_velocity_max = 400.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=134253475]
+scale = Vector2(0.253, 0.25)
+texture = ExtResource("2_nh4ur")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2046518984]
+shape = SubResource("CircleShape2D_onrkg")
+
+[node name="AimLine" parent="." unique_id=2122664174 instance=ExtResource("3_bjvvg")]
