@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b7t78m2mae27"]
 
-[ext_resource type="Texture2D" uid="uid://dol10hsc55dm2" path="res://icon.svg" id="1_6jnl5"]
 [ext_resource type="Script" uid="uid://bykiuitcghjlc" path="res://scenes/interactables/door/door.gd" id="1_57sya"]
+[ext_resource type="Texture2D" uid="uid://ctj13btnys8ks" path="res://assets/images/wall_test.png" id="2_57sya"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57sya"]
 size = Vector2(128, 128)
@@ -10,7 +10,8 @@ size = Vector2(128, 128)
 script = ExtResource("1_57sya")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1686175031]
-texture = ExtResource("1_6jnl5")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_57sya")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=485222403]
 shape = SubResource("RectangleShape2D_57sya")
