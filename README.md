@@ -1,7 +1,16 @@
-# Project Ricochet
+<div align="center">
+  <img src="icon.png" alt="Project Ricochet Icon" width="150" height="150">
+  
+  <h1>Project Ricochet</h1>
+  
+  <p>
+	<b>Edukacyjna, zręcznościowa gra logiczna 2D zbudowana na silniku Godot 4.</b><br>
+	<i>Projekt stworzony z myślą o konkursie szkolnym, pełniący funkcję interaktywnej wizytówki Centrum Kształcenia Zawodowego i Ustawicznego (CKZiU) w Łodzi.</i>
+  </p>
+</div>
 
-Edukacyjna, zręcznościowa gra logiczna 2D zbudowana na silniku Godot 4.6.1-stable.
-Projekt stworzony z myślą o konkursie szkolnym, pełniący funkcję interaktywnej wizytówki CKZiU (Centrum Kształcenia Zawodowego i Ustawicznego w Łodzi).
+<br>
+
 
 ## O grze i celu projektu
 
