@@ -59,4 +59,5 @@ func _spawn_coffee() -> void:
 	jump_tween.tween_property(coffee, "global_position:x", target_pos.x, 0.4).set_trans(Tween.TRANS_LINEAR)
 	jump_tween.tween_property(coffee, "global_position:y", target_pos.y, 0.4).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	
-	jump_tween.chain().tween_callback(coffee._start_hover_animation)
+	if coffee.has_method("_start_hover_animation"):
+		jump_tween.chain().tween_callback(coffee._start_hover_animation)

@@ -87,6 +87,7 @@ position = Vector2(158, -17)
 
 [node name="VendingMachine2" parent="." index="22" unique_id=857043040 instance=ExtResource("5_b5xd0")]
 position = Vector2(300, 30)
+coffee_scene = ExtResource("3_372h1")
 
 [node name="VendingMachine3" parent="." index="23" unique_id=426115475 instance=ExtResource("5_b5xd0")]
 position = Vector2(-528, -85)
