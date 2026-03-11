@@ -1,24 +1,44 @@
 extends Control
 
-@onready var start_button = $MarginContainer/VBoxContainer/StartButton
-@onready var coin_label = $MarginContainer/VBoxContainer/CoinLabel
+@onready var play_button: Button = $MainMargin/MainLayout/ContentArea/MenuButtons/PlayButton
+@onready var lockers_button: Button = $MainMargin/MainLayout/ContentArea/MenuButtons/LockersButton
+@onready var quit_button: Button = $MainMargin/MainLayout/ContentArea/MenuButtons/QuitButton
 
-func _update_ui():
-	_update_coin_label(SaveManager.total_coins)
+@onready var news_button: Button = $MainMargin/MainLayout/ContentArea/NewsCard/MarginContainer/VBoxContainer/NewsButton
+@onready var coin_amount_label: Label = $MainMargin/MainLayout/TopBar/CoinDisplay/CoinAmount
+
+func _ready() -> void:
+	_update_coin_display()
 	
-func _update_coin_label(amount):
-	coin_label.text = "Coins: " + str(amount)
+	if OS.has_feature("web"):
+		quit_button.hide()
+	else:
+		quit_button.pressed.connect(_on_quit_pressed)
 
-func _ready():
-	start_button.pressed.connect(_on_start_pressed)
-	$MarginContainer/VBoxContainer/ExitButton.pressed.connect(_on_exit_pressed)
+	play_button.pressed.connect(_on_play_pressed)
+	lockers_button.pressed.connect(_on_lockers_pressed)
+	news_button.pressed.connect(_on_news_pressed)
 	
-	SaveManager.total_coins_changed.connect(_update_coin_label)
+	play_button.grab_focus()
+
+func _update_coin_display() -> void:
+	coin_amount_label.text = str(SaveManager.total_coins)
+
+func _on_play_pressed() -> void:
+	SceneChanger.change_scene_smooth("res://scenes/levels/level_0.tscn")
+
+func _on_lockers_pressed() -> void:
+	print("Moduł szafek jeszcze w budowie.")
+
+func _on_news_pressed() -> void:
+	OS.shell_open("https://cez.lodz.pl/2026/03/06/konkurs-school-games-2026/")
 	
-	_update_ui()
+	SaveManager.add_coins(50)
+	_update_coin_display()
+	
+	news_button.disabled = true
+	news_button.text = "Odebrano!"
+	
 
-func _on_start_pressed():
-	GameManager.start_game()
-
-func _on_exit_pressed():
-	get_tree().quit() # works on PC, in HTML5 does nothing.
+func _on_quit_pressed() -> void:
+	get_tree().quit()
