@@ -2,12 +2,31 @@
 
 [ext_resource type="Theme" uid="uid://dsthmqy2j18d5" path="res://resources/themes/soft_ui_theme.tres" id="1_ovrgc"]
 [ext_resource type="Script" uid="uid://desjhxanthuch" path="res://scenes/menus/main_menu.gd" id="1_xqga4"]
+[ext_resource type="PackedScene" uid="uid://roygbhglbhmm" path="res://scenes/levels/level_0.tscn" id="2_imvie"]
 [ext_resource type="Texture2D" uid="uid://6jn3rswpudft" path="res://assets/images/school_game.jpg" id="3_2o76q"]
 [ext_resource type="Texture2D" uid="uid://cgj8rglvy6xvc" path="res://assets/images/cez_coin_64x64.png" id="3_6bivr"]
+
+[sub_resource type="Curve2D" id="Curve2D_imvie"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 30, 113, 0, 0, 0, 0, 154, -105, 0, 0, 0, 0, 121, -263, 0, 0, 0, 0, 102, -481, 0, 0, 0, 0, 66, -642, 0, 0, 0, 0, 180, -717, 0, 0, 0, 0, 307, -686, 0, 0, 0, 0, 528, -675, 0, 0, 0, 0, 702, -733, 0, 0, 0, 0, 782, -873, 0, 0, 0, 0, 585, -976, 0, 0, 0, 0, 294, -979, 0, 0, 0, 0, 74, -971, 0, 0, 0, 0, -90, -937, 0, 0, 0, 0, -154, -810, 0, 0, 0, 0, -126, -613, 0, 0, 0, 0, -64, -520, 0, 0, 0, 0, -9, -478, 0, 0, 0, 0, 38, -289, 0, 0, 0, 0, -22, -211, 0, 0, 0, 0, -108, -165, 0, 0, 0, 0, -131, -74, 0, 0, 0, 0, -82, 20, 0, 0, 0, 0, 32, 116)
+}
+point_count = 24
 
 [node name="MainMenu" type="Node2D" unique_id=2013969466]
 z_index = 1000
 script = ExtResource("1_xqga4")
+
+[node name="Level_0" parent="." unique_id=1806712695 instance=ExtResource("2_imvie")]
+is_cinematic_mode = true
+
+[node name="CameraTrack" type="Path2D" parent="." unique_id=465893841]
+curve = SubResource("Curve2D_imvie")
+
+[node name="CameraMover" type="PathFollow2D" parent="CameraTrack" unique_id=1452043737]
+position = Vector2(30, 113)
+rotates = false
+
+[node name="Camera2D" type="Camera2D" parent="CameraTrack/CameraMover" unique_id=1025146447]
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1580600634]
 

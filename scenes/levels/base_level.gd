@@ -1,6 +1,8 @@
 extends Node2D
 class_name BaseLevel
 
+@export var is_cinematic_mode: bool = false
+
 # Nodes
 @onready var player_spawn: Marker2D = $PlayerSpawnMarker
 @onready var level_camera: Camera2D = $LevelCamera
@@ -13,6 +15,11 @@ var shake_strength: float = 0.0
 var shake_decay: float = 5.0
 
 func _ready():
+	if is_cinematic_mode:
+		if has_node("LevelCamera"):
+			$LevelCamera.enabled = false
+			$HUD.visible = false
+		return
 	_spawn_player()
 
 func _spawn_player():
