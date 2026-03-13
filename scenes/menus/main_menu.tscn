@@ -40,6 +40,7 @@ rotates = false
 script = ExtResource("3_ng0o5")
 
 [node name="Camera2D" type="Camera2D" parent="CameraTrack/CameraMover" unique_id=1025146447]
+zoom = Vector2(2, 2)
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1580600634]
 
