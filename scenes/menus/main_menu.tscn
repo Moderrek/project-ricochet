@@ -4,192 +4,130 @@
 [ext_resource type="Script" uid="uid://desjhxanthuch" path="res://scenes/menus/main_menu.gd" id="1_xqga4"]
 [ext_resource type="Texture2D" uid="uid://6jn3rswpudft" path="res://assets/images/school_game.jpg" id="3_2o76q"]
 [ext_resource type="Texture2D" uid="uid://cgj8rglvy6xvc" path="res://assets/images/cez_coin_64x64.png" id="3_6bivr"]
-[ext_resource type="Shader" uid="uid://mb272d4b0hl6" path="res://shaders/blueprint.gdshader" id="5_8r73w"]
-[ext_resource type="Texture2D" uid="uid://dphek2jkg6fc6" path="res://assets/images/arrow_up.png" id="6_1hnlc"]
-[ext_resource type="Texture2D" uid="uid://i8oc6vj7ysmw" path="res://assets/images/arrow_turn_right.png" id="7_50h1w"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_euy4r"]
-shader = ExtResource("5_8r73w")
-shader_parameter/blueprint_blue = Color(0, 0.467, 1, 1)
-shader_parameter/line_color = Color(1, 1, 1, 1)
-shader_parameter/line_threshold = 0.6
-shader_parameter/line_smoothness = 0.02
-shader_parameter/grid_strength = 0.15
-shader_parameter/grid_scale = 120.0
-shader_parameter/grid_subdivisions = 4.0
-shader_parameter/scroll_speed = Vector2(0, 0)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bre17"]
-friction = 0.0
-bounce = 0.7
-
-[node name="MainMenu" type="Control" unique_id=1517494793]
+[node name="MainMenu" type="Node2D" unique_id=2013969466]
 z_index = 1000
-layout_mode = 3
+script = ExtResource("1_xqga4")
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=1580600634]
+
+[node name="MainMargin" type="MarginContainer" parent="UILayer" unique_id=430129322]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ovrgc")
-script = ExtResource("1_xqga4")
-
-[node name="World" type="Node2D" parent="." unique_id=702107351]
-position = Vector2(400, 747)
-
-[node name="BlueprintBackground" type="ColorRect" parent="World" unique_id=39029553]
-material = SubResource("ShaderMaterial_euy4r")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1834.0
-offset_top = -2462.0
-offset_right = 2166.0
-offset_bottom = 1538.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Corridor" type="StaticBody2D" parent="World" unique_id=146266033]
-physics_material_override = SubResource("PhysicsMaterial_bre17")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Corridor" unique_id=874256926]
-use_parent_material = true
-build_mode = 1
-polygon = PackedVector2Array(-238, 242, 242, 241, 242, -599, 960, -599, 963, -1079, -240, -1076)
-
-[node name="Polygon2D" type="Polygon2D" parent="World/Corridor" unique_id=225880537]
-color = Color(0.09430001, 0.11465501, 0.23, 1)
-polygon = PackedVector2Array(-238, 242, 242, 241, 242, -599, 960, -599, 963, -1079, -240, -1076)
-uv = PackedVector2Array(-353, 13)
-
-[node name="ArrowUp" type="Sprite2D" parent="World" unique_id=1009582966]
-position = Vector2(134, -92)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("6_1hnlc")
-
-[node name="Sprite2D" type="Sprite2D" parent="World" unique_id=2138081024]
-position = Vector2(118, -544)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("7_50h1w")
-
-[node name="MainMargin" type="MarginContainer" parent="." unique_id=430129322]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
-[node name="MainLayout" type="VBoxContainer" parent="MainMargin" unique_id=944859870]
+[node name="MainLayout" type="VBoxContainer" parent="UILayer/MainMargin" unique_id=944859870]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="TopBar" type="HBoxContainer" parent="MainMargin/MainLayout" unique_id=1720189936]
+[node name="TopBar" type="HBoxContainer" parent="UILayer/MainMargin/MainLayout" unique_id=1720189936]
 layout_mode = 2
 
-[node name="TitleLabel" type="Label" parent="MainMargin/MainLayout/TopBar" unique_id=110136393]
+[node name="TitleLabel" type="Label" parent="UILayer/MainMargin/MainLayout/TopBar" unique_id=110136393]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "CKZiU: 3 Minuty do Dzwonka"
 
-[node name="TopSpacer" type="Control" parent="MainMargin/MainLayout/TopBar" unique_id=668834174]
+[node name="TopSpacer" type="Control" parent="UILayer/MainMargin/MainLayout/TopBar" unique_id=668834174]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CoinDisplay" type="HBoxContainer" parent="MainMargin/MainLayout/TopBar" unique_id=467468669]
+[node name="CoinDisplay" type="HBoxContainer" parent="UILayer/MainMargin/MainLayout/TopBar" unique_id=467468669]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="CoinAmount" type="Label" parent="MainMargin/MainLayout/TopBar/CoinDisplay" unique_id=658122286]
+[node name="CoinAmount" type="Label" parent="UILayer/MainMargin/MainLayout/TopBar/CoinDisplay" unique_id=658122286]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.8, 0.2, 1)
 theme_override_font_sizes/font_size = 28
 text = "0"
 
-[node name="CoinIcon" type="TextureRect" parent="MainMargin/MainLayout/TopBar/CoinDisplay" unique_id=1978924447]
+[node name="CoinIcon" type="TextureRect" parent="UILayer/MainMargin/MainLayout/TopBar/CoinDisplay" unique_id=1978924447]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("3_6bivr")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ContentArea" type="HBoxContainer" parent="MainMargin/MainLayout" unique_id=305516811]
+[node name="ContentArea" type="HBoxContainer" parent="UILayer/MainMargin/MainLayout" unique_id=305516811]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MenuButtons" type="VBoxContainer" parent="MainMargin/MainLayout/ContentArea" unique_id=88940318]
+[node name="MenuButtons" type="VBoxContainer" parent="UILayer/MainMargin/MainLayout/ContentArea" unique_id=88940318]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 15
 
-[node name="PlayButton" type="Button" parent="MainMargin/MainLayout/ContentArea/MenuButtons" unique_id=2000788285]
+[node name="PlayButton" type="Button" parent="UILayer/MainMargin/MainLayout/ContentArea/MenuButtons" unique_id=2000788285]
 layout_mode = 2
 text = "Rozpocznij"
 
-[node name="LockersButton" type="Button" parent="MainMargin/MainLayout/ContentArea/MenuButtons" unique_id=575374972]
+[node name="LockersButton" type="Button" parent="UILayer/MainMargin/MainLayout/ContentArea/MenuButtons" unique_id=575374972]
 layout_mode = 2
 text = "Szafki"
 
-[node name="QuitButton" type="Button" parent="MainMargin/MainLayout/ContentArea/MenuButtons" unique_id=689877172]
+[node name="QuitButton" type="Button" parent="UILayer/MainMargin/MainLayout/ContentArea/MenuButtons" unique_id=689877172]
 layout_mode = 2
 text = "Wyjście"
 
-[node name="CenterSpacer" type="Control" parent="MainMargin/MainLayout/ContentArea" unique_id=34008324]
+[node name="CenterSpacer" type="Control" parent="UILayer/MainMargin/MainLayout/ContentArea" unique_id=34008324]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="NewsCard" type="PanelContainer" parent="MainMargin/MainLayout/ContentArea" unique_id=1774389139]
+[node name="NewsCard" type="PanelContainer" parent="UILayer/MainMargin/MainLayout/ContentArea" unique_id=1774389139]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="MainMargin/MainLayout/ContentArea/NewsCard" unique_id=500756663]
+[node name="MarginContainer" type="MarginContainer" parent="UILayer/MainMargin/MainLayout/ContentArea/NewsCard" unique_id=500756663]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/MainLayout/ContentArea/NewsCard/MarginContainer" unique_id=1727837593]
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/MainMargin/MainLayout/ContentArea/NewsCard/MarginContainer" unique_id=1727837593]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="NewsImage" type="TextureRect" parent="MainMargin/MainLayout/ContentArea/NewsCard/MarginContainer/VBoxContainer" unique_id=313167878]
+[node name="NewsImage" type="TextureRect" parent="UILayer/MainMargin/MainLayout/ContentArea/NewsCard/MarginContainer/VBoxContainer" unique_id=313167878]
 custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
 texture = ExtResource("3_2o76q")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="NewsTitle" type="Label" parent="MainMargin/MainLayout/ContentArea/NewsCard/MarginContainer/VBoxContainer" unique_id=956951839]
+[node name="NewsTitle" type="Label" parent="UILayer/MainMargin/MainLayout/ContentArea/NewsCard/MarginContainer/VBoxContainer" unique_id=956951839]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Konkurs \"School Games 2026\""
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="RewardBox" type="HBoxContainer" parent="MainMargin/MainLayout/ContentArea/NewsCard/MarginContainer/VBoxContainer" unique_id=1352271414]
+[node name="RewardBox" type="HBoxContainer" parent="UILayer/MainMargin/MainLayout/ContentArea/NewsCard/MarginContainer/VBoxContainer" unique_id=1352271414]
 layout_mode = 2
 alignment = 1
 
-[node name="RewardLabel" type="Label" parent="MainMargin/MainLayout/ContentArea/NewsCard/MarginContainer/VBoxContainer/RewardBox" unique_id=1654480846]
+[node name="RewardLabel" type="Label" parent="UILayer/MainMargin/MainLayout/ContentArea/NewsCard/MarginContainer/VBoxContainer/RewardBox" unique_id=1654480846]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.8, 0.2, 1)
 text = "+50"
 
-[node name="RewardIcon" type="TextureRect" parent="MainMargin/MainLayout/ContentArea/NewsCard/MarginContainer/VBoxContainer/RewardBox" unique_id=113383083]
+[node name="RewardIcon" type="TextureRect" parent="UILayer/MainMargin/MainLayout/ContentArea/NewsCard/MarginContainer/VBoxContainer/RewardBox" unique_id=113383083]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 texture = ExtResource("3_6bivr")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NewsButton" type="Button" parent="MainMargin/MainLayout/ContentArea/NewsCard/MarginContainer/VBoxContainer" unique_id=640320816]
+[node name="NewsButton" type="Button" parent="UILayer/MainMargin/MainLayout/ContentArea/NewsCard/MarginContainer/VBoxContainer" unique_id=640320816]
 layout_mode = 2
 text = "Czytaj i Odbierz"
