@@ -53,7 +53,8 @@ func start_game():
 		push_error("Levels are not configured in GameManager")
 
 func start_test_scene(scene_path: String) -> LevelData:
-	if is_game_running: return
+	if is_game_running: 
+		return get_current_level_data()
 	_init_run_state()
 
 	for i in range(levels_data.size()):
