@@ -1,0 +1,88 @@
+[gd_scene format=4 uid="uid://byssmg62y3bs7"]
+
+[ext_resource type="PackedScene" uid="uid://0dahmcdfnjd5" path="res://scenes/levels/base_level.tscn" id="1_1bbdw"]
+[ext_resource type="Texture2D" uid="uid://ctj13btnys8ks" path="res://assets/images/wall_test.png" id="2_gy01a"]
+[ext_resource type="PackedScene" uid="uid://bp4bmbtgpi3cn" path="res://scenes/interactables/cez_coin/cez_coin.tscn" id="3_xbibw"]
+[ext_resource type="PackedScene" uid="uid://lvklfo0pscmv" path="res://scenes/interactables/vending_machine/vending_machine.tscn" id="4_qhf3p"]
+[ext_resource type="PackedScene" uid="uid://c2lckjp47l84q" path="res://scenes/interactables/pallet/pallet.tscn" id="5_3kh8m"]
+[ext_resource type="PackedScene" uid="uid://f0b327r50edc" path="res://scenes/interactables/level_end_area/level_end_area.tscn" id="6_qhf3p"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cbu3j"]
+friction = 0.0
+bounce = 0.7
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7qys"]
+texture = ExtResource("2_gy01a")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+
+[sub_resource type="TileSet" id="TileSet_hkalp"]
+tile_size = Vector2i(256, 256)
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_cbu3j")
+sources/2 = SubResource("TileSetAtlasSource_r7qys")
+
+[node name="FirstLevel" unique_id=1806712695 instance=ExtResource("1_1bbdw")]
+
+[node name="PlayerSpawnMarker" parent="." index="0" unique_id=1507377149]
+position = Vector2(304, 709)
+
+[node name="LevelCamera" parent="." index="1" unique_id=602886328]
+visible = false
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="World" parent_id_path=PackedInt32Array(104736592) index="0" unique_id=185156666]
+position = Vector2(240.99998, 20.999998)
+scale = Vector2(0.4, 0.4)
+tile_map_data = PackedByteArray("AAD7/wUAAgAAAAAAAAD6/wUAAgAAAAAAAAAFAAUAAgAAAAAAAAAGAAUAAgAAAAAAAAD5/wUAAgAAAAAAAAD4/wUAAgAAAAAAAAD4/wAAAgAAAAAAAAD4////AgAAAAAAAAD4//7/AgAAAAAAAAD4//3/AgAAAAAAAAD4//z/AgAAAAAAAAAIAPv/AgAAAAAAAAAIAPz/AgAAAAAAAAAIAP3/AgAAAAAAAAAIAP7/AgAAAAAAAAAIAP//AgAAAAAAAAAIAAAAAgAAAAAAAAAHAPv/AgAAAAAAAAAGAPv/AgAAAAAAAAAFAPv/AgAAAAAAAAAEAPv/AgAAAAAAAAADAPv/AgAAAAAAAAACAPv/AgAAAAAAAAABAPv/AgAAAAAAAAAAAPv/AgAAAAAAAAD///v/AgAAAAAAAAD+//v/AgAAAAAAAAD9//v/AgAAAAAAAAD4//v/AgAAAAAAAAD9//z/AgAAAAAAAAD9//3/AgAAAAAAAAD9//7/AgAAAAAAAAD9////AgAAAAAAAAADAPz/AgAAAAAAAAADAP3/AgAAAAAAAAADAP7/AgAAAAAAAAADAP//AgAAAAAAAAAFAAYAAgAAAAAAAAAFAAcAAgAAAAAAAAAEAAcAAgAAAAAAAAADAAcAAgAAAAAAAAACAAcAAgAAAAAAAAD9/wcAAgAAAAAAAAD8/wcAAgAAAAAAAAD+/wcAAgAAAAAAAAD7/wcAAgAAAAAAAAD7/wYAAgAAAAAAAAAIAAUAAgAAAAAAAAAHAAUAAgAAAAAAAAD3/wUAAgAAAAAAAAD2/wUAAgAAAAAAAAD1/wUAAgAAAAAAAAD0/wUAAgAAAAAAAADz/wUAAgAAAAAAAADy/wUAAgAAAAAAAADx/wUAAgAAAAAAAADw/wUAAgAAAAAAAADv/wUAAgAAAAAAAADu/wUAAgAAAAAAAADt/wUAAgAAAAAAAADs/wUAAgAAAAAAAADr/wUAAgAAAAAAAADq/wUAAgAAAAAAAADp/wUAAgAAAAAAAADo/wUAAgAAAAAAAAD3/wAAAgAAAAAAAAD2/wAAAgAAAAAAAAD1/wAAAgAAAAAAAAD0/wAAAgAAAAAAAADz/wAAAgAAAAAAAADy/wAAAgAAAAAAAADx/wAAAgAAAAAAAADw/wAAAgAAAAAAAADv/wAAAgAAAAAAAADu/wAAAgAAAAAAAADt/wAAAgAAAAAAAADs/wAAAgAAAAAAAADr/wAAAgAAAAAAAADq/wAAAgAAAAAAAADp/wAAAgAAAAAAAADo/wAAAgAAAAAAAADo////AgAAAAAAAADo//7/AgAAAAAAAADo//3/AgAAAAAAAADo//z/AgAAAAAAAADo//v/AgAAAAAAAADo//r/AgAAAAAAAADo//n/AgAAAAAAAADo//j/AgAAAAAAAADo//f/AgAAAAAAAADo//b/AgAAAAAAAADo//X/AgAAAAAAAADo//T/AgAAAAAAAADo//P/AgAAAAAAAADo//L/AgAAAAAAAADo//H/AgAAAAAAAADo//D/AgAAAAAAAADn/wUAAgAAAAAAAADm/wUAAgAAAAAAAADl/wUAAgAAAAAAAADk/wUAAgAAAAAAAADj/wUAAgAAAAAAAADj/wQAAgAAAAAAAADj/wMAAgAAAAAAAADj/wIAAgAAAAAAAADj/wEAAgAAAAAAAADj/wAAAgAAAAAAAADj////AgAAAAAAAADj//7/AgAAAAAAAADj//3/AgAAAAAAAADj//z/AgAAAAAAAADj//v/AgAAAAAAAADj//r/AgAAAAAAAADj//n/AgAAAAAAAADj//j/AgAAAAAAAADj//f/AgAAAAAAAADj//b/AgAAAAAAAADj//X/AgAAAAAAAADj//T/AgAAAAAAAADo/+//AgAAAAAAAADj/+//AgAAAAAAAADi//X/AgAAAAAAAADh//X/AgAAAAAAAADg//X/AgAAAAAAAADf//X/AgAAAAAAAADj/+7/AgAAAAAAAADi/+7/AgAAAAAAAADh/+7/AgAAAAAAAADg/+7/AgAAAAAAAADf/+7/AgAAAAAAAADj/+3/AgAAAAAAAADj/+z/AgAAAAAAAADo/+7/AgAAAAAAAADo/+3/AgAAAAAAAADo/+z/AgAAAAAAAADo/+v/AgAAAAAAAADo/+r/AgAAAAAAAADo/+n/AgAAAAAAAADo/+j/AgAAAAAAAADo/+f/AgAAAAAAAADj/+j/AgAAAAAAAADj/+f/AgAAAAAAAAA=")
+tile_set = SubResource("TileSet_hkalp")
+
+[node name="CezCoin" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="0" unique_id=454780902 instance=ExtResource("3_xbibw")]
+position = Vector2(299, 547)
+
+[node name="CezCoin2" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="1" unique_id=1662463426 instance=ExtResource("3_xbibw")]
+position = Vector2(-253, 314)
+
+[node name="CezCoin3" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="2" unique_id=959348483 instance=ExtResource("3_xbibw")]
+position = Vector2(751, -14)
+
+[node name="VendingMachine" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="3" unique_id=635205341 instance=ExtResource("4_qhf3p")]
+position = Vector2(994, -18)
+coffee_count = 3
+
+[node name="CezCoin4" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="4" unique_id=1846551437 instance=ExtResource("3_xbibw")]
+position = Vector2(-701, 328)
+
+[node name="CezCoin5" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="5" unique_id=1269755459 instance=ExtResource("3_xbibw")]
+position = Vector2(-1143, 339)
+
+[node name="CezCoin6" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="6" unique_id=1910015968 instance=ExtResource("3_xbibw")]
+position = Vector2(-1487, 345)
+
+[node name="CezCoin7" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="7" unique_id=21889873 instance=ExtResource("3_xbibw")]
+position = Vector2(-1809, 348)
+
+[node name="CezCoin8" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="8" unique_id=1916740126 instance=ExtResource("3_xbibw")]
+position = Vector2(-2126, 345)
+
+[node name="CezCoin9" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="9" unique_id=1115964645 instance=ExtResource("3_xbibw")]
+position = Vector2(-2300, 10)
+
+[node name="Pallet" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="10" unique_id=1252356175 instance=ExtResource("5_3kh8m")]
+position = Vector2(-2284, 161)
+
+[node name="Pallet2" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="11" unique_id=1659897136 instance=ExtResource("5_3kh8m")]
+position = Vector2(-2149.9998, 182)
+rotation = 0.4014663
+scale = Vector2(0.77908206, 0.82145995)
+
+[node name="Pallet3" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="12" unique_id=5507225 instance=ExtResource("5_3kh8m")]
+position = Vector2(-2557, -376)
+
+[node name="Pallet4" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="13" unique_id=819278254 instance=ExtResource("5_3kh8m")]
+position = Vector2(-2517, -279.00003)
+rotation = -0.18402594
+scale = Vector2(0.8213694, 0.7973608)
+
+[node name="LevelEndArea" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="14" unique_id=1251197318 instance=ExtResource("6_qhf3p")]
+position = Vector2(1208, 190)

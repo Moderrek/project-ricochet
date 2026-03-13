@@ -19,7 +19,7 @@ var player_scene: PackedScene = preload("res://scenes/entities/player/player.tsc
 
 var levels: Array[String] = [
 	"res://scenes/levels/level_0.tscn", # Index: 0, Tutorial
-	"res://scenes/levels/level_test.tscn", # Index 1, Test
+	"res://scenes/levels/first_level.tscn", # Index 1, Test
 ]
 var current_level_index: int = 0
 
