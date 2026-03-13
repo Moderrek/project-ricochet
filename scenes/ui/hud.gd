@@ -41,7 +41,7 @@ func _process(_delta):
 		else:
 			time_label.modulate = Color.WHITE
 	else:
-		if _last_displayed_seconds != -1:
+		if time_label.text != "--:--":
 			time_label.text = "--:--"
 			time_label.modulate = Color.WHITE
 			_last_displayed_seconds = -1

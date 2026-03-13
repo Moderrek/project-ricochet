@@ -15,20 +15,40 @@ var shake_strength: float = 0.0
 var shake_decay: float = 5.0
 
 func _ready():
+	var level_data: LevelData
+
+	if not GameManager.is_game_running:
+		# F6
+		print("Detected Level Testing mode")
+		level_data = GameManager.start_test_scene(scene_file_path)
+	else:
+		# Normal
+		level_data = GameManager.get_current_level_data()
+
+	var requires_player = true
+	var has_timer = true
+
+	if level_data:
+		requires_player = level_data.requires_player
+		has_timer = level_data.has_timer
+	
+	GameManager.is_timer_active = has_timer
+
 	if is_cinematic_mode:
 		if has_node("LevelCamera"):
 			$LevelCamera.enabled = false
 			$HUD.visible = false
 		return
-	_spawn_player()
+	if requires_player:
+		_spawn_player()
 
 func _spawn_player():
 	player = GameManager.create_player()
 	$Entities.add_child(player)
 	player.set_deferred("global_position", player_spawn.global_position)
+
 	level_camera.global_position = player_spawn.global_position
-	
-	GameManager.start_timer()
+	level_camera.reset_smoothing()
 
 func _physics_process(_delta: float):
 	if player:

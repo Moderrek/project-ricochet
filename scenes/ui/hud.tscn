@@ -73,7 +73,7 @@ theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 4
 theme_override_fonts/font = ExtResource("2_hqnrr")
 theme_override_font_sizes/font_size = 48
-text = "03:12"
+text = "--:--"
 
 [node name="BoostBar" type="ProgressBar" parent="." unique_id=1359085032]
 anchors_preset = 2

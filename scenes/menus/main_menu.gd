@@ -25,7 +25,7 @@ func _update_coin_display() -> void:
 	coin_amount_label.text = str(SaveManager.total_coins)
 
 func _on_play_pressed() -> void:
-	SceneChanger.change_scene_smooth("res://scenes/levels/level_0.tscn")
+	GameManager.start_game()
 
 func _on_lockers_pressed() -> void:
 	print("Moduł szafek jeszcze w budowie.")
