@@ -3,6 +3,20 @@
 [ext_resource type="FontFile" uid="uid://c4t6gw58eaj7x" path="res://assets/fonts/Rubik-Black.ttf" id="1_7cpqt"]
 [ext_resource type="FontFile" uid="uid://7mkp4b5kldtl" path="res://assets/fonts/Rubik-Medium.ttf" id="2_n8fga"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_667hq"]
+content_margin_left = 40.0
+content_margin_top = 16.0
+content_margin_right = 40.0
+content_margin_bottom = 16.0
+bg_color = Color(0.88819724, 0.91456515, 0.9145312, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.11764706)
+shadow_size = 4
+shadow_offset = Vector2(0, 8)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7cpqt"]
 content_margin_left = 40.0
 content_margin_top = 16.0
@@ -47,10 +61,12 @@ shadow_color = Color(0, 0, 0, 0.11764706)
 default_font = ExtResource("2_n8fga")
 default_font_size = 24
 Button/colors/font_color = Color(0.11764706, 0.16078432, 0.23137255, 1)
+Button/colors/font_focus_color = Color(0.11764706, 0.16078432, 0.23137255, 1)
 Button/colors/font_hover_color = Color(0.05882353, 0.09019608, 0.16470589, 1)
 Button/colors/font_pressed_color = Color(0.2, 0.25490198, 0.33333334, 1)
 Button/colors/icon_focus_color = Color(0.11764706, 0.16078432, 0.23137255, 1)
 Button/fonts/font = ExtResource("1_7cpqt")
+Button/styles/focus = SubResource("StyleBoxFlat_667hq")
 Button/styles/hover = SubResource("StyleBoxFlat_7cpqt")
 Button/styles/normal = SubResource("StyleBoxFlat_n8fga")
 Button/styles/pressed = SubResource("StyleBoxFlat_wuim5")
