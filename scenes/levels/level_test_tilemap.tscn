@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b7t78m2mae27" path="res://scenes/interactables/door/door.tscn" id="4_ym01l"]
 [ext_resource type="PackedScene" uid="uid://lvklfo0pscmv" path="res://scenes/interactables/vending_machine/vending_machine.tscn" id="5_b5xd0"]
 [ext_resource type="PackedScene" uid="uid://c2lckjp47l84q" path="res://scenes/interactables/pallet/pallet.tscn" id="6_ikdyd"]
+[ext_resource type="PackedScene" uid="uid://50bacffex26x" path="res://scenes/interactables/coffee/coffee.tscn" id="7_nhsd0"]
+[ext_resource type="PackedScene" uid="uid://f0b327r50edc" path="res://scenes/interactables/level_end_area/level_end_area.tscn" id="8_x76xk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cbu3j"]
 friction = 0.0
@@ -73,7 +75,8 @@ position = Vector2(257, -479)
 position = Vector2(12, -526)
 
 [node name="Pallet2" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="11" unique_id=468582373 instance=ExtResource("6_ikdyd")]
-position = Vector2(855, 392)
+position = Vector2(1103, 428)
+rotation = -1.2801598
 
 [node name="Pallet3" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="12" unique_id=1999954247 instance=ExtResource("6_ikdyd")]
 position = Vector2(1189, -761)
@@ -100,3 +103,11 @@ position = Vector2(934, -533)
 
 [node name="Pallet8" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="19" unique_id=1447681158 instance=ExtResource("6_ikdyd")]
 position = Vector2(999, -428)
+
+[node name="Coffee" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="20" unique_id=1227350045 instance=ExtResource("7_nhsd0")]
+position = Vector2(-426, -245)
+
+[node name="LevelEndArea" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="21" unique_id=1251197318 instance=ExtResource("8_x76xk")]
+position = Vector2(1325, 483)
+rotation = 1.5707964
+scale = Vector2(1, 2.1599998)
