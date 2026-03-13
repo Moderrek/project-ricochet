@@ -51,9 +51,9 @@ func _spawn_player():
 	$Entities.add_child(player)
 	player.set_deferred("global_position", player_spawn.global_position)
 
+	var remote_transform = RemoteTransform2D.new()
+	remote_transform.remote_path = level_camera.get_path()
+	player.add_child(remote_transform)
+
 	level_camera.global_position = player_spawn.global_position
 	level_camera.reset_smoothing()
-
-func _physics_process(_delta: float):
-	if player:
-		level_camera.global_position = player.global_position
