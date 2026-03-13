@@ -7,13 +7,12 @@ extends CanvasLayer
 var _coin_tween: Tween
 var _boost_tween: Tween
 
-var _last_displayed_seconds: int = -1
-
 func _ready():
 	call_deferred("_setup_ui")
 	
 	GameManager.coins_changed.connect(_on_coins_changed)
 	GameManager.boost_changed.connect(_on_boost_changed)
+	GameManager.time_ticked.connect(_on_time_ticked)
 	
 	_update_coins(GameManager.cez_coins)
 	
@@ -26,16 +25,7 @@ func _setup_ui():
 
 func _process(_delta):
 	if GameManager.is_timer_active:
-		var time = GameManager.time_left
-		var current_seconds = int(time)
-		
-		if current_seconds != _last_displayed_seconds:
-			var minutes = current_seconds / 60
-			var seconds = current_seconds % 60
-			time_label.text = "%02d:%02d" % [minutes, seconds]
-			_last_displayed_seconds = current_seconds
-		
-		if time <= 30.0:
+		if GameManager.time_left <= 30.0:
 			var pulse = (sin(Time.get_ticks_msec() / 150.0) + 1.0) / 2.0
 			time_label.modulate = Color(1.0, pulse, pulse)
 		else:
@@ -44,7 +34,6 @@ func _process(_delta):
 		if time_label.text != "--:--":
 			time_label.text = "--:--"
 			time_label.modulate = Color.WHITE
-			_last_displayed_seconds = -1
 
 func _update_coins(new_amount: int):
 	coin_label.text = "Cez Coins: " + str(new_amount)
@@ -61,6 +50,11 @@ func _on_coins_changed(new_amount: int):
 	
 	_coin_tween.tween_property(coin_label, "scale", Vector2(1.0, 1.0), 0.15).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	_coin_tween.parallel().tween_property(coin_label, "modulate", Color.WHITE, 0.15)
+
+func _on_time_ticked(current_seconds: int) -> void:
+	var minutes = current_seconds / 60
+	var seconds = current_seconds % 60
+	time_label.text = "%02d:%02d" % [minutes, seconds]
 
 func _on_boost_changed(new_amount: float) -> void:
 	boost_bar.value = new_amount

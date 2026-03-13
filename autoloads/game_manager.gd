@@ -9,6 +9,7 @@ signal time_out
 signal coins_changed(new_amount: int)
 signal boost_changed(new_amount: float)
 signal camera_shake_request(strength: float)
+signal time_ticked(current_seconds: int)
 
 # Game State
 var is_game_running: bool = false
@@ -19,6 +20,7 @@ var boost_drain_rate: float = 10.0 # per s
 var time_left: float = 0.0
 var is_timer_active: bool = false
 var current_level_index: int = 0
+var _last_tick_seconds: int = -1
 
 var player_scene: PackedScene = preload("res://scenes/entities/player/player.tscn")
 
@@ -37,6 +39,7 @@ func create_player() -> Node2D:
 func _init_run_state() -> void:
 	cez_coins = 0
 	time_left = time_limit
+	_last_tick_seconds = -1
 	is_game_running = true
 	is_timer_active = false
 	print("Initialized Game State")
@@ -100,6 +103,10 @@ func _process(delta):
 			is_game_running = false
 			time_out.emit()
 			SceneChanger.change_scene_smooth("res://scenes/menus/end_screen.tscn")
+		var current_sec = int(time_left)
+		if current_sec != _last_tick_seconds:
+			_last_tick_seconds = current_sec
+			time_ticked.emit(current_sec)
 	
 	# Boost Drain
 	if boost_level > 0:
