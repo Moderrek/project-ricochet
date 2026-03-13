@@ -1,6 +1,7 @@
 extends Node2D
 class_name BaseLevel
 
+# Disables player, camera and HUD. Used for Main Menu background.
 @export var is_cinematic_mode: bool = false
 
 # Nodes
@@ -15,6 +16,13 @@ var shake_strength: float = 0.0
 var shake_decay: float = 5.0
 
 func _ready():
+	if is_cinematic_mode:
+		if has_node("LevelCamera"):
+			$LevelCamera.enabled = false
+		if has_node("HUD"):
+			$HUD.visible = false
+		return
+
 	var level_data: LevelData
 
 	if not GameManager.is_game_running:
@@ -32,15 +40,11 @@ func _ready():
 		requires_player = level_data.requires_player
 		has_timer = level_data.has_timer
 	
-	GameManager.is_timer_active = has_timer
 
-	if is_cinematic_mode:
-		if has_node("LevelCamera"):
-			$LevelCamera.enabled = false
-			$HUD.visible = false
-		return
 	if requires_player:
 		_spawn_player()
+	
+	GameManager.is_timer_active = has_timer
 
 func _spawn_player():
 	player = GameManager.create_player()
