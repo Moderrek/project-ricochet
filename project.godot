@@ -25,9 +25,9 @@ config/icon="uid://dkaa3cn5fydxf"
 
 [autoload]
 
-GameManager="*uid://7ywrinrlb7ia"
 SceneChanger="*uid://ia0j0cqwi45u"
 SaveManager="*uid://dxsfwh1sluerl"
+GameManager="*uid://bclc6d6j5v14s"
 
 [display]
 
