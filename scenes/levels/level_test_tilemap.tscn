@@ -32,71 +32,71 @@ offset_right = 2011.0
 offset_bottom = 924.0
 color = Color(0.28127944, 0.18514973, 0.09804199, 1)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." index="6" unique_id=1692929961]
+[node name="TileMapLayer" type="TileMapLayer" parent="World" parent_id_path=PackedInt32Array(104736592) index="0" unique_id=1692929961]
 position = Vector2(240.99998, 20.999998)
 scale = Vector2(0.4, 0.4)
 tile_map_data = PackedByteArray("AAD9//7/AgAAAAAAAAD+//7/AgAAAAAAAAD///7/AgAAAAAAAAAAAP7/AgAAAAAAAAABAP7/AgAAAAAAAAACAP7/AgAAAAAAAAD9//n/AgAAAAAAAAD+//n/AgAAAAAAAAD///n/AgAAAAAAAAAAAPn/AgAAAAAAAAABAPn/AgAAAAAAAAACAPn/AgAAAAAAAAADAPn/AgAAAAAAAAAEAPn/AgAAAAAAAAAFAPn/AgAAAAAAAAAGAPn/AgAAAAAAAAAHAPn/AgAAAAAAAAAIAPn/AgAAAAAAAAAJAPn/AgAAAAAAAAAJAPr/AgAAAAAAAAAJAPv/AgAAAAAAAAAJAPz/AgAAAAAAAAAJAP3/AgAAAAAAAAAJAP7/AgAAAAAAAAAJAP//AgAAAAAAAAAJAAAAAgAAAAAAAAAJAAEAAgAAAAAAAAAJAAIAAgAAAAAAAAD4//r/AgAAAAAAAAD4//v/AgAAAAAAAAD4//z/AgAAAAAAAAD4//3/AgAAAAAAAAD5/wEAAgAAAAAAAAD6/wEAAgAAAAAAAAD7/wEAAgAAAAAAAAD4//b/AgAAAAAAAAD5//b/AgAAAAAAAAD6//b/AgAAAAAAAAD7//b/AgAAAAAAAAD8//b/AgAAAAAAAAD9//b/AgAAAAAAAAD+//b/AgAAAAAAAAD///b/AgAAAAAAAAAAAPb/AgAAAAAAAAABAPb/AgAAAAAAAAACAPb/AgAAAAAAAAADAPb/AgAAAAAAAAAEAPb/AgAAAAAAAAAFAPb/AgAAAAAAAAAGAPb/AgAAAAAAAAAHAPb/AgAAAAAAAAAIAPb/AgAAAAAAAAAJAPb/AgAAAAAAAAAKAPb/AgAAAAAAAAALAPb/AgAAAAAAAAAMAPb/AgAAAAAAAAAMAPf/AgAAAAAAAAAMAPj/AgAAAAAAAAAMAPn/AgAAAAAAAAAMAPr/AgAAAAAAAAAMAPv/AgAAAAAAAAAMAPz/AgAAAAAAAAAMAP3/AgAAAAAAAAAMAP7/AgAAAAAAAAAMAP//AgAAAAAAAAAMAAAAAgAAAAAAAAAMAAEAAgAAAAAAAAAMAAIAAgAAAAAAAAAMAAMAAgAAAAAAAAAMAAQAAgAAAAAAAAAMAAUAAgAAAAAAAAALAAUAAgAAAAAAAAAKAAUAAgAAAAAAAAAJAAUAAgAAAAAAAAAIAAUAAgAAAAAAAAAHAAUAAgAAAAAAAAAGAAUAAgAAAAAAAAAFAAUAAgAAAAAAAAAEAAUAAgAAAAAAAAADAAUAAgAAAAAAAAACAAUAAgAAAAAAAAABAAUAAgAAAAAAAAAAAAUAAgAAAAAAAAD//wUAAgAAAAAAAAD+/wUAAgAAAAAAAAD9/wUAAgAAAAAAAAD8/wUAAgAAAAAAAAD7/wUAAgAAAAAAAAD6/wUAAgAAAAAAAAD5/wUAAgAAAAAAAAD4/wUAAgAAAAAAAAD3/wUAAgAAAAAAAAD2/wUAAgAAAAAAAAD1/wUAAgAAAAAAAAD3//b/AgAAAAAAAAD2//b/AgAAAAAAAAD1//b/AgAAAAAAAAD1//f/AgAAAAAAAAD1//j/AgAAAAAAAAD1//n/AgAAAAAAAAD1//r/AgAAAAAAAAD1//v/AgAAAAAAAAD1//z/AgAAAAAAAAD1//3/AgAAAAAAAAD1//7/AgAAAAAAAAD1////AgAAAAAAAAD1/wAAAgAAAAAAAAD1/wEAAgAAAAAAAAD1/wIAAgAAAAAAAAD1/wMAAgAAAAAAAAD1/wQAAgAAAAAAAAAGAAIAAgAAAAAAAAAFAAIAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_vdred")
 
-[node name="CezCoin" parent="." index="7" unique_id=454780902 instance=ExtResource("3_372h1")]
+[node name="CezCoin" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="0" unique_id=454780902 instance=ExtResource("3_372h1")]
 position = Vector2(-1, -798)
 
-[node name="CezCoin2" parent="." index="8" unique_id=1295976352 instance=ExtResource("3_372h1")]
+[node name="CezCoin2" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="1" unique_id=1295976352 instance=ExtResource("3_372h1")]
 position = Vector2(1371, 269)
 
-[node name="CezCoin3" parent="." index="9" unique_id=894515830 instance=ExtResource("3_372h1")]
+[node name="CezCoin3" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="2" unique_id=894515830 instance=ExtResource("3_372h1")]
 position = Vector2(1371, -5)
 
-[node name="CezCoin4" parent="." index="10" unique_id=232754692 instance=ExtResource("3_372h1")]
+[node name="CezCoin4" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="3" unique_id=232754692 instance=ExtResource("3_372h1")]
 position = Vector2(1369, -783)
 
-[node name="CezCoin5" parent="." index="11" unique_id=220575004 instance=ExtResource("3_372h1")]
+[node name="CezCoin5" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="4" unique_id=220575004 instance=ExtResource("3_372h1")]
 position = Vector2(1376, 132)
 
-[node name="CezCoin6" parent="." index="12" unique_id=1257080862 instance=ExtResource("3_372h1")]
+[node name="CezCoin6" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="5" unique_id=1257080862 instance=ExtResource("3_372h1")]
 position = Vector2(855, 169)
 
-[node name="CezCoin7" parent="." index="13" unique_id=81734363 instance=ExtResource("3_372h1")]
+[node name="CezCoin7" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="6" unique_id=81734363 instance=ExtResource("3_372h1")]
 position = Vector2(-88, 27)
 
-[node name="CezCoin8" parent="." index="14" unique_id=104531318 instance=ExtResource("3_372h1")]
+[node name="CezCoin8" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="7" unique_id=104531318 instance=ExtResource("3_372h1")]
 position = Vector2(-416, -560)
 
-[node name="Door" parent="." index="15" unique_id=605632606 instance=ExtResource("4_ym01l")]
+[node name="Door" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="8" unique_id=605632606 instance=ExtResource("4_ym01l")]
 position = Vector2(-95, 194)
 next_level_path = "uid://roygbhglbhmm"
 
-[node name="VendingMachine" parent="." index="16" unique_id=635205341 instance=ExtResource("5_b5xd0")]
+[node name="VendingMachine" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="9" unique_id=635205341 instance=ExtResource("5_b5xd0")]
 position = Vector2(257, -479)
 
-[node name="Pallet" parent="." index="17" unique_id=1252356175 instance=ExtResource("6_ikdyd")]
+[node name="Pallet" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="10" unique_id=1252356175 instance=ExtResource("6_ikdyd")]
 position = Vector2(12, -526)
 
-[node name="Pallet2" parent="." index="18" unique_id=468582373 instance=ExtResource("6_ikdyd")]
+[node name="Pallet2" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="11" unique_id=468582373 instance=ExtResource("6_ikdyd")]
 position = Vector2(855, 392)
 
-[node name="Pallet3" parent="." index="19" unique_id=1999954247 instance=ExtResource("6_ikdyd")]
-position = Vector2(1183, -790)
+[node name="Pallet3" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="12" unique_id=1999954247 instance=ExtResource("6_ikdyd")]
+position = Vector2(1189, -761)
 rotation = 0.16680202
 
-[node name="Pallet4" parent="." index="20" unique_id=660206586 instance=ExtResource("6_ikdyd")]
+[node name="Pallet4" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="13" unique_id=660206586 instance=ExtResource("6_ikdyd")]
 position = Vector2(10, -414)
 
-[node name="Pallet5" parent="." index="21" unique_id=2077071223 instance=ExtResource("6_ikdyd")]
+[node name="Pallet5" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="14" unique_id=2077071223 instance=ExtResource("6_ikdyd")]
 position = Vector2(158, -17)
 
-[node name="VendingMachine2" parent="." index="22" unique_id=857043040 instance=ExtResource("5_b5xd0")]
+[node name="VendingMachine2" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="15" unique_id=857043040 instance=ExtResource("5_b5xd0")]
 position = Vector2(300, 30)
 coffee_scene = ExtResource("3_372h1")
 
-[node name="VendingMachine3" parent="." index="23" unique_id=426115475 instance=ExtResource("5_b5xd0")]
+[node name="VendingMachine3" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="16" unique_id=426115475 instance=ExtResource("5_b5xd0")]
 position = Vector2(-528, -85)
 
-[node name="Pallet6" parent="." index="24" unique_id=1724676602 instance=ExtResource("6_ikdyd")]
+[node name="Pallet6" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="17" unique_id=1724676602 instance=ExtResource("6_ikdyd")]
 position = Vector2(1074, -529)
 
-[node name="Pallet7" parent="." index="25" unique_id=760147103 instance=ExtResource("6_ikdyd")]
+[node name="Pallet7" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="18" unique_id=760147103 instance=ExtResource("6_ikdyd")]
 position = Vector2(934, -533)
 
-[node name="Pallet8" parent="." index="26" unique_id=1447681158 instance=ExtResource("6_ikdyd")]
+[node name="Pallet8" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="19" unique_id=1447681158 instance=ExtResource("6_ikdyd")]
 position = Vector2(999, -428)

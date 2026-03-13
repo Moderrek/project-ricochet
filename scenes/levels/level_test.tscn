@@ -293,34 +293,34 @@ position = Vector2(496, 130)
 [node name="CezCoin27" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="26" unique_id=495157481 instance=ExtResource("3_d44nw")]
 position = Vector2(-255, 508)
 
-[node name="Door" parent="." index="5" unique_id=605632606 instance=ExtResource("4_4ptlp")]
+[node name="Door" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="27" unique_id=605632606 instance=ExtResource("4_4ptlp")]
 position = Vector2(1058, 503)
 next_level_path = "uid://roygbhglbhmm"
 
-[node name="VendingMachine" parent="." index="6" unique_id=635205341 instance=ExtResource("5_ycf23")]
+[node name="VendingMachine" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="28" unique_id=635205341 instance=ExtResource("5_ycf23")]
 position = Vector2(109, -635)
 
-[node name="VendingMachine2" parent="." index="7" unique_id=1929378675 instance=ExtResource("5_ycf23")]
+[node name="VendingMachine2" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="29" unique_id=1929378675 instance=ExtResource("5_ycf23")]
 position = Vector2(317, 426)
 coffee_count = 5
 
-[node name="Pallet" parent="." index="8" unique_id=1252356175 instance=ExtResource("6_uh3ll")]
+[node name="Pallet" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="30" unique_id=1252356175 instance=ExtResource("6_uh3ll")]
 position = Vector2(-139, -417)
 
-[node name="Pallet2" parent="." index="9" unique_id=1374687587 instance=ExtResource("6_uh3ll")]
+[node name="Pallet2" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="31" unique_id=1374687587 instance=ExtResource("6_uh3ll")]
 position = Vector2(-140, -524)
 
-[node name="Pallet3" parent="." index="10" unique_id=1869191158 instance=ExtResource("6_uh3ll")]
+[node name="Pallet3" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="32" unique_id=1869191158 instance=ExtResource("6_uh3ll")]
 position = Vector2(342, 695)
 
-[node name="Pallet4" parent="." index="11" unique_id=904471221 instance=ExtResource("6_uh3ll")]
+[node name="Pallet4" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="33" unique_id=904471221 instance=ExtResource("6_uh3ll")]
 position = Vector2(-676, 416)
 rotation = 1.6002066
 
-[node name="Pallet5" parent="." index="12" unique_id=58506799 instance=ExtResource("6_uh3ll")]
+[node name="Pallet5" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="34" unique_id=58506799 instance=ExtResource("6_uh3ll")]
 position = Vector2(-681.00006, 553)
 rotation = 1.6002066
 
-[node name="Pallet6" parent="." index="13" unique_id=561013171 instance=ExtResource("6_uh3ll")]
+[node name="Pallet6" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="35" unique_id=561013171 instance=ExtResource("6_uh3ll")]
 position = Vector2(-669, 696)
 rotation = 1.4521272

@@ -243,7 +243,7 @@ script = ExtResource("1_7qc10")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1368257555]
 shape = SubResource("CircleShape2D_b7icy")
-debug_color = Color(0, 0.6, 0.69803923, 0)
+debug_color = Color(0.94509804, 0.76862746, 0.05882353, 0.39215687)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1384540809]
 sprite_frames = SubResource("SpriteFrames_0c1tr")

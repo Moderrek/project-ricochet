@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://qsfvimesjvis" path="res://scenes/environment/wall/wall.tscn" id="4_2vy66"]
 [ext_resource type="Texture2D" uid="uid://i8oc6vj7ysmw" path="res://assets/images/arrow_turn_right.png" id="4_6ayib"]
 [ext_resource type="PackedScene" uid="uid://f0b327r50edc" path="res://scenes/interactables/level_end_area/level_end_area.tscn" id="5_rtok4"]
+[ext_resource type="PackedScene" uid="uid://50bacffex26x" path="res://scenes/interactables/coffee/coffee.tscn" id="9_65guy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dume2"]
 shader = ExtResource("2_53han")
@@ -85,3 +86,6 @@ size = Vector2(300, 20)
 [node name="LevelEndArea" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="5" unique_id=1251197318 instance=ExtResource("5_rtok4")]
 position = Vector2(862.99994, -839)
 scale = Vector2(1.9200048, 3.72)
+
+[node name="Coffee" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="6" unique_id=1227350045 instance=ExtResource("9_65guy")]
+position = Vector2(-189, -1021)
