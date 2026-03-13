@@ -22,6 +22,10 @@ func _ready():
 		if has_node("HUD"):
 			$HUD.visible = false
 		return
+	if has_node("LevelCamera"):
+		$LevelCamera.enabled = true
+	if has_node("HUD"):
+		$HUD.visible = true
 
 	var level_data: LevelData
 
