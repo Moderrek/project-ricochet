@@ -5,12 +5,24 @@
 [ext_resource type="PackedScene" uid="uid://roygbhglbhmm" path="res://scenes/levels/level_0.tscn" id="2_imvie"]
 [ext_resource type="Texture2D" uid="uid://6jn3rswpudft" path="res://assets/images/school_game.jpg" id="3_2o76q"]
 [ext_resource type="Texture2D" uid="uid://cgj8rglvy6xvc" path="res://assets/images/cez_coin_64x64.png" id="3_6bivr"]
+[ext_resource type="Script" uid="uid://2rbnt84b6r83" path="res://scenes/menus/cinematic_camera.gd" id="3_ng0o5"]
+[ext_resource type="Shader" uid="uid://5pn8jkwlkc30" path="res://shaders/background_blur.gdshader" id="4_8r73w"]
+[ext_resource type="Shader" uid="uid://itcqh3nb0wkl" path="res://shaders/vignette.gdshader" id="5_1hnlc"]
 
 [sub_resource type="Curve2D" id="Curve2D_imvie"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 30, 113, 0, 0, 0, 0, 154, -105, 0, 0, 0, 0, 121, -263, 0, 0, 0, 0, 102, -481, 0, 0, 0, 0, 66, -642, 0, 0, 0, 0, 180, -717, 0, 0, 0, 0, 307, -686, 0, 0, 0, 0, 528, -675, 0, 0, 0, 0, 702, -733, 0, 0, 0, 0, 782, -873, 0, 0, 0, 0, 585, -976, 0, 0, 0, 0, 294, -979, 0, 0, 0, 0, 74, -971, 0, 0, 0, 0, -90, -937, 0, 0, 0, 0, -154, -810, 0, 0, 0, 0, -126, -613, 0, 0, 0, 0, -64, -520, 0, 0, 0, 0, -9, -478, 0, 0, 0, 0, 38, -289, 0, 0, 0, 0, -22, -211, 0, 0, 0, 0, -108, -165, 0, 0, 0, 0, -131, -74, 0, 0, 0, 0, -82, 20, 0, 0, 0, 0, 32, 116)
 }
 point_count = 24
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1hnlc"]
+shader = ExtResource("4_8r73w")
+shader_parameter/blur_amount = 1.200000057
+shader_parameter/mix_color = Color(1, 1, 1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_50h1w"]
+shader = ExtResource("5_1hnlc")
+shader_parameter/vignette_power = 0.400000019
 
 [node name="MainMenu" type="Node2D" unique_id=2013969466]
 z_index = 1000
@@ -25,10 +37,27 @@ curve = SubResource("Curve2D_imvie")
 [node name="CameraMover" type="PathFollow2D" parent="CameraTrack" unique_id=1452043737]
 position = Vector2(30, 113)
 rotates = false
+script = ExtResource("3_ng0o5")
 
 [node name="Camera2D" type="Camera2D" parent="CameraTrack/CameraMover" unique_id=1025146447]
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1580600634]
+
+[node name="Blur" type="ColorRect" parent="UILayer" unique_id=49793663]
+material = SubResource("ShaderMaterial_1hnlc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Vignette" type="ColorRect" parent="UILayer" unique_id=590438057]
+material = SubResource("ShaderMaterial_50h1w")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MainMargin" type="MarginContainer" parent="UILayer" unique_id=430129322]
 anchors_preset = 15
