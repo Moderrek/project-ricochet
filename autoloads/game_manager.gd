@@ -17,11 +17,13 @@ var is_timer_active: bool = false
 
 var player_scene: PackedScene = preload("res://scenes/entities/player/player.tscn")
 
-var levels: Array[String] = [
-	"res://scenes/levels/level_0.tscn", # Index: 0, Tutorial
-	"res://scenes/levels/first_level.tscn", # Index 1, Test
-]
+@export var levels_data: Array[LevelData] = []
 var current_level_index: int = 0
+
+func get_current_level_data() -> LevelData:
+	if current_level_index < levels_data.size():
+		return levels_data[current_level_index]
+	return null
 
 func create_player() -> Node2D:
 	if not player_scene:
@@ -35,19 +37,23 @@ func start_game():
 	cez_coins = 0
 	time_left = 180.0
 	
-	SceneChanger.change_scene_smooth(levels[0])
+	var first_level = get_current_level_data()
+	if first_level:
+		SceneChanger.change_scene_smooth(first_level.scene_path)
+	else:
+		push_error("Levels are not configured in GameManager")
 
 func load_next_level():
 	current_level_index += 1
-	if current_level_index < levels.size():
-		SceneChanger.change_scene_smooth(levels[current_level_index])
-		
-		if current_level_index == 1:
-			start_timer()
+	var next_level = get_current_level_data()
+	
+	if next_level:
+		SceneChanger.change_scene_smooth(next_level.scene_path)
 	else:
 		SceneChanger.change_scene_smooth("res://scenes/menus/end_screen.tscn")
 
 func _process(delta):
+	# Timer drain
 	if is_timer_active:
 		time_left -= delta
 		if time_left <= 0:
@@ -55,6 +61,7 @@ func _process(delta):
 			is_timer_active = false
 			time_out.emit()
 			SceneChanger.change_scene_smooth("res://scenes/menus/end_screen.tscn")
+	
 	# Boost Drain
 	if boost_level > 0:
 		boost_level -= delta * boost_drain_rate
