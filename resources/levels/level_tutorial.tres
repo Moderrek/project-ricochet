@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://cphqg0ol0qcdm"]
+
+[ext_resource type="Script" uid="uid://dlaao106usovu" path="res://resources/data/level_data.gd" id="1_hl4um"]
+
+[resource]
+script = ExtResource("1_hl4um")
+level_name = "Tutorial"
+scene_path = "uid://roygbhglbhmm"
+has_timer = false
+metadata/_custom_type_script = "uid://dlaao106usovu"
