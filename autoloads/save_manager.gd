@@ -4,64 +4,61 @@ signal total_coins_changed(new_amount: int)
 
 const SAVE_PATH = "user://save.json"
 
-var total_coins: int = 0:
-	set(value):
-		total_coins = value
-		total_coins_changed.emit(total_coins)
-
-var unlocked_skins: Array = ["default"]
-var equipped_skin: String = "default"
+var save_data = {
+	"total_coins": 0,
+	"unlocked_skins": ["default_skin"],
+	"high_scores": {}
+}
 
 func _ready():
 	load_game()
 
-func add_coins(amount: int):
-	total_coins += amount # It will emit signal
-	save_game()
-
-# Save
 func save_game():
-	# Opening file for writing
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if not file:
+		print("Failed to save game.")
 		return
 	
-	var data = {
-		"total_coins": total_coins,
-		"unlocked_skins": unlocked_skins,
-		"equipped_skin": equipped_skin
-	}
-	
-	# Storing data as JSON in file
-	var json_string = JSON.stringify(data)
+	var json_string = JSON.stringify(save_data)
+
 	file.store_string(json_string)
 	file.close()
-	
-	print("Game saved")
+
+	print("Game saved successfully.")
 
 func load_game():
-	# Opening file for reading
 	if not FileAccess.file_exists(SAVE_PATH):
+		print("No save file.")
 		return
+	
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if not file:
-		return
+		print("Failed to load game.")
 	
-	# Reading file
 	var json_string = file.get_as_text()
+	var json = JSON.new()
+	var parse_result = json.parse(json_string)
+	if parse_result == OK:
+		var loaded_data = json.get_data()
+		for key in loaded_data.keys():
+			save_data[key] = loaded_data[key]
+		print("Game loaded")
+	
 	file.close()
-	
-	# Parsing JSON
-	var data = JSON.parse_string(json_string)
-	if not data:
+
+func add_coins(amount: int):
+	save_data["total_coins"] += amount
+	total_coins_changed.emit(save_data["total_coins"])
+	save_game()
+
+func get_coins() -> int:
+	return save_data["total_coins"]
+
+func is_skin_unlocked(skin_id: String) -> bool:
+	return skin_id in save_data["unlocked_skins"]
+
+func unlock_skin(skin_id: String) -> void:
+	if is_skin_unlocked(skin_id):
 		return
-	
-	total_coins = data.get("total_coins", 0)
-	unlocked_skins = data.get("unlocked_skins", ["default"])
-	equipped_skin = data.get("equipped_skin", "default")
-	
-	total_coins_changed.emit(total_coins)
-	
-	print("Game loaded")
-	
-	
+	save_data["unlocked_skins"].append(skin_id)
+	save_game()

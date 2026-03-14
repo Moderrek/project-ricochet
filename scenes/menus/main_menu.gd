@@ -17,7 +17,8 @@ func _ready() -> void:
 
 	play_button.grab_focus()
 
-	_update_coin_display()
+	_update_coin_display(SaveManager.get_coins())
+	SaveManager.total_coins_changed.connect(_update_coin_display)
 	
 	if OS.has_feature("web"):
 		quit_button.hide()
@@ -36,8 +37,8 @@ func _setup_buttons() -> void:
 			button.pressed.connect(_on_button_pressed.bind(button))
 
 
-func _update_coin_display() -> void:
-	coin_amount_label.text = str(SaveManager.total_coins)
+func _update_coin_display(amount: int) -> void:
+	coin_amount_label.text = str(amount)
 
 func _on_button_hover(button: Button):
 	hover_sound.pitch_scale = randf_range(0.95, 1.05)
@@ -72,15 +73,17 @@ func _handle_button_action(button: Button) -> void:
 		"PlayButton":
 			await get_tree().create_timer(0.2).timeout
 			GameManager.start_game()
+
 		"LockersButton":
 			print("Moduł szafek jeszcze w budowie.")
+
 		"NewsButton":
 			OS.shell_open("https://cez.lodz.pl/2026/03/06/konkurs-school-games-2026/")
 			
 			SaveManager.add_coins(50)
-			_update_coin_display()
 			
 			button.disabled = true
 			button.text = "Odebrano!"
+
 		"QuitButton":
 			get_tree().quit()
