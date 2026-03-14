@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://2rbnt84b6r83" path="res://scenes/menus/cinematic_camera.gd" id="3_ng0o5"]
 [ext_resource type="Shader" uid="uid://5pn8jkwlkc30" path="res://shaders/background_blur.gdshader" id="4_8r73w"]
 [ext_resource type="Shader" uid="uid://itcqh3nb0wkl" path="res://shaders/vignette.gdshader" id="5_1hnlc"]
+[ext_resource type="AudioStream" uid="uid://r4ng60ge8lwt" path="res://assets/sounds/sfx_ui_hover.ogg" id="9_50h1w"]
+[ext_resource type="AudioStream" uid="uid://dv31algqn6khp" path="res://assets/sounds/sfx_ui_click.ogg" id="10_euy4r"]
 
 [sub_resource type="Curve2D" id="Curve2D_imvie"]
 _data = {
@@ -23,6 +25,10 @@ shader_parameter/mix_color = Color(1, 1, 1, 0)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_50h1w"]
 shader = ExtResource("5_1hnlc")
 shader_parameter/vignette_power = 0.400000019
+
+[sub_resource type="Curve" id="Curve_euy4r"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.51585627, 0.4626391), -1.8940682, -1.8940682, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="MainMenu" type="Node2D" unique_id=2013969466]
 z_index = 1000
@@ -180,3 +186,24 @@ stretch_mode = 5
 [node name="NewsButton" type="Button" parent="UILayer/MainMargin/MainLayout/ContentArea/NewsCard/MarginContainer/VBoxContainer" unique_id=640320816]
 layout_mode = 2
 text = "Czytaj i Odbierz"
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=1298044777]
+stream = ExtResource("9_50h1w")
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=1066146521]
+stream = ExtResource("10_euy4r")
+
+[node name="ClickParticles" type="CPUParticles2D" parent="." unique_id=1228607021]
+z_index = 4096
+emitting = false
+amount = 12
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, -1)
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+scale_amount_min = 4.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_euy4r")
