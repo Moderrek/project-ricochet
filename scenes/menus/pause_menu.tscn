@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://b3ktuj0msl7n2"]
+
+[ext_resource type="Shader" uid="uid://5pn8jkwlkc30" path="res://shaders/background_blur.gdshader" id="1_7unhi"]
+[ext_resource type="Script" uid="uid://bivlwewa87cu6" path="res://scenes/menus/pause_menu.gd" id="1_gsnt3"]
+[ext_resource type="Theme" uid="uid://dsthmqy2j18d5" path="res://resources/themes/soft_ui_theme.tres" id="2_gsnt3"]
+[ext_resource type="Shader" uid="uid://itcqh3nb0wkl" path="res://shaders/vignette.gdshader" id="3_2wrho"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2wrho"]
+shader = ExtResource("1_7unhi")
+shader_parameter/blur_amount = 1.5000000712500001
+shader_parameter/mix_color = Color(0, 0, 0, 0.6)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gh0u6"]
+shader = ExtResource("3_2wrho")
+shader_parameter/vignette_power = 0.400000019
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=2097220645]
+process_mode = 3
+layer = 500
+script = ExtResource("1_gsnt3")
+
+[node name="Blur" type="ColorRect" parent="." unique_id=1508518051]
+material = SubResource("ShaderMaterial_2wrho")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Vignette" type="ColorRect" parent="." unique_id=1373275116]
+material = SubResource("ShaderMaterial_gh0u6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=320446536]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_gsnt3")
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer" unique_id=1896320436]
+layout_mode = 2
+text = "Wznów"
+
+[node name="Control" type="Control" parent="VBoxContainer" unique_id=1697242113]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer" unique_id=1552448728]
+layout_mode = 2
+text = "Menu Główne"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1078965322]
+layout_mode = 2
+text = "Wyjdź"

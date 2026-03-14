@@ -28,6 +28,7 @@ config/icon="uid://dkaa3cn5fydxf"
 SceneChanger="*uid://ia0j0cqwi45u"
 SaveManager="*uid://dxsfwh1sluerl"
 GameManager="*uid://bclc6d6j5v14s"
+PauseMenu="*uid://b3ktuj0msl7n2"
 
 [display]
 
