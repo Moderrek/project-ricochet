@@ -1,6 +1,7 @@
 extends Node2D
+class_name AimLine
 
-@onready var line_node = $Line
+@onready var line_node = $Line2D
 @onready var arrow_node = $ArrowPolygon
 @onready var raycast_node = $RayCast
 @onready var player = get_parent()

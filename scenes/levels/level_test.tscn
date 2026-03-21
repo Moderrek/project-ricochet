@@ -2,8 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://0dahmcdfnjd5" path="res://scenes/levels/base_level.tscn" id="1_tkopl"]
 [ext_resource type="PackedScene" uid="uid://f0b327r50edc" path="res://scenes/interactables/level_end_area/level_end_area.tscn" id="2_13ghj"]
-[ext_resource type="PackedScene" uid="uid://bp4bmbtgpi3cn" path="res://scenes/interactables/cez_coin/cez_coin.tscn" id="3_d44nw"]
+[ext_resource type="PackedScene" uid="uid://bp4bmbtgpi3cn" path="res://scenes/collectibles/cez_coin/cez_coin.tscn" id="3_d44nw"]
 [ext_resource type="PackedScene" uid="uid://b7t78m2mae27" path="res://scenes/interactables/door/door.tscn" id="4_4ptlp"]
+[ext_resource type="PackedScene" uid="uid://roygbhglbhmm" path="res://scenes/levels/level_0.tscn" id="5_4lw2e"]
 [ext_resource type="PackedScene" uid="uid://lvklfo0pscmv" path="res://scenes/interactables/vending_machine/vending_machine.tscn" id="5_ycf23"]
 [ext_resource type="PackedScene" uid="uid://c2lckjp47l84q" path="res://scenes/interactables/pallet/pallet.tscn" id="6_uh3ll"]
 
@@ -295,7 +296,7 @@ position = Vector2(-255, 508)
 
 [node name="Door" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="27" unique_id=605632606 instance=ExtResource("4_4ptlp")]
 position = Vector2(1058, 503)
-next_level_path = "uid://roygbhglbhmm"
+next_level = ExtResource("5_4lw2e")
 
 [node name="VendingMachine" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="28" unique_id=635205341 instance=ExtResource("5_ycf23")]
 position = Vector2(109, -635)

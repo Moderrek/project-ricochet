@@ -3,12 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://0dahmcdfnjd5" path="res://scenes/levels/base_level.tscn" id="1_n2h5a"]
 [ext_resource type="Script" uid="uid://pmt3vrml7m1s" path="res://scenes/levels/level_camera.gd" id="2_6ayib"]
 [ext_resource type="Shader" uid="uid://mb272d4b0hl6" path="res://shaders/blueprint.gdshader" id="2_53han"]
-[ext_resource type="PackedScene" uid="uid://bp4bmbtgpi3cn" path="res://scenes/interactables/cez_coin/cez_coin.tscn" id="3_1f54s"]
+[ext_resource type="PackedScene" uid="uid://bp4bmbtgpi3cn" path="res://scenes/collectibles/cez_coin/cez_coin.tscn" id="3_1f54s"]
 [ext_resource type="Texture2D" uid="uid://dphek2jkg6fc6" path="res://assets/images/arrow_up.png" id="3_3mnpy"]
 [ext_resource type="PackedScene" uid="uid://qsfvimesjvis" path="res://scenes/environment/wall/wall.tscn" id="4_2vy66"]
 [ext_resource type="Texture2D" uid="uid://i8oc6vj7ysmw" path="res://assets/images/arrow_turn_right.png" id="4_6ayib"]
 [ext_resource type="PackedScene" uid="uid://f0b327r50edc" path="res://scenes/interactables/level_end_area/level_end_area.tscn" id="5_rtok4"]
-[ext_resource type="PackedScene" uid="uid://50bacffex26x" path="res://scenes/interactables/coffee/coffee.tscn" id="9_65guy"]
+[ext_resource type="PackedScene" uid="uid://50bacffex26x" path="res://scenes/collectibles/coffee/coffee.tscn" id="9_65guy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dume2"]
 shader = ExtResource("2_53han")

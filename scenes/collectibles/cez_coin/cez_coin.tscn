@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bp4bmbtgpi3cn"]
 
-[ext_resource type="Script" uid="uid://c2x7rvn4rmvmj" path="res://scenes/interactables/cez_coin/cez_coin.gd" id="1_7qc10"]
+[ext_resource type="Script" uid="uid://c2x7rvn4rmvmj" path="res://scenes/collectibles/cez_coin/cez_coin.gd" id="1_7qc10"]
 [ext_resource type="Texture2D" uid="uid://dh4oy3skmg6ir" path="res://assets/images/cez_coin_spritesheet.png" id="2_nt470"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b7icy"]

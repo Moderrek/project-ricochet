@@ -5,7 +5,7 @@
 [node name="AimLine" type="Node2D" unique_id=2122664174]
 script = ExtResource("1_0xpom")
 
-[node name="Line" type="Line2D" parent="." unique_id=105750693]
+[node name="Line2D" type="Line2D" parent="." unique_id=105750693]
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 1

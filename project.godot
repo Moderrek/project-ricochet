@@ -29,6 +29,7 @@ SceneChanger="*uid://ia0j0cqwi45u"
 SaveManager="*uid://dxsfwh1sluerl"
 GameManager="*uid://bclc6d6j5v14s"
 PauseMenu="*uid://b3ktuj0msl7n2"
+NetworkManager="*uid://chaqjkwb4sor0"
 
 [display]
 
@@ -48,3 +49,4 @@ player=""
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

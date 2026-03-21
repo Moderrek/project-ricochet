@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://50bacffex26x"]
 
-[ext_resource type="Script" uid="uid://34u23spn7pd1" path="res://scenes/interactables/coffee/coffee.gd" id="1_bggki"]
+[ext_resource type="Script" uid="uid://34u23spn7pd1" path="res://scenes/collectibles/coffee/coffee.gd" id="1_bggki"]
 [ext_resource type="Texture2D" uid="uid://tcpnulnchxbq" path="res://assets/images/coffee_spritesheet.png" id="1_wkfra"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bggki"]

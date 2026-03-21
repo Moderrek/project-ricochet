@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://0dahmcdfnjd5" path="res://scenes/levels/base_level.tscn" id="1_1bbdw"]
 [ext_resource type="Texture2D" uid="uid://ctj13btnys8ks" path="res://assets/images/wall_test.png" id="2_gy01a"]
-[ext_resource type="PackedScene" uid="uid://bp4bmbtgpi3cn" path="res://scenes/interactables/cez_coin/cez_coin.tscn" id="3_xbibw"]
+[ext_resource type="PackedScene" uid="uid://bp4bmbtgpi3cn" path="res://scenes/collectibles/cez_coin/cez_coin.tscn" id="3_xbibw"]
 [ext_resource type="PackedScene" uid="uid://lvklfo0pscmv" path="res://scenes/interactables/vending_machine/vending_machine.tscn" id="4_qhf3p"]
 [ext_resource type="PackedScene" uid="uid://c2lckjp47l84q" path="res://scenes/interactables/pallet/pallet.tscn" id="5_3kh8m"]
 [ext_resource type="PackedScene" uid="uid://f0b327r50edc" path="res://scenes/interactables/level_end_area/level_end_area.tscn" id="6_qhf3p"]

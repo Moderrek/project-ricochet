@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name Player
 
 # Exports
 @export_range(0, 5000, 1, "suffix:px") var max_force: float = 2400.0
@@ -7,6 +8,7 @@ extends RigidBody2D
 
 # Nodes
 @onready var particles: CPUParticles2D = $CPUParticles2D
+@onready var aim_line: AimLine = $AimLine
 
 # Variables
 var is_aiming: bool = false 

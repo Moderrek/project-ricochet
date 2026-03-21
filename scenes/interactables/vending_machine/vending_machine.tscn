@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://vcwujiav2nj3" path="res://scenes/interactables/vending_machine/vending_machine.gd" id="1_7b47a"]
 [ext_resource type="Texture2D" uid="uid://cg4v688bnp7ha" path="res://assets/images/vending.png" id="1_eps6u"]
-[ext_resource type="PackedScene" uid="uid://50bacffex26x" path="res://scenes/interactables/coffee/coffee.tscn" id="2_uc8mh"]
+[ext_resource type="PackedScene" uid="uid://50bacffex26x" path="res://scenes/collectibles/coffee/coffee.tscn" id="2_uc8mh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7b47a"]
 size = Vector2(128, 192)

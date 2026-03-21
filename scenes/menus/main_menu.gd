@@ -24,6 +24,7 @@ func _ready() -> void:
 		quit_button.hide()
 	
 	_setup_buttons()
+	NetworkManager.fetch_news(_on_news_loaded, _on_news_error)
 	
 func _setup_buttons() -> void:
 	var buttons = menu_buttons_container.get_children()
@@ -87,3 +88,9 @@ func _handle_button_action(button: Button) -> void:
 
 		"QuitButton":
 			get_tree().quit()
+
+func _on_news_loaded(news_data: Array) -> void:
+	print(news_data)
+
+func _on_news_error(error_message: String) -> void:
+	print("ERROR: NetworkManager: ", error_message)
