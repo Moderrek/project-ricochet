@@ -4,6 +4,10 @@ extends BaseLevel
 
 var has_shot: bool = false
 
+func _on_level_loaded() -> void:
+	if is_cinematic_mode:
+		tutorial_ui.visible = false
+
 func _on_player_shot() -> void:
 	if has_shot:
 		return

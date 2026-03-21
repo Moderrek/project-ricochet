@@ -17,6 +17,7 @@ var player: Player = null
 var shake_strength: float = 0.0
 var shake_decay: float = 5.0
 
+func _on_level_loaded() -> void: pass
 func _on_before_level_start() -> void: pass
 func _on_level_started() -> void: pass
 func _on_player_spawned(_player: Player) -> void: pass
@@ -24,8 +25,8 @@ func _on_player_shot() -> void: pass
 
 func _ready():
 	_validate_level()
-
 	_setup_cinematic_mode()
+	_on_level_loaded()
 	if is_cinematic_mode:
 		return
 	
