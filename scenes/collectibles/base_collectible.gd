@@ -14,7 +14,6 @@ func collect() -> void:
 	set_deferred("monitoring", false)
 
 	_apply_effect()
-	monitoring = false
 
 	play_collect_animation()
 
