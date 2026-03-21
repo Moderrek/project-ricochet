@@ -9,6 +9,11 @@ var _hover_tween: Tween
 func _apply_effect() -> void:
 	GameManager.add_boost(boost_amount)
 
+func play_collect_animation() -> void:
+	if _hover_tween:
+		_hover_tween.kill()
+	super()
+
 func play_hover_animation() -> void:
 	if _hover_tween:
 		_hover_tween.kill()

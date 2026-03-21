@@ -10,7 +10,7 @@ func _ready() -> void:
 func _setup_environment() -> void:
 	if OS.has_feature("editor"):
 		base_url = "http://127.0.0.1:8080"
-		print("[NetworkManager] Development Environement (", base_url, ")")
+		print("[NetworkManager] Development Environment (", base_url, ")")
 	elif OS.has_feature("web"):
 		if JavaScriptBridge.get_interface("window"):
 			base_url = JavaScriptBridge.eval("window.location.origin")
@@ -18,7 +18,6 @@ func _setup_environment() -> void:
 		else:
 			base_url = ""
 	else:
-		# TODO: domain
 		base_url = fallback_url
 
 func fetch_news(on_success: Callable, on_error: Callable) -> void:
@@ -32,11 +31,14 @@ func fetch_news(on_success: Callable, on_error: Callable) -> void:
 		if result == HTTPRequest.RESULT_SUCCESS and response_code == 200:
 			var json = JSON.new()
 			if json.parse(body.get_string_from_utf8()) == OK:
-				on_success.call(json.get_data())
+				if on_success.is_valid:
+					on_success.call(json.get_data())
 			else:
-				on_error.call("Failed to parse JSON.")
+				if on_error.is_valid:
+					on_error.call("Failed to parse JSON.")
 		else:
-			on_error.call("Connection ERROR. Code: " + str(response_code))
+			if on_error.is_valid:
+				on_error.call("Connection ERROR. Code: " + str(response_code))
 	)
 	
 	var url = base_url + "/api/news"
@@ -44,4 +46,5 @@ func fetch_news(on_success: Callable, on_error: Callable) -> void:
 	
 	if error != OK:
 		request.queue_free()
-		on_error.call("Failed to initialize HTTP connection.")
+		if on_error.is_valid:
+			on_error.call("Failed to initialize HTTP connection.")

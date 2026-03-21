@@ -3,7 +3,7 @@ extends Camera2D
 @export var trauma_reduction_rate: float = 1.0
 @export var max_offset: Vector2 = Vector2(80.0, 80.0)
 @export var max_roll: float = 0.05
-@export var trauma_scale := 30.0
+@export var trauma_scale := 0.02
 @export var noise_time_speed := 60.0
 
 var trauma: float = 0.0
@@ -24,7 +24,7 @@ func _exit_tree() -> void:
 		GameManager.camera_shake_request.disconnect(add_trauma)
 
 func add_trauma(amount: float) -> void:
-	var normalized_amount = amount / trauma_scale 
+	var normalized_amount = amount * trauma_scale 
 	trauma = clamp(trauma + normalized_amount, 0.0, 1.0)
 	set_process(true)
 

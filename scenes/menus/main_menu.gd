@@ -89,7 +89,7 @@ func _handle_button_action(button: Button) -> void:
 		"QuitButton":
 			get_tree().quit()
 
-func _on_news_loaded(news_data: Array) -> void:
+func _on_news_loaded(news_data: Variant) -> void:
 	print(news_data)
 
 func _on_news_error(error_message: String) -> void:

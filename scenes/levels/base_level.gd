@@ -61,8 +61,7 @@ func _setup_ui() -> void:
 
 func _load_level_data() -> LevelData:
 	if not GameManager.is_game_running:
-		# Propably F6
-		print("Detected Level Testing mode")
+		# Loaded level but game is not running => Probably F6
 		return GameManager.start_test_scene(scene_file_path)
 	
 	return GameManager.get_current_level_data()

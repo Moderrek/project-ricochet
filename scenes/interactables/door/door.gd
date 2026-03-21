@@ -4,7 +4,16 @@ class_name Door
 @export var next_level: PackedScene
 
 func trigger() -> void:
-	SceneChanger.change_scene_smooth(next_level.resource_path)
+	if next_level == null:
+		push_error("Door.triger(): next_level is not set; cannot change scene.")
+		return
+
+	var path := next_level.resource_path
+	if path == "":
+		push_error("Door.triger(): next_level does not have a valid resource path; cannot change scene.")
+		return
+
+	SceneChanger.change_scene_smooth(path)
 
 func _ready():
 	assert(next_level != null, "next_level not set!")
@@ -14,4 +23,5 @@ func _ready():
 func _on_body_entered(body: Node2D):
 	if not body.is_in_group("player"):
 		return
+
 	trigger()

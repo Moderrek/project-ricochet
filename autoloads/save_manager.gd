@@ -2,7 +2,7 @@
 ##
 ## Loads data at start.
 ## Uses JSON format to store data in the user directory.
-## Manages coins, unlocked skins and high scoes.
+## Manages coins, unlocked skins and high scores.
 extends Node
 
 ## Emitted when the total amount of coins in the bank changes.
@@ -34,7 +34,7 @@ func save_game():
 	file.store_string(json_string)
 	file.close()
 
-	print("INFO: game sate saved successfully.")
+	print("INFO: game state saved successfully.")
 
 ## Loads data from disk.
 func load_game():
