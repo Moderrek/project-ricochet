@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://caqlu6s2tbsdc"]
 
 [ext_resource type="Script" uid="uid://d2rgn1galmcp" path="res://scenes/entities/player/player.gd" id="1_58kc7"]
-[ext_resource type="Texture2D" uid="uid://byp5m1ro6tas3" path="res://assets/images/player.png" id="2_nh4ur"]
+[ext_resource type="Texture2D" uid="uid://byp5m1ro6tas3" path="res://assets/images/player.png" id="2_58kc7"]
 [ext_resource type="PackedScene" uid="uid://crr81x7gnlhgu" path="res://scenes/entities/player/aim_line.tscn" id="3_bjvvg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rkbax"]
@@ -34,8 +34,8 @@ scale_amount_min = 2.0
 scale_amount_max = 3.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=134253475]
-scale = Vector2(0.253, 0.25)
-texture = ExtResource("2_nh4ur")
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_58kc7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2046518984]
 shape = SubResource("CircleShape2D_onrkg")
