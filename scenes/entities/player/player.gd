@@ -28,9 +28,11 @@ func _input(event):
 			
 			if distance <= click_radius:
 				is_aiming = true
+				aim_line.start_aiming()
 		else:
 			if is_aiming:
 				is_aiming = false
+				aim_line.stop_aiming()
 				_shoot()
 
 func _shoot():

@@ -41,3 +41,4 @@ texture = ExtResource("2_58kc7")
 shape = SubResource("CircleShape2D_onrkg")
 
 [node name="AimLine" parent="." unique_id=2122664174 instance=ExtResource("3_bjvvg")]
+max_bounces = 3
