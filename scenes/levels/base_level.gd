@@ -17,14 +17,10 @@ var player: Player = null
 var shake_strength: float = 0.0
 var shake_decay: float = 5.0
 
-func _on_before_level_start():
-	pass
-
-func _on_level_started():
-	pass
-
-func _on_player_spawned(_player: Player):
-	pass
+func _on_before_level_start() -> void: pass
+func _on_level_started() -> void: pass
+func _on_player_spawned(_player: Player) -> void: pass
+func _on_player_shot() -> void: pass
 
 func _ready():
 	_validate_level()
@@ -102,3 +98,4 @@ func _spawn_player():
 	level_camera.reset_smoothing()
 
 	_on_player_spawned(player)
+	player.player_shot.connect(_on_player_shot)

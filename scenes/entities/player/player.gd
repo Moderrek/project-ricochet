@@ -10,8 +10,11 @@ class_name Player
 @onready var particles: CPUParticles2D = $CPUParticles2D
 @onready var aim_line: AimLine = $AimLine
 
+# Signals
+signal player_shot
+
 # Variables
-var is_aiming: bool = false 
+var is_aiming := false 
 var max_drag_distance: float
 
 func _ready():
@@ -49,6 +52,7 @@ func _shoot():
 		final_force *= 1.5
 	
 	apply_central_impulse(final_force)
+	player_shot.emit()
 
 func _on_body_entered(_body):
 	var speed = linear_velocity.length()

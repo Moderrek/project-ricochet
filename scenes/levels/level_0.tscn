@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://0dahmcdfnjd5" path="res://scenes/levels/base_level.tscn" id="1_n2h5a"]
 [ext_resource type="Script" uid="uid://pmt3vrml7m1s" path="res://scenes/levels/level_camera.gd" id="2_6ayib"]
+[ext_resource type="Script" uid="uid://h5ip78ayu20b" path="res://scenes/levels/level_0.gd" id="2_34hum"]
 [ext_resource type="Shader" uid="uid://mb272d4b0hl6" path="res://shaders/blueprint.gdshader" id="2_53han"]
 [ext_resource type="PackedScene" uid="uid://bp4bmbtgpi3cn" path="res://scenes/collectibles/cez_coin/cez_coin.tscn" id="3_1f54s"]
 [ext_resource type="Texture2D" uid="uid://dphek2jkg6fc6" path="res://assets/images/arrow_up.png" id="3_3mnpy"]
@@ -9,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://i8oc6vj7ysmw" path="res://assets/images/arrow_turn_right.png" id="4_6ayib"]
 [ext_resource type="PackedScene" uid="uid://f0b327r50edc" path="res://scenes/interactables/level_end_area/level_end_area.tscn" id="5_rtok4"]
 [ext_resource type="PackedScene" uid="uid://50bacffex26x" path="res://scenes/collectibles/coffee/coffee.tscn" id="9_65guy"]
+[ext_resource type="FontFile" uid="uid://7mkp4b5kldtl" path="res://assets/fonts/Rubik-Medium.ttf" id="10_p6rmu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dume2"]
 shader = ExtResource("2_53han")
@@ -25,7 +27,15 @@ shader_parameter/scroll_speed = Vector2(0, 0)
 friction = 0.0
 bounce = 0.7
 
+[sub_resource type="Theme" id="Theme_34hum"]
+default_font = ExtResource("10_p6rmu")
+default_font_size = 30
+
 [node name="Level_0" unique_id=1806712695 instance=ExtResource("1_n2h5a")]
+script = ExtResource("2_34hum")
+
+[node name="PlayerSpawnMarker" parent="." index="0" unique_id=1507377149]
+position = Vector2(0, -97)
 
 [node name="LevelCamera" parent="." index="1" unique_id=602886328]
 script = ExtResource("2_6ayib")
@@ -61,7 +71,13 @@ position = Vector2(134, -92)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_3mnpy")
 
-[node name="Sprite2D" type="Sprite2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="3" unique_id=1762526116]
+[node name="ArrowUp2" type="Sprite2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="3" unique_id=842718863]
+position = Vector2(472, -730)
+rotation = 1.3593768
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_3mnpy")
+
+[node name="Sprite2D" type="Sprite2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="4" unique_id=1762526116]
 position = Vector2(118, -544)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_6ayib")
@@ -84,8 +100,44 @@ rotation = -0.5820912
 size = Vector2(300, 20)
 
 [node name="LevelEndArea" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="5" unique_id=1251197318 instance=ExtResource("5_rtok4")]
-position = Vector2(862.99994, -839)
-scale = Vector2(1.9200048, 3.72)
+position = Vector2(759, -839.00006)
+scale = Vector2(4.000005, 3.72)
 
 [node name="Coffee" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="6" unique_id=1227350045 instance=ExtResource("9_65guy")]
 position = Vector2(-189, -1021)
+
+[node name="TutorialUI" type="Control" parent="." index="5" unique_id=432197577]
+layout_mode = 3
+offset_left = -150.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 160.0
+
+[node name="Panel" type="Panel" parent="TutorialUI" index="0" unique_id=799296473]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TutorialUI/Panel" index="0" unique_id=1122396411]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="TutorialUI/Panel/MarginContainer" index="0" unique_id=1912638414]
+layout_mode = 2
+theme = SubResource("Theme_34hum")
+text = "Złap za kapselek
+Przeciągnij w tył
+Puść, aby strzelić"
+horizontal_alignment = 1
+vertical_alignment = 1
