@@ -7,12 +7,13 @@ class_name CoffeeCollectible
 var _hover_tween: Tween
 
 func play_collect_animation() -> void:
-	if _hover_tween:
+	if _hover_tween and _hover_tween.is_valid():
 		_hover_tween.kill()
+	
 	super()
 
 func play_hover_animation() -> void:
-	if _hover_tween:
+	if _hover_tween and _hover_tween.is_valid():
 		_hover_tween.kill()
 	
 	_hover_tween = create_tween().set_loops()

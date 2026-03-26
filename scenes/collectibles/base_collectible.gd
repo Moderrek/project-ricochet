@@ -25,7 +25,7 @@ func is_collected() -> bool:
 	return _is_collected
 
 func play_collect_animation() -> void:
-	if _collect_tween:
+	if _collect_tween and _collect_tween.is_valid():
 		_collect_tween.kill()
 
 	_collect_tween = create_tween()
