@@ -4,24 +4,14 @@ class_name BaseLevel
 # Disables player, camera and HUD. Used for Main Menu background.
 @export var is_cinematic_mode: bool = false
 
-# Nodes
+var player: Player = null
+var shake_strength: float = 0.0
+var shake_decay: float = 5.0
+
 @onready var player_spawn: Marker2D = $PlayerSpawnMarker
 @onready var level_camera: Camera2D = $LevelCamera
 @onready var hud: CanvasLayer = $HUD
 @onready var entities_container: Node = $Entities
-
-# Variables
-var player: Player = null
-
-# Shake
-var shake_strength: float = 0.0
-var shake_decay: float = 5.0
-
-func _on_level_loaded() -> void: pass
-func _on_before_level_start() -> void: pass
-func _on_level_started() -> void: pass
-func _on_player_spawned(_player: Player) -> void: pass
-func _on_player_shot() -> void: pass
 
 func _ready():
 	_validate_level()
@@ -37,6 +27,12 @@ func _ready():
 	_apply_level_settings(level_data)
 
 	_on_level_started()
+
+func _on_level_loaded() -> void: pass                  # virtual
+func _on_before_level_start() -> void: pass            # virtual
+func _on_level_started() -> void: pass                 # virtual
+func _on_player_spawned(_player: Player) -> void: pass # virtual
+func _on_player_shot() -> void: pass                   # virtual
 
 func _validate_level() -> void:
 	assert(player_spawn != null)
@@ -99,3 +95,4 @@ func _spawn_player():
 
 	_on_player_spawned(player)
 	player.player_shot.connect(_on_player_shot)
+

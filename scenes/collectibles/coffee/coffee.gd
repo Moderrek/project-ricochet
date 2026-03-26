@@ -6,9 +6,6 @@ class_name CoffeeCollectible
 
 var _hover_tween: Tween
 
-func _apply_effect() -> void:
-	GameManager.add_boost(boost_amount)
-
 func play_collect_animation() -> void:
 	if _hover_tween:
 		_hover_tween.kill()
@@ -22,3 +19,6 @@ func play_hover_animation() -> void:
 	
 	_hover_tween.tween_property(self, "position:y", -5.0, 1.0).as_relative().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	_hover_tween.tween_property(self, "position:y", 5.0, 1.0).as_relative().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+func _apply_effect() -> void:
+	GameManager.add_boost(boost_amount)

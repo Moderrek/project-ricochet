@@ -1,21 +1,17 @@
 extends RigidBody2D
 class_name Player
 
-# Exports
+signal player_shot
+
 @export_range(0, 5000, 1, "suffix:px") var max_force: float = 2400.0
 @export_range(0, 10, 0.1, "suffix:x") var power_multiplier: float = 5.0
 @export_range(0, 1000, 1, "suffix:px") var click_radius: float = 120.0
 
-# Nodes
+var is_aiming := false 
+var max_drag_distance: float # will be calculated at _ready
+
 @onready var particles: CPUParticles2D = $CPUParticles2D
 @onready var aim_line: AimLine = $AimLine
-
-# Signals
-signal player_shot
-
-# Variables
-var is_aiming := false 
-var max_drag_distance: float
 
 func _ready():
 	input_pickable = false
@@ -37,22 +33,6 @@ func _input(event):
 				is_aiming = false
 				aim_line.stop_aiming()
 				_shoot()
-
-func _shoot():
-	var drag_vector = get_drag_vector()
-	var current_multiplier = power_multiplier
-	
-	
-	var final_force = drag_vector * current_multiplier
-	
-	if final_force.length() > max_force:
-		final_force = final_force.limit_length(max_force)
-	
-	if GameManager.boost_level > 0:
-		final_force *= 1.5
-	
-	apply_central_impulse(final_force)
-	player_shot.emit()
 
 func _on_body_entered(_body):
 	var speed = linear_velocity.length()
@@ -87,3 +67,19 @@ func get_aim_direction() -> Vector2:
 	if drag_vec.length() > 0:
 		return drag_vec.normalized()
 	return Vector2.ZERO
+
+func _shoot():
+	var drag_vector = get_drag_vector()
+	var current_multiplier = power_multiplier
+	
+	var final_force = drag_vector * current_multiplier
+	
+	if final_force.length() > max_force:
+		final_force = final_force.limit_length(max_force)
+	
+	if GameManager.boost_level > 0:
+		final_force *= 1.5
+	
+	apply_central_impulse(final_force)
+	player_shot.emit()
+

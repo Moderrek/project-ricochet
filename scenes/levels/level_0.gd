@@ -1,8 +1,8 @@
 extends BaseLevel
 
-@onready var tutorial_ui: Control = $TutorialUI
+var has_shot := false
 
-var has_shot: bool = false
+@onready var tutorial_ui: Control = $TutorialUI
 
 func _on_level_loaded() -> void:
 	if is_cinematic_mode:

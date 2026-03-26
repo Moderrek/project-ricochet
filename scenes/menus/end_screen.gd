@@ -24,10 +24,10 @@ func setup_screen():
 	
 	if GameManager.time_left > 0:
 		title_label.text = "CEL OSIĄGNIĘTY!"
-		title_label.add_theme_color_override("font_color", Color("00aaff")) # Dopaminowy błękit
+		title_label.add_theme_color_override("font_color", Color("00aaff"))
 	else:
 		title_label.text = "SPÓŹNIENIE!"
-		title_label.add_theme_color_override("font_color", Color("ff3366")) # Czerwony/Różowy alarmowy
+		title_label.add_theme_color_override("font_color", Color("ff3366"))
 	
 	if GameManager.cez_coins > 0:
 		SaveManager.add_coins(GameManager.cez_coins)

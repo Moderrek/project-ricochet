@@ -1,6 +1,8 @@
 extends PathFollow2D
+class_name CameraCinematic
 
-const SPEED: float = 0.02
+const SPEED := 0.02
 
 func _process(delta: float) -> void:
 	progress_ratio += SPEED * delta
+

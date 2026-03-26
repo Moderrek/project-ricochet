@@ -94,3 +94,4 @@ func _on_news_loaded(news_data: Variant) -> void:
 
 func _on_news_error(error_message: String) -> void:
 	print("ERROR: NetworkManager: ", error_message)
+

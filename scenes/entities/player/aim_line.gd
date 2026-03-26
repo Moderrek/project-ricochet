@@ -10,19 +10,18 @@ class_name AimLine
 @export var boost_cold_color = Color(1.0, 0.2, 0.2, 0.8)
 @export var boost_hot_color = Color(1.0, 0.8, 0.0, 1.0)
 
-@onready var line_node = $Line2D
-@onready var arrow_node = $ArrowPolygon
-@onready var player: Player = get_parent()
-
 var max_viz_dist = 600.0
 var max_width = 15.0
 var max_arrow_scale = 1.0
 
 var _last_drag_vector := Vector2.ZERO
 var _drag_threshold_sq := 4.0 # 2 pixels squared
-
 var _points_cache := PackedVector2Array()
 var _player_rid: RID
+
+@onready var line_node = $Line2D
+@onready var arrow_node = $ArrowPolygon
+@onready var player: Player = get_parent()
 
 func _ready():
 	set_as_top_level(true)
@@ -41,17 +40,6 @@ func _ready():
 	arrow_node.hide()
 	set_process(false)
 
-func start_aiming():
-	line_node.show()
-	arrow_node.show()
-	_last_drag_vector = Vector2.INF
-	set_process(true)
-
-func stop_aiming():
-	line_node.hide()
-	arrow_node.hide()
-	set_process(false)
-
 func _process(_delta: float) -> void:
 	if not player or not player.is_aiming:
 		stop_aiming()
@@ -63,6 +51,17 @@ func _process(_delta: float) -> void:
 	
 	_last_drag_vector = current_drag_vector
 	_update_aim_line(current_drag_vector)
+
+func start_aiming():
+	line_node.show()
+	arrow_node.show()
+	_last_drag_vector = Vector2.INF
+	set_process(true)
+
+func stop_aiming():
+	line_node.hide()
+	arrow_node.hide()
+	set_process(false)
 
 func _update_aim_line(drag_vector: Vector2) -> void:
 	var drag_length = drag_vector.length()
@@ -143,3 +142,4 @@ func _update_arrow(arrow_scale: float, color: Color):
 		arrow_node.modulate = color
 	else:
 		arrow_node.hide()
+

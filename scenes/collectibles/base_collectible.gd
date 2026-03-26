@@ -4,8 +4,12 @@ class_name BaseCollectible
 var _is_collected: bool = false
 var _collect_tween: Tween
 
-# Virtual Function
-func _apply_effect() -> void: pass
+func _ready() -> void:
+	body_entered.connect(_on_body_entered)
+
+func _on_body_entered(body: Node2D) -> void:
+	if not _is_collected and body.is_in_group("player"):
+		collect()
 
 func collect() -> void:
 	if _is_collected:
@@ -32,9 +36,5 @@ func play_collect_animation() -> void:
 	
 	_collect_tween.chain().tween_callback(queue_free)
 
-func _ready() -> void:
-	body_entered.connect(_on_body_entered)
+func _apply_effect() -> void: pass # virtual
 
-func _on_body_entered(body: Node2D) -> void:
-	if not _is_collected and body.is_in_group("player"):
-		collect()

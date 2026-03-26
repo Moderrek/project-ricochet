@@ -1,4 +1,5 @@
 extends StaticBody2D
+class_name VendingMachine
 
 @export_category("Vending Machine")
 @export var coffee_scene: PackedScene
@@ -9,11 +10,11 @@ extends StaticBody2D
 @export var drop_distance: float = 80.0
 @export var drop_spread: float = 50.0
 
+var hits_left: int      # set to coffee_count on _ready
+var is_shaking := false
+
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var spawn_point: Marker2D = $DropSpawnPoint
-
-var hits_left: int
-var is_shaking: bool = false
 
 func _ready() -> void:
 	hits_left = coffee_count
@@ -61,3 +62,4 @@ func _spawn_coffee() -> void:
 	
 	if coffee.has_method("play_hover_animation"):
 		jump_tween.chain().tween_callback(coffee.play_hover_animation)
+

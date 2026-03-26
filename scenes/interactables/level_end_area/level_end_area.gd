@@ -1,4 +1,5 @@
 extends Area2D
+class_name AreaLevelEnd
 
 func _ready():
 	body_entered.connect(_on_body_entered)
@@ -10,3 +11,4 @@ func _on_body_entered(body):
 	set_deferred("monitoring", false)
 	
 	GameManager.load_next_level()
+
