@@ -1,28 +1,19 @@
-## Manager responsible for persistent saving and loading of player progress
-##
-## Loads data at start.
-## Uses JSON format to store data in the user directory.
-## Manages coins, unlocked skins and high scores.
 extends Node
 
-## Emitted when the total amount of coins in the bank changes.
 signal total_coins_changed(new_amount: int)
 
-## Path to the save file. [code]user://[/code]. Ensures compatibility across Windows, Linux and HTML5.
 const SAVE_PATH = "user://save.json"
 
-## Dictionary for holding state.
 var save_data = {
 	"total_coins": 0,
 	"unlocked_skins": ["default_skin"],
 	"high_scores": {}
 }
 
-func _ready():
+func _ready() -> void:
 	load_game()
 
-## Converts [member save_data] to a JSON string and saves it to disk.
-func save_game():
+func save_game() -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if not file:
 		printerr("ERROR: could not open file for writing: %s" % [SAVE_PATH])
@@ -36,8 +27,7 @@ func save_game():
 
 	print("INFO: game state saved successfully.")
 
-## Loads data from disk.
-func load_game():
+func load_game() -> void:
 	if not FileAccess.file_exists(SAVE_PATH):
 		print("INFO: no save file found. starting fresh.")
 		return
@@ -60,9 +50,7 @@ func load_game():
 	
 	file.close()
 
-## Adds coins to the persistent bank and updates the file on disk.
-## Emits the [signal total_coins_changed] signal.
-func add_coins(amount: int):
+func add_coins(amount: int) -> void:
 	save_data["total_coins"] += amount
 	total_coins_changed.emit(save_data["total_coins"])
 	save_game()

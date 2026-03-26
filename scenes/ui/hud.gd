@@ -1,11 +1,12 @@
 extends CanvasLayer
-
-@onready var time_label = $Panel/TimeLabel
-@onready var coin_label = $Control/MarginContainer/HBoxContainer/CoinLabel
-@onready var boost_bar = $BoostBar
+class_name HUD
 
 var _coin_tween: Tween
 var _boost_tween: Tween
+
+@onready var time_label = $Panel/TimeLabel
+@onready var coin_label = $Control/MarginContainer/HBoxContainer/CoinLabel
+@onready var boost_bar  = $BoostBar
 
 func _ready():
 	call_deferred("_setup_ui")
@@ -16,12 +17,9 @@ func _ready():
 	
 	_update_coins(GameManager.cez_coins)
 	
-	boost_bar.max_value = GameManager.max_boost
-	boost_bar.value = GameManager.boost_level
+	boost_bar.max_value  = GameManager.max_boost
+	boost_bar.value      = GameManager.boost_level
 	boost_bar.modulate.a = 0.0
-
-func _setup_ui():
-	coin_label.pivot_offset = coin_label.size / 2.0
 
 func _process(_delta):
 	if GameManager.is_timer_active:
@@ -34,6 +32,9 @@ func _process(_delta):
 		if time_label.text != "--:--":
 			time_label.text = "--:--"
 			time_label.modulate = Color.WHITE
+
+func _setup_ui():
+	coin_label.pivot_offset = coin_label.size / 2.0
 
 func _update_coins(new_amount: int):
 	coin_label.text = "Cez Coins: " + str(new_amount)
@@ -52,8 +53,10 @@ func _on_coins_changed(new_amount: int):
 	_coin_tween.parallel().tween_property(coin_label, "modulate", Color.WHITE, 0.15)
 
 func _on_time_ticked(current_seconds: int) -> void:
-	var minutes = current_seconds / 60
-	var seconds = current_seconds % 60
+	@warning_ignore("integer_division")
+	var minutes: int = current_seconds / 60
+	var seconds: int = current_seconds % 60
+
 	time_label.text = "%02d:%02d" % [minutes, seconds]
 
 func _on_boost_changed(new_amount: float) -> void:

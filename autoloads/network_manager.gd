@@ -1,24 +1,10 @@
 extends Node
 
 var fallback_url: String = "http://127.0.0.1:8080"
-
 var base_url: String = ""
 
 func _ready() -> void:
 	_setup_environment()
-
-func _setup_environment() -> void:
-	if OS.has_feature("editor"):
-		base_url = "http://127.0.0.1:8080"
-		print("[NetworkManager] Development Environment (", base_url, ")")
-	elif OS.has_feature("web"):
-		if JavaScriptBridge.get_interface("window"):
-			base_url = JavaScriptBridge.eval("window.location.origin")
-			print("[NetworkManager] Web Production Environment (", base_url, ")")
-		else:
-			base_url = ""
-	else:
-		base_url = fallback_url
 
 func fetch_news(on_success: Callable, on_error: Callable) -> void:
 	# TODO: reuse HTTPRequest
@@ -48,3 +34,16 @@ func fetch_news(on_success: Callable, on_error: Callable) -> void:
 		request.queue_free()
 		if on_error.is_valid:
 			on_error.call("Failed to initialize HTTP connection.")
+
+func _setup_environment() -> void:
+	if OS.has_feature("editor"):
+		base_url = "http://127.0.0.1:8080"
+		print("[NetworkManager] Development Environment (", base_url, ")")
+	elif OS.has_feature("web"):
+		if JavaScriptBridge.get_interface("window"):
+			base_url = JavaScriptBridge.eval("window.location.origin")
+			print("[NetworkManager] Web Production Environment (", base_url, ")")
+		else:
+			base_url = ""
+	else:
+		base_url = fallback_url
