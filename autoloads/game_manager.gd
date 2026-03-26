@@ -105,6 +105,9 @@ func add_boost(amount: float) -> void:
 	boost_level = clamp(boost_level + amount, 0.0, max_boost)
 	boost_changed.emit(boost_level)
 
+func get_time_spent() -> float:
+	return time_limit - time_left
+
 func _change_level(level: LevelData) -> void:
 	if level == null:
 		SceneChanger.change_scene_smooth("res://scenes/menus/end_screen.tscn")

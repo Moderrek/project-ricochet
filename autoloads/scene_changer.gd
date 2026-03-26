@@ -27,3 +27,9 @@ func change_scene_smooth(path: String) -> void:
 	await fade_out.finished
 
 	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+func change_scene_immediate(path: String) -> void:
+	get_tree().change_scene_to_file(path)
+
+func change_scene_to_menu() -> void:
+	change_scene_smooth("res://scenes/menus/main_menu.tscn")
