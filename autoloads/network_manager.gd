@@ -17,13 +17,13 @@ func fetch_news(on_success: Callable, on_error: Callable) -> void:
 		if result == HTTPRequest.RESULT_SUCCESS and response_code == 200:
 			var json = JSON.new()
 			if json.parse(body.get_string_from_utf8()) == OK:
-				if on_success.is_valid:
+				if on_success and on_success.is_valid():
 					on_success.call(json.get_data())
 			else:
-				if on_error.is_valid:
+				if on_error and on_error.is_valid():
 					on_error.call("Failed to parse JSON.")
 		else:
-			if on_error.is_valid:
+			if on_error and on_error.is_valid():
 				on_error.call("Connection ERROR. Code: " + str(response_code))
 	)
 	
@@ -32,7 +32,7 @@ func fetch_news(on_success: Callable, on_error: Callable) -> void:
 	
 	if error != OK:
 		request.queue_free()
-		if on_error.is_valid:
+		if on_error and on_error.is_valid():
 			on_error.call("Failed to initialize HTTP connection.")
 
 func _setup_environment() -> void:

@@ -1,3 +1,4 @@
+@icon("res://assets/icons/coffee_icon.png")
 extends BaseCollectible
 class_name CoffeeCollectible
 
@@ -21,5 +22,5 @@ func play_hover_animation() -> void:
 	_hover_tween.tween_property(self, "position:y", -5.0, 1.0).as_relative().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	_hover_tween.tween_property(self, "position:y", 5.0, 1.0).as_relative().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
-func _apply_effect() -> void:
+func _on_collect() -> void:
 	GameManager.add_boost(boost_amount)

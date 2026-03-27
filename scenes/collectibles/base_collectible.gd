@@ -17,7 +17,8 @@ func collect() -> void:
 	_is_collected = true
 	set_deferred("monitoring", false)
 
-	_apply_effect()
+	# invokes virtual function
+	_on_collect()
 
 	play_collect_animation()
 
@@ -36,5 +37,4 @@ func play_collect_animation() -> void:
 	
 	_collect_tween.chain().tween_callback(queue_free)
 
-func _apply_effect() -> void: pass # virtual
-
+func _on_collect() -> void: pass # virtual

@@ -71,16 +71,16 @@ position = Vector2(134, -92)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_3mnpy")
 
-[node name="ArrowUp2" type="Sprite2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="3" unique_id=842718863]
+[node name="ArrowTurnRight" type="Sprite2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="3" unique_id=1762526116]
+position = Vector2(118, -544)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_6ayib")
+
+[node name="ArrowRight" type="Sprite2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="4" unique_id=842718863]
 position = Vector2(472, -730)
 rotation = 1.3593768
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_3mnpy")
-
-[node name="Sprite2D" type="Sprite2D" parent="World" parent_id_path=PackedInt32Array(104736592) index="4" unique_id=1762526116]
-position = Vector2(118, -544)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_6ayib")
 
 [node name="CezCoin" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="0" unique_id=454780902 instance=ExtResource("3_1f54s")]
 position = Vector2(1, 202)
@@ -108,6 +108,7 @@ position = Vector2(-189, -1021)
 
 [node name="TutorialUI" type="Control" parent="." index="5" unique_id=432197577]
 layout_mode = 3
+anchors_preset = 0
 offset_left = -150.0
 offset_top = 20.0
 offset_right = 150.0

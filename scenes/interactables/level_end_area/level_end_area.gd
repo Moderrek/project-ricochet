@@ -11,4 +11,3 @@ func _on_body_entered(body):
 	set_deferred("monitoring", false)
 	
 	GameManager.load_next_level()
-

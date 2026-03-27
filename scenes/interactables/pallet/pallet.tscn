@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c2lckjp47l84q"]
 
+[ext_resource type="Script" uid="uid://dbqadmbr6u4ku" path="res://scenes/interactables/pallet/pallet.gd" id="1_ktdhu"]
 [ext_resource type="Texture2D" uid="uid://nr35w0xjkrgf" path="res://assets/images/pallet.png" id="1_t46a7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktdhu"]
@@ -10,6 +11,7 @@ mass = 15.0
 gravity_scale = 0.0
 linear_damp = 10.0
 angular_damp = 15.0
+script = ExtResource("1_ktdhu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=764381822]
 texture = ExtResource("1_t46a7")

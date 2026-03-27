@@ -1,3 +1,4 @@
+@icon("res://assets/icons/player_icon.png")
 extends RigidBody2D
 class_name Player
 
@@ -82,4 +83,3 @@ func _shoot():
 	
 	apply_central_impulse(final_force)
 	player_shot.emit()
-

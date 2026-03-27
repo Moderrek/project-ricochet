@@ -1,6 +1,8 @@
+@icon("res://assets/icons/vending_icon.png")
 extends StaticBody2D
 class_name VendingMachine
 
+# TODO: refactor name from coffee to drop item.
 @export_category("Vending Machine")
 @export var coffee_scene: PackedScene
 @export var coffee_count: int = 1
@@ -17,6 +19,7 @@ var is_shaking := false
 @onready var spawn_point: Marker2D = $DropSpawnPoint
 
 func _ready() -> void:
+	# TODO: display warning about not set drop item scene.
 	hits_left = coffee_count
 
 func hit(impact_velocity: float) -> void:
@@ -62,4 +65,3 @@ func _spawn_coffee() -> void:
 	
 	if coffee.has_method("play_hover_animation"):
 		jump_tween.chain().tween_callback(coffee.play_hover_animation)
-

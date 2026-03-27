@@ -95,4 +95,3 @@ func _spawn_player():
 
 	_on_player_spawned(player)
 	player.player_shot.connect(_on_player_shot)
-

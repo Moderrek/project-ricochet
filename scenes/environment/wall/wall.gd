@@ -1,5 +1,7 @@
 @tool
+@icon("res://assets/icons/wall_icon.png")
 extends StaticBody2D
+class_name Wall
 
 @export var size: Vector2 = Vector2(100, 20):
 		set(value):

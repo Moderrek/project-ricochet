@@ -25,4 +25,3 @@ func trigger() -> void:
 		return
 
 	SceneChanger.change_scene_smooth(path)
-
