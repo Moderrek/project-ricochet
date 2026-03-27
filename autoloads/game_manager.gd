@@ -1,47 +1,33 @@
 extends Node
 
 signal time_out
-signal coins_changed(new_amount: int)
-signal boost_changed(new_amount: float)
+signal time_ticked(current_seconds: int)
+signal coins_changed(total_coins_collected: int)
+signal boost_changed(current_boost_level: float)
 @warning_ignore("unused_signal") # signal is used in player and camera, but not emitted in GameManager itself
 signal camera_shake_request(strength: float)
-signal time_ticked(current_seconds: int)
 
-@export var time_limit := 180.0 # 3 minutes
+
+@export_category("Game Settings")
+@export_range(0.0, 600.0, 1.0, "suffix:sec") var game_time: float = 180.0 # 3 minutes
 @export var levels_data: Array[LevelData] = []
+@export var player_scene: PackedScene = preload("res://scenes/entities/player/player.tscn")
+@export_category("Boost Settings")
+@export_range(0.0, 100.0, 1.0, "suffix:%") var max_boost: float = 100.0
+@export_range(0.0, 10.0, 0.1, "suffix:%/s") var boost_drain_rate: float = 3.0 # per s
 
-var player_scene: PackedScene  = preload("res://scenes/entities/player/player.tscn")
-var is_game_running           := false
-var cez_coins                 := 0
-var boost_level               := 0.0
-var max_boost                 := 100.0
-var boost_drain_rate          := 3.0 # per s
-var time_left                 := 0.0
-var is_timer_active           := false
-var current_level_index       := 0
-var _last_tick_seconds        := -1
+var is_timer_active: bool = false
+var is_game_running: bool = false
+var timer_seconds: float = 0.0
+var current_collected_coins: int = 0
+var current_boost_level: float = 0.0
+var current_level_index: int = 0
 
-func _process(delta):
-	# Timer drain
-	if is_timer_active && is_game_running:
-		time_left -= delta
-		if time_left <= 0:
-			time_left = 0
-			is_timer_active = false
-			is_game_running = false
-			time_out.emit()
-			SceneChanger.change_scene_smooth("res://scenes/menus/end_screen.tscn")
-		var current_sec = int(time_left)
-		if current_sec != _last_tick_seconds:
-			_last_tick_seconds = current_sec
-			time_ticked.emit(current_sec)
-	
-	# Boost Drain
-	if boost_level > 0:
-		boost_level -= delta * boost_drain_rate
-		if boost_level < 0:
-			boost_level = 0
-		boost_changed.emit(boost_level)
+var _last_tick_seconds: int = -1
+
+func _process(delta) -> void:
+	if is_game_running:
+		_process_game(delta)
 
 func get_current_level_data() -> LevelData:
 	if current_level_index < levels_data.size():
@@ -55,10 +41,11 @@ func create_player() -> Node2D:
 	
 	return player_scene.instantiate()
 
-func start_game():
+func start_game() -> void:
 	print("Starting game...")
 	_init_run_state()
 	current_level_index = 0
+	time_ticked.emit(int(timer_seconds))
 	
 	var first_level = get_current_level_data()
 	if first_level:
@@ -97,28 +84,69 @@ func load_next_level():
 	var next_level = get_current_level_data()
 	_change_level(next_level)
 
-func add_coins(amount: int):
-	cez_coins += amount
-	coins_changed.emit(cez_coins)
+func add_coins(amount: int) -> void:
+	current_collected_coins += amount
+	if current_collected_coins < 0:
+		current_collected_coins = 0
+	coins_changed.emit(current_collected_coins)
 
 func add_boost(amount: float) -> void:
-	boost_level = clamp(boost_level + amount, 0.0, max_boost)
-	boost_changed.emit(boost_level)
+	current_boost_level = clamp(current_boost_level + amount, 0.0, max_boost)
+	boost_changed.emit(current_boost_level)
 
 func get_time_spent() -> float:
-	return time_limit - time_left
+	return game_time - timer_seconds
 
 func _change_level(level: LevelData) -> void:
 	if level == null:
-		SceneChanger.change_scene_smooth("res://scenes/menus/end_screen.tscn")
 		is_game_running = false
+		SceneChanger.change_scene_to_end_screen()
 		return
+	
 	SceneChanger.change_scene_smooth(level.scene_path)
 
 func _init_run_state() -> void:
-	cez_coins = 0
-	time_left = time_limit
-	_last_tick_seconds = -1
 	is_game_running = true
 	is_timer_active = false
+	current_collected_coins = 0
+	current_boost_level = 0.0
+	timer_seconds = 0.0
+	_last_tick_seconds = -1
 	print("Initialized Game State")
+
+## Internal game loop processing. Called from _process when game is running.
+func _process_game(delta: float) -> void:
+	_timer_drain(delta)
+	_boost_drain(delta)
+
+func _timer_drain(delta: float) -> void:
+	if not is_timer_active:
+		return
+	if timer_seconds <= 0.0:
+		return
+	
+	# Draining time.
+	timer_seconds -= delta
+
+	# Checking for time out.
+	var time_over: bool = timer_seconds <= 0.0
+	if time_over:
+		timer_seconds = 0.0
+		is_timer_active = false
+		is_game_running = false
+		time_out.emit()
+		SceneChanger.change_scene_to_end_screen()
+	
+	# Emiting time tick signal every second.
+	var current_sec = int(timer_seconds)
+	if current_sec != _last_tick_seconds:
+		_last_tick_seconds = current_sec
+		time_ticked.emit(current_sec)
+
+func _boost_drain(delta: float) -> void:
+	if current_boost_level <= 0.0:
+		return
+
+	# Draining boost over time.
+	current_boost_level = clamp(current_boost_level - boost_drain_rate * delta, 0.0, max_boost)
+	boost_changed.emit(current_boost_level)

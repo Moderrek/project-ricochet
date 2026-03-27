@@ -3,7 +3,7 @@ extends BaseCollectible
 class_name CoffeeCollectible
 
 @export_category("Collectible")
-@export_range(0.0, 100.0, 1.0, "suffix:MAX%") var boost_amount: float = 50.0 # maximum boost: 100 
+@export_range(0.0, 100.0, 1.0, "suffix:%") var boost_amount: float = 50.0 # maximum boost: 100%
 
 var _hover_tween: Tween
 

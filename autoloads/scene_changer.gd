@@ -2,6 +2,9 @@ extends CanvasLayer
 
 const FADE_DURATION := 0.3 # Duration for fade in/out in seconds
 
+@export var menu_scene: PackedScene = preload("res://scenes/menus/main_menu.tscn")
+@export var end_screen_scene: PackedScene = preload("res://scenes/menus/end_screen.tscn")
+
 @onready var background: ColorRect = $Background
 
 func _ready() -> void:
@@ -9,6 +12,10 @@ func _ready() -> void:
 	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func change_scene_smooth(path: String) -> void:
+	if not ResourceLoader.exists(path):
+		push_error("Scene path does not exist: " + path)
+		return
+
 	background.mouse_filter = Control.MOUSE_FILTER_STOP
 
 	# Fade to black
@@ -32,4 +39,13 @@ func change_scene_immediate(path: String) -> void:
 	get_tree().change_scene_to_file(path)
 
 func change_scene_to_menu() -> void:
-	change_scene_smooth("res://scenes/menus/main_menu.tscn")
+	if not menu_scene:
+		push_error("Menu scene is not assigned in SceneChanger.")
+		return
+	change_scene_smooth(menu_scene.resource_path)
+
+func change_scene_to_end_screen() -> void:
+	if not end_screen_scene:
+		push_error("End screen scene is not assigned in SceneChanger.")
+		return
+	change_scene_smooth(end_screen_scene.resource_path)

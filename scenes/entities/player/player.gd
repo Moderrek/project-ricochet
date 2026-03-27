@@ -78,7 +78,7 @@ func _shoot():
 	if final_force.length() > max_force:
 		final_force = final_force.limit_length(max_force)
 	
-	if GameManager.boost_level > 0:
+	if GameManager.current_boost_level > 0:
 		final_force *= 1.5
 	
 	apply_central_impulse(final_force)

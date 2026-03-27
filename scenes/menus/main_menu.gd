@@ -4,10 +4,8 @@ extends Node2D
 @onready var play_button: Button = $UILayer/MainMargin/MainLayout/ContentArea/MenuButtons/PlayButton
 @onready var lockers_button: Button = $UILayer/MainMargin/MainLayout/ContentArea/MenuButtons/LockersButton
 @onready var quit_button: Button = $UILayer/MainMargin/MainLayout/ContentArea/MenuButtons/QuitButton
-
 @onready var news_button: Button = $UILayer/MainMargin/MainLayout/ContentArea/NewsCard/MarginContainer/VBoxContainer/NewsButton
 @onready var coin_amount_label: Label = $UILayer/MainMargin/MainLayout/TopBar/CoinDisplay/CoinAmount
-
 @onready var hover_sound: AudioStreamPlayer = $HoverSound
 @onready var click_sound: AudioStreamPlayer = $ClickSound
 @onready var click_particles: CPUParticles2D = $ClickParticles

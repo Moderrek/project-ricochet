@@ -15,32 +15,28 @@ func _ready():
 	GameManager.boost_changed.connect(_on_boost_changed)
 	GameManager.time_ticked.connect(_on_time_ticked)
 	
-	_update_coins(GameManager.cez_coins)
+	_update_coins(GameManager.current_collected_coins)
 	
 	boost_bar.max_value  = GameManager.max_boost
-	boost_bar.value      = GameManager.boost_level
+	boost_bar.value      = GameManager.current_boost_level
 	boost_bar.modulate.a = 0.0
 
 func _process(_delta):
 	if GameManager.is_timer_active:
-		if GameManager.time_left <= 30.0:
+		if GameManager.timer_seconds <= 30.0:
 			var pulse = (sin(Time.get_ticks_msec() / 150.0) + 1.0) / 2.0
 			time_label.modulate = Color(1.0, pulse, pulse)
 		else:
-			time_label.modulate = Color.WHITE
-	else:
-		if time_label.text != "--:--":
-			time_label.text = "--:--"
 			time_label.modulate = Color.WHITE
 
 func _setup_ui():
 	coin_label.pivot_offset = coin_label.size / 2.0
 
-func _update_coins(new_amount: int):
-	coin_label.text = "Cez Coins: " + str(new_amount)
+func _update_coins(total_collected_coins: int):
+	coin_label.text = "Monety: %d" % total_collected_coins
 
-func _on_coins_changed(new_amount: int):
-	_update_coins(new_amount)
+func _on_coins_changed(total_collected_coins: int):
+	_update_coins(total_collected_coins)
 	
 	if _coin_tween and _coin_tween.is_valid():
 		_coin_tween.kill()
@@ -53,20 +49,24 @@ func _on_coins_changed(new_amount: int):
 	_coin_tween.parallel().tween_property(coin_label, "modulate", Color.WHITE, 0.15)
 
 func _on_time_ticked(current_seconds: int) -> void:
+	if current_seconds <= 0:
+		time_label.text = "--:--"
+		return
+
 	@warning_ignore("integer_division")
 	var minutes: int = current_seconds / 60
 	var seconds: int = current_seconds % 60
 
 	time_label.text = "%02d:%02d" % [minutes, seconds]
 
-func _on_boost_changed(new_amount: float) -> void:
-	boost_bar.value = new_amount
+func _on_boost_changed(current_boost_level: float) -> void:
+	boost_bar.value = current_boost_level
 	
 	if _boost_tween and _boost_tween.is_valid():
 		_boost_tween.kill()
 		
 	_boost_tween = create_tween()
-	if new_amount > 0 and boost_bar.modulate.a < 1.0:
+	if current_boost_level > 0 and boost_bar.modulate.a < 1.0:
 		_boost_tween.tween_property(boost_bar, "modulate:a", 1.0, 0.2)
-	elif new_amount <= 0 and boost_bar.modulate.a > 0.0:
+	elif current_boost_level <= 0 and boost_bar.modulate.a > 0.0:
 		_boost_tween.tween_property(boost_bar, "modulate:a", 0.0, 0.5)

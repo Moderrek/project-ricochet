@@ -9,6 +9,7 @@ const DEFEAT_COLOR       := Color("ff3366")
 @onready var stats_label  = $Center/Panel/Margin/VBoxContainer/StatsLabel
 @onready var menu_button  = $Center/Panel/Margin/VBoxContainer/HorizontalButtonContainer/MenuButton
 @onready var retry_button = $Center/Panel/Margin/VBoxContainer/HorizontalButtonContainer/RetryButton
+@onready var panel 	      = $Center/Panel
 
 func _ready():
 	menu_button.pressed.connect(_on_menu_pressed)
@@ -23,7 +24,6 @@ func _process(_delta):
 		_on_menu_pressed()
 	
 func _panel_ease_in():
-	var panel = $Center/Panel
 	panel.scale = Vector2.ZERO
 	var tween = create_tween()
 	tween.tween_property(panel, "scale", Vector2.ONE, 0.4)\
@@ -32,23 +32,22 @@ func _panel_ease_in():
 func _setup_screen():
 	var time_spent := int(GameManager.get_time_spent())
 	@warning_ignore("integer_division")
-	var minutes = time_spent / 60
-	var seconds = time_spent % 60
+	var minutes: int = time_spent / 60
+	var seconds: int = time_spent % 60
 
-	# Apply collected coins during game to total coins in save.
-	if GameManager.cez_coins > 0:
-		SaveManager.add_coins(GameManager.cez_coins)
-		GameManager.cez_coins = 0
-
-	var is_win := GameManager.time_left > 0.0
-
+	var is_win: bool = GameManager.time_left > 0.0
 	if is_win:
 		title_label.text = TITLE_VICTORY_TEXT
 		title_label.add_theme_color_override("font_color", VICTORY_COLOR)
 	else:
 		title_label.text = TITLE_DEFEAT_TEXT
 		title_label.add_theme_color_override("font_color", DEFEAT_COLOR)
-	stats_label.text = "Zebrano monet: %d\nPokonano w: %02dmin %02ds" % [GameManager.cez_coins, minutes, seconds]
+	stats_label.text = "Zebrano monet: %d\nPokonano w: %02dmin %02ds" % [GameManager.current_collected_coins, minutes, seconds]
+
+	# Apply collected coins during game to total coins in save.
+	if GameManager.current_collected_coins > 0:
+		SaveManager.add_coins(GameManager.current_collected_coins)
+		GameManager.current_collected_coins = 0
 
 func _on_menu_pressed():
 	SceneChanger.change_scene_to_menu()

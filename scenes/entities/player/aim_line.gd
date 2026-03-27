@@ -3,7 +3,6 @@ class_name AimLine
 
 @export_category("Behavior")
 @export var max_bounces: int = 2
-
 @export_category("Visual")
 @export var cold_color = Color(0.3, 0.7, 1.0, 0.7)
 @export var hot_color = Color(1.0, 0.5, 0.2, 1.0)
@@ -80,8 +79,8 @@ func _update_aim_line(drag_vector: Vector2) -> void:
 	var line_width = lerp(2.0, max_width, force_intensity)
 	var arrow_scale = lerp(0.5, max_arrow_scale, force_intensity)
 	
-	var current_cold = boost_cold_color if GameManager.boost_level > 0 else cold_color
-	var current_hot = boost_hot_color if GameManager.boost_level > 0 else hot_color
+	var current_cold = boost_cold_color if GameManager.current_boost_level > 0 else cold_color
+	var current_hot = boost_hot_color if GameManager.current_boost_level > 0 else hot_color
 	var overall_color = current_cold.lerp(current_hot, force_intensity)
 
 	var start_pos = player.global_position
@@ -142,4 +141,3 @@ func _update_arrow(arrow_scale: float, color: Color):
 		arrow_node.modulate = color
 	else:
 		arrow_node.hide()
-
