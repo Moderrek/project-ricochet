@@ -35,7 +35,7 @@ func _setup_screen():
 	var minutes: int = time_spent / 60
 	var seconds: int = time_spent % 60
 
-	var is_win: bool = GameManager.time_left > 0.0
+	var is_win: bool = GameManager.timer_seconds > 0.0
 	if is_win:
 		title_label.text = TITLE_VICTORY_TEXT
 		title_label.add_theme_color_override("font_color", VICTORY_COLOR)
