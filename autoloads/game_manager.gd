@@ -97,6 +97,14 @@ func add_boost(amount: float) -> void:
 func get_time_spent() -> float:
 	return game_time - timer_seconds
 
+func restart_current_level() -> void:
+	# TODO: just teleport player to spawn and reset boost
+	var current_level = get_current_level_data()
+	if current_level:
+		_change_level(current_level)
+	else:
+		push_error("Current level data not found. Cannot restart level.")
+
 func _change_level(level: LevelData) -> void:
 	if level == null:
 		is_game_running = false

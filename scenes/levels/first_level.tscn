@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c2lckjp47l84q" path="res://scenes/interactables/pallet/pallet.tscn" id="5_3kh8m"]
 [ext_resource type="PackedScene" uid="uid://f0b327r50edc" path="res://scenes/interactables/level_end_area/level_end_area.tscn" id="6_qhf3p"]
 [ext_resource type="Texture2D" uid="uid://d0hr2wermr0kv" path="res://assets/images/wall.png" id="7_3kh8m"]
+[ext_resource type="PackedScene" uid="uid://b0ws8muyrxrio" path="res://scenes/environment/hazard_area/hazard_area.tscn" id="8_fqprn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cbu3j"]
 friction = 0.0
@@ -24,7 +25,6 @@ texture_region_size = Vector2i(256, 256)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
 
 [sub_resource type="TileSet" id="TileSet_hkalp"]
-tile_shape = 1
 tile_size = Vector2i(256, 256)
 physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_cbu3j")
@@ -91,3 +91,11 @@ scale = Vector2(0.8213694, 0.7973608)
 
 [node name="LevelEndArea" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="14" unique_id=1251197318 instance=ExtResource("6_qhf3p")]
 position = Vector2(1208, 190)
+
+[node name="HazardArea" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="15" unique_id=23005303 instance=ExtResource("8_fqprn")]
+position = Vector2(-440, 520)
+
+[node name="Polygon2D" type="CollisionPolygon2D" parent="Entities/HazardArea" index="0" unique_id=848382834]
+position = Vector2(-1, -1)
+build_mode = 1
+polygon = PackedVector2Array(-268, -9, 268, 1, 62, -97, -74, -116, -222, -82)

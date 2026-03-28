@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b0ws8muyrxrio"]
+
+[ext_resource type="Script" uid="uid://day8giwpngo8g" path="res://scenes/environment/hazard_area/hazard_area.gd" id="1_tfem7"]
+
+[node name="HazardArea" type="Area2D" unique_id=23005303]
+script = ExtResource("1_tfem7")
