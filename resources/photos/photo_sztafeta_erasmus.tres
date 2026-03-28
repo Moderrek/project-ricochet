@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PhotoData" format=3 uid="uid://fpu51pga4u8p"]
+
+[ext_resource type="Script" uid="uid://p7juw868vj6n" path="res://resources/data/photo_data.gd" id="1_ao5t8"]
+
+[resource]
+script = ExtResource("1_ao5t8")
+id = "sztafeta_erasmus"
+title = "Projektowa sztafeta Erasmusa"
+description = "18 marca 2026 r. odbyło się symboliczne przekazanie pałeczki sztafetowej zespołowi projektowemu Erasmus+ 2026. Uczniowie z  projektu  Erasmus+ 2025 pogratulowali  zakwalifikowanym uczniom ich sukcesu i życzyli osiągnięcia celów projektowych."
+image_path = "uid://fkeope58u3q5"
+metadata/_custom_type_script = "uid://p7juw868vj6n"

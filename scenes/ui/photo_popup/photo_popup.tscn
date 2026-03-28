@@ -1,0 +1,182 @@
+[gd_scene load_steps=11 format=3 uid="uid://cunsmqqqx20fj"]
+
+[ext_resource type="Script" uid="uid://d25u5rev4yp2d" path="res://scenes/ui/photo_popup/photo_popup.gd" id="1_hj875"]
+[ext_resource type="Texture2D" uid="uid://6jn3rswpudft" path="res://assets/photos/school_game.jpg" id="1_tdkqk"]
+[ext_resource type="Shader" uid="uid://5pn8jkwlkc30" path="res://shaders/background_blur.gdshader" id="2_3du3f"]
+[ext_resource type="Theme" uid="uid://dsthmqy2j18d5" path="res://resources/themes/soft_ui_theme.tres" id="2_jenah"]
+[ext_resource type="Shader" uid="uid://itcqh3nb0wkl" path="res://shaders/vignette.gdshader" id="3_g6jyo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aqysq"]
+shader = ExtResource("2_3du3f")
+shader_parameter/blur_amount = 1.5
+shader_parameter/mix_color = Color(0, 0, 0, 0.6)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x0waf"]
+shader = ExtResource("3_g6jyo")
+shader_parameter/vignette_power = 0.4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_header"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x_normal"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x_focus"]
+
+[node name="PhotoPopup" type="CanvasLayer" unique_id=1304383399]
+process_mode = 3
+layer = 10
+script = ExtResource("1_hj875")
+
+[node name="Blur" type="ColorRect" parent="."]
+unique_id=2091562559
+material = SubResource("ShaderMaterial_aqysq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Vignette" type="ColorRect" parent="."]
+unique_id=222542479
+material = SubResource("ShaderMaterial_x0waf")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+unique_id=1784934831
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_jenah")
+
+[node name="OuterMargin" type="MarginContainer" parent="CenterContainer"]
+unique_id=1350173061
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="PopupPanel" type="PanelContainer" parent="CenterContainer/OuterMargin"]
+unique_id=1314635420
+layout_mode = 2
+pivot_offset = Vector2(217, 246)
+
+[node name="WindowVBox" type="VBoxContainer" parent="CenterContainer/OuterMargin/PopupPanel"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HeaderPanel" type="PanelContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_header")
+
+[node name="HeaderMargin" type="MarginContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/HeaderPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HeaderHBox" type="HBoxContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/HeaderPanel/HeaderMargin"]
+layout_mode = 2
+
+[node name="WindowTitleLabel" type="Label" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/HeaderPanel/HeaderMargin/HeaderHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Odkryto nową pracownię"
+text_overrun_behavior = 3
+
+[node name="CloseButtonX" type="Button" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/HeaderPanel/HeaderMargin/HeaderHBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.5, 0.5, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x_normal")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x_normal")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_x_normal")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_x_normal")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x_focus")
+text = "X"
+
+[node name="HeaderSeparator" type="HSeparator" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox"]
+layout_mode = 2
+
+[node name="ContentMargin" type="MarginContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox"]
+unique_id=921180348
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="MainVBox" type="VBoxContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin"]
+unique_id=1482231724
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PhotoContainer" type="AspectRatioContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin/MainVBox"]
+unique_id=1858693370
+custom_minimum_size = Vector2(400, 225)
+layout_mode = 2
+ratio = 1.7778
+
+[node name="PhotoTexture" type="TextureRect" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin/MainVBox/PhotoContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_tdkqk")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextContainer" type="VBoxContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin/MainVBox"]
+unique_id=1249215610
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin/MainVBox/TextContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="DescriptionScroll" type="ScrollContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin/MainVBox/TextContainer"]
+unique_id=1884942038
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="DescriptionLabel" type="Label" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin/MainVBox/TextContainer/DescriptionScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="BottomSeparator" type="HSeparator" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox"]
+unique_id=1983281145
+layout_mode = 2
+
+[node name="ButtonMargin" type="MarginContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="CloseButton" type="Button" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ButtonMargin"]
+unique_name_in_owner = true
+unique_id=2116007247
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Zamknij i graj dalej"

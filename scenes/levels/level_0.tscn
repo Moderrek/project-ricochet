@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://f0b327r50edc" path="res://scenes/interactables/level_end_area/level_end_area.tscn" id="5_rtok4"]
 [ext_resource type="PackedScene" uid="uid://50bacffex26x" path="res://scenes/collectibles/coffee/coffee.tscn" id="9_65guy"]
 [ext_resource type="FontFile" uid="uid://7mkp4b5kldtl" path="res://assets/fonts/Rubik-Medium.ttf" id="10_p6rmu"]
+[ext_resource type="PackedScene" uid="uid://c7g3upf78s37y" path="res://scenes/collectibles/photo/photo.tscn" id="12_vhkxn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dume2"]
 shader = ExtResource("2_53han")
@@ -105,6 +106,9 @@ scale = Vector2(4.000005, 3.72)
 
 [node name="Coffee" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="6" unique_id=1227350045 instance=ExtResource("9_65guy")]
 position = Vector2(-189, -1021)
+
+[node name="Photo" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="7" unique_id=1049147030 instance=ExtResource("12_vhkxn")]
+position = Vector2(49, -793)
 
 [node name="TutorialUI" type="Control" parent="." index="5" unique_id=432197577]
 layout_mode = 3

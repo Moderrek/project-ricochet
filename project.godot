@@ -30,6 +30,7 @@ SaveManager="*uid://dxsfwh1sluerl"
 GameManager="*uid://bclc6d6j5v14s"
 PauseMenu="*uid://b3ktuj0msl7n2"
 NetworkManager="*uid://chaqjkwb4sor0"
+PhotoManager="*uid://c4ct68wsbksn3"
 
 [display]
 

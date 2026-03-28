@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://dsthmqy2j18d5" path="res://resources/themes/soft_ui_theme.tres" id="1_ovrgc"]
 [ext_resource type="Script" uid="uid://desjhxanthuch" path="res://scenes/menus/main_menu.gd" id="1_xqga4"]
 [ext_resource type="PackedScene" uid="uid://roygbhglbhmm" path="res://scenes/levels/level_0.tscn" id="2_imvie"]
-[ext_resource type="Texture2D" uid="uid://6jn3rswpudft" path="res://assets/images/school_game.jpg" id="3_2o76q"]
+[ext_resource type="Texture2D" uid="uid://6jn3rswpudft" path="res://assets/photos/school_game.jpg" id="3_2o76q"]
 [ext_resource type="Texture2D" uid="uid://cgj8rglvy6xvc" path="res://assets/images/cez_coin_64x64.png" id="3_6bivr"]
 [ext_resource type="Script" uid="uid://2rbnt84b6r83" path="res://scenes/menus/cinematic_camera.gd" id="3_ng0o5"]
 [ext_resource type="Shader" uid="uid://5pn8jkwlkc30" path="res://shaders/background_blur.gdshader" id="4_8r73w"]

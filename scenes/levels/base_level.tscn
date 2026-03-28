@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b003vepsmgy1u" path="res://scenes/levels/base_level.gd" id="1_md458"]
 [ext_resource type="PackedScene" uid="uid://e8n7jbo5e5lr" path="res://scenes/ui/hud.tscn" id="2_uk53i"]
+[ext_resource type="PackedScene" uid="uid://cunsmqqqx20fj" path="res://scenes/ui/photo_popup/photo_popup.tscn" id="3_ukglk"]
 
 [node name="BaseLevel" type="Node2D" unique_id=1806712695]
 script = ExtResource("1_md458")
@@ -16,6 +17,9 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="HUD" parent="." unique_id=1381379692 instance=ExtResource("2_uk53i")]
+visible = false
+
+[node name="PhotoPopup" parent="." unique_id=1951043870 instance=ExtResource("3_ukglk")]
 visible = false
 
 [node name="World" type="Node2D" parent="." unique_id=104736592]

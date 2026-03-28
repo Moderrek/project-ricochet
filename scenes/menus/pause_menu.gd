@@ -19,14 +19,18 @@ func _ready() -> void:
 	
 
 func _unhandled_input(event: InputEvent) -> void:
+	if not GameManager.is_game_running:
+		return
 	if event.is_action_pressed("ui_cancel"):
-		if GameManager.is_game_running:
-			toggle_pause()
+		if get_tree().paused and not visible:
+			return
+		toggle_pause()
 
 func toggle_pause() -> void:
 	var is_paused = not get_tree().paused
 	get_tree().paused = is_paused
 	visible = is_paused
+	Engine.time_scale = 0.0 if is_paused else 1.0
 
 	if is_paused:
 		if resume_button:
@@ -37,6 +41,8 @@ func _on_resume_pressed() -> void:
 
 func _on_main_menu_pressed() -> void:
 	get_tree().paused = false
+	Engine.time_scale = 1.0
+
 	hide()
 
 	GameManager.is_game_running = false

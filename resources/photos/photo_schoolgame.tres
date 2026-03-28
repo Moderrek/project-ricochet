@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PhotoData" format=3 uid="uid://m1qp4olugxv2"]
+
+[ext_resource type="Script" uid="uid://p7juw868vj6n" path="res://resources/data/photo_data.gd" id="1_qrcic"]
+
+[resource]
+script = ExtResource("1_qrcic")
+id = "school_game"
+title = "School Games 2026"
+description = "Konkurs School Game."
+image_path = "uid://6jn3rswpudft"
+metadata/_custom_type_script = "uid://p7juw868vj6n"
