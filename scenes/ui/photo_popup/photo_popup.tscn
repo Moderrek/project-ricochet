@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cunsmqqqx20fj"]
+[gd_scene format=3 uid="uid://cunsmqqqx20fj"]
 
 [ext_resource type="Script" uid="uid://d25u5rev4yp2d" path="res://scenes/ui/photo_popup/photo_popup.gd" id="1_hj875"]
 [ext_resource type="Texture2D" uid="uid://6jn3rswpudft" path="res://assets/photos/school_game.jpg" id="1_tdkqk"]
@@ -26,8 +26,7 @@ process_mode = 3
 layer = 10
 script = ExtResource("1_hj875")
 
-[node name="Blur" type="ColorRect" parent="."]
-unique_id=2091562559
+[node name="Blur" type="ColorRect" parent="." unique_id=598480873]
 material = SubResource("ShaderMaterial_aqysq")
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,8 +35,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.6)
 
-[node name="Vignette" type="ColorRect" parent="."]
-unique_id=222542479
+[node name="Vignette" type="ColorRect" parent="." unique_id=829261114]
 material = SubResource("ShaderMaterial_x0waf")
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,8 +43,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-unique_id=1784934831
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=584150502]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -54,44 +51,41 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_jenah")
 
-[node name="OuterMargin" type="MarginContainer" parent="CenterContainer"]
-unique_id=1350173061
+[node name="OuterMargin" type="MarginContainer" parent="CenterContainer" unique_id=1566359008]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="PopupPanel" type="PanelContainer" parent="CenterContainer/OuterMargin"]
-unique_id=1314635420
+[node name="PopupPanel" type="PanelContainer" parent="CenterContainer/OuterMargin" unique_id=712794480]
 layout_mode = 2
-pivot_offset = Vector2(217, 246)
 
-[node name="WindowVBox" type="VBoxContainer" parent="CenterContainer/OuterMargin/PopupPanel"]
+[node name="WindowVBox" type="VBoxContainer" parent="CenterContainer/OuterMargin/PopupPanel" unique_id=2020045003]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="HeaderPanel" type="PanelContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox"]
+[node name="HeaderPanel" type="PanelContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox" unique_id=529645149]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_header")
 
-[node name="HeaderMargin" type="MarginContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/HeaderPanel"]
+[node name="HeaderMargin" type="MarginContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/HeaderPanel" unique_id=837739872]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HeaderHBox" type="HBoxContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/HeaderPanel/HeaderMargin"]
+[node name="HeaderHBox" type="HBoxContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/HeaderPanel/HeaderMargin" unique_id=1813720488]
 layout_mode = 2
 
-[node name="WindowTitleLabel" type="Label" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/HeaderPanel/HeaderMargin/HeaderHBox"]
+[node name="WindowTitleLabel" type="Label" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/HeaderPanel/HeaderMargin/HeaderHBox" unique_id=58333049]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Odkryto nową pracownię"
 text_overrun_behavior = 3
 
-[node name="CloseButtonX" type="Button" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/HeaderPanel/HeaderMargin/HeaderHBox"]
+[node name="CloseButtonX" type="Button" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/HeaderPanel/HeaderMargin/HeaderHBox" unique_id=611001294]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
@@ -100,60 +94,55 @@ theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
 theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 0.5, 0.5, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_x_normal")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_x_normal")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_x_normal")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x_normal")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_x_normal")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_x_focus")
 text = "X"
 
-[node name="HeaderSeparator" type="HSeparator" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox"]
+[node name="HeaderSeparator" type="HSeparator" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox" unique_id=396014838]
 layout_mode = 2
 
-[node name="ContentMargin" type="MarginContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox"]
-unique_id=921180348
+[node name="ContentMargin" type="MarginContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox" unique_id=1798917142]
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="MainVBox" type="VBoxContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin"]
-unique_id=1482231724
+[node name="MainVBox" type="VBoxContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin" unique_id=1795289803]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="PhotoContainer" type="AspectRatioContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin/MainVBox"]
-unique_id=1858693370
+[node name="PhotoContainer" type="AspectRatioContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin/MainVBox" unique_id=703381633]
 custom_minimum_size = Vector2(400, 225)
 layout_mode = 2
 ratio = 1.7778
 
-[node name="PhotoTexture" type="TextureRect" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin/MainVBox/PhotoContainer"]
+[node name="PhotoTexture" type="TextureRect" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin/MainVBox/PhotoContainer" unique_id=350120265]
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("1_tdkqk")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextContainer" type="VBoxContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin/MainVBox"]
-unique_id=1249215610
+[node name="TextContainer" type="VBoxContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin/MainVBox" unique_id=975593936]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="TitleLabel" type="Label" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin/MainVBox/TextContainer"]
+[node name="TitleLabel" type="Label" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin/MainVBox/TextContainer" unique_id=280392596]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="DescriptionScroll" type="ScrollContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin/MainVBox/TextContainer"]
-unique_id=1884942038
+[node name="DescriptionScroll" type="ScrollContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin/MainVBox/TextContainer" unique_id=826966862]
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="DescriptionLabel" type="Label" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin/MainVBox/TextContainer/DescriptionScroll"]
+[node name="DescriptionLabel" type="Label" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin/MainVBox/TextContainer/DescriptionScroll" unique_id=1866793272]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -163,20 +152,18 @@ theme_override_font_sizes/font_size = 14
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="BottomSeparator" type="HSeparator" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox"]
-unique_id=1983281145
+[node name="BottomSeparator" type="HSeparator" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox" unique_id=477857811]
 layout_mode = 2
 
-[node name="ButtonMargin" type="MarginContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox"]
+[node name="ButtonMargin" type="MarginContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox" unique_id=1204712169]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="CloseButton" type="Button" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ButtonMargin"]
+[node name="CloseButton" type="Button" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ButtonMargin" unique_id=915331920]
 unique_name_in_owner = true
-unique_id=2116007247
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Zamknij i graj dalej"
