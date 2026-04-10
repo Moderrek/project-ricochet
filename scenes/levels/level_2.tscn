@@ -17,6 +17,13 @@ size = Vector2(464, 51)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpwj6"]
 size = Vector2(467, 414)
 
+[sub_resource type="Gradient" id="Gradient_ibugp"]
+offsets = PackedFloat32Array(0.16704805, 1)
+colors = PackedColorArray(0.11764706, 0.06666667, 0.023529412, 1, 0.11764706, 0.06666667, 0.023529412, 0.38039216)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8qukl"]
+gradient = SubResource("Gradient_ibugp")
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cbu3j"]
 friction = 0.0
 bounce = 0.7
@@ -65,6 +72,15 @@ shape = SubResource("RectangleShape2D_l37oo")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" index="3" unique_id=1996289019]
 position = Vector2(260.5, -618)
 shape = SubResource("RectangleShape2D_qpwj6")
+
+[node name="TextureRect" type="TextureRect" parent="StaticBody2D" index="4" unique_id=313561393]
+offset_left = 482.0
+offset_top = -845.0
+offset_right = 915.0
+offset_bottom = -436.0
+rotation = 1.5707964
+scale = Vector2(1, 1.1200006)
+texture = SubResource("GradientTexture1D_8qukl")
 
 [node name="HazardArea" type="Area2D" parent="." index="6" unique_id=723298129]
 script = ExtResource("2_ra442")
