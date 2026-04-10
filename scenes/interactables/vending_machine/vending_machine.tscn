@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://vcwujiav2nj3" path="res://scenes/interactables/vending_machine/vending_machine.gd" id="1_7b47a"]
 [ext_resource type="Texture2D" uid="uid://cg4v688bnp7ha" path="res://assets/images/vending.png" id="1_eps6u"]
 [ext_resource type="PackedScene" uid="uid://50bacffex26x" path="res://scenes/collectibles/coffee/coffee.tscn" id="2_uc8mh"]
+[ext_resource type="AudioStream" uid="uid://1wvktvire1xx" path="res://assets/sounds/ambient_machine_noise.ogg" id="4_ggjxn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7b47a"]
 size = Vector2(128, 192)
@@ -21,3 +22,10 @@ debug_color = Color(0.60784316, 0.34901962, 0.7137255, 0.39215687)
 
 [node name="DropSpawnPoint" type="Marker2D" parent="." unique_id=1574124354]
 position = Vector2(0, 68)
+
+[node name="WorkingNoise" type="AudioStreamPlayer2D" parent="." unique_id=76128194]
+stream = ExtResource("4_ggjxn")
+volume_db = -6.0
+autoplay = true
+max_distance = 1000.0
+attenuation = 3.4822013
