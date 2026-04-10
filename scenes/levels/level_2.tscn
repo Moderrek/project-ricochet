@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ctj13btnys8ks" path="res://assets/images/wall_test.png" id="2_nt80m"]
 [ext_resource type="Script" uid="uid://day8giwpngo8g" path="res://scenes/environment/hazard_area/hazard_area.gd" id="2_ra442"]
 [ext_resource type="PackedScene" uid="uid://bp4bmbtgpi3cn" path="res://scenes/collectibles/cez_coin/cez_coin.tscn" id="3"]
+[ext_resource type="Texture2D" uid="uid://dphek2jkg6fc6" path="res://assets/images/arrow_up.png" id="4"]
 [ext_resource type="PackedScene" uid="uid://lvklfo0pscmv" path="res://scenes/interactables/vending_machine/vending_machine.tscn" id="6_brxtv"]
 [ext_resource type="PackedScene" uid="uid://f0b327r50edc" path="res://scenes/interactables/level_end_area/level_end_area.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://c7g3upf78s37y" path="res://scenes/collectibles/photo/photo.tscn" id="10_1yj8c"]
@@ -162,6 +163,11 @@ position = Vector2(690, -897)
 
 [node name="Photo2" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="17" unique_id=1000896202 instance=ExtResource("10_1yj8c")]
 position = Vector2(913, 68)
+
+[node name="ArrowUp" type="Sprite2D" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="18" unique_id=1872959992]
+rotation = -1.0593233
+scale = Vector2(0.2, 0.181)
+texture = ExtResource("4")
 
 [node name="HazardArea2" type="Area2D" parent="." index="9" unique_id=2033964776]
 script = ExtResource("2_ra442")
