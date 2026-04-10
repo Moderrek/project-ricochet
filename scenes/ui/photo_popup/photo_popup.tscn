@@ -127,6 +127,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="TextContainer" type="VBoxContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin/MainVBox" unique_id=975593936]
+custom_minimum_size = Vector2(0, 240)
 layout_mode = 2
 theme_override_constants/separation = 8
 
@@ -138,7 +139,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="DescriptionScroll" type="ScrollContainer" parent="CenterContainer/OuterMargin/PopupPanel/WindowVBox/ContentMargin/MainVBox/TextContainer" unique_id=826966862]
-custom_minimum_size = Vector2(0, 90)
+custom_minimum_size = Vector2(0, 205)
 layout_mode = 2
 horizontal_scroll_mode = 0
 
@@ -166,4 +167,4 @@ theme_override_constants/margin_bottom = 10
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Zamknij i graj dalej"
+text = "Kontynuuj"
