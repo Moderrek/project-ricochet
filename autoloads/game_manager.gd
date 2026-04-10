@@ -25,6 +25,9 @@ var current_level_index: int = 0
 
 var _last_tick_seconds: int = -1
 
+func _ready() -> void:
+	_apply_responsive_scaling()
+
 func _process(delta) -> void:
 	if is_game_running:
 		_process_game(delta)
@@ -40,6 +43,16 @@ func create_player() -> Node2D:
 		return null
 	
 	return player_scene.instantiate()
+
+func _apply_responsive_scaling() -> void:
+	var current_window_size = get_window().size 
+	var is_mobile = OS.has_feature("mobile") or OS.has_feature("web_ios") or OS.has_feature("web_android")
+	var is_high_res = current_window_size.x >= 1920 or current_window_size.y >= 1080
+	if is_mobile or is_high_res:
+		var scale_factor = min(current_window_size.x / 1920.0, current_window_size.y / 1080.0)
+		get_window().content_scale_factor = scale_factor
+		print("Applied responsive scaling with factor: ", scale_factor)
+	
 
 func start_game() -> void:
 	print("Starting game...")
