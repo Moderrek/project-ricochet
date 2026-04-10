@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bp4bmbtgpi3cn"]
 
 [ext_resource type="Script" uid="uid://c2x7rvn4rmvmj" path="res://scenes/collectibles/cez_coin/cez_coin.gd" id="1_7qc10"]
+[ext_resource type="AudioStream" uid="uid://daweyfjn66n3w" path="res://assets/sounds/sfx_coin.ogg" id="2_igq6p"]
 [ext_resource type="Texture2D" uid="uid://dh4oy3skmg6ir" path="res://assets/images/cez_coin_spritesheet.png" id="2_nt470"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b7icy"]
@@ -240,6 +241,7 @@ animations = [{
 
 [node name="CezCoin" type="Area2D" unique_id=454780902]
 script = ExtResource("1_7qc10")
+pickup_sound = ExtResource("2_igq6p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1368257555]
 shape = SubResource("CircleShape2D_b7icy")
@@ -250,3 +252,5 @@ sprite_frames = SubResource("SpriteFrames_0c1tr")
 animation = &"spritesheet"
 autoplay = "spritesheet"
 frame_progress = 0.977858
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1932223326]

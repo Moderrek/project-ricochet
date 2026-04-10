@@ -11,8 +11,14 @@ signal player_shot
 var is_aiming := false 
 var max_drag_distance: float # will be calculated at _ready
 
-@onready var particles: CPUParticles2D = $CPUParticles2D
+@onready var particles: CPUParticles2D = $HitParticles
+@onready var death_particles: CPUParticles2D = $DeathParticles
 @onready var aim_line: AimLine = $AimLine
+@onready var bounce_sound: AudioStreamPlayer2D = $BounceSound
+@onready var death_sound: AudioStreamPlayer2D = $DeathSound
+@onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
+
+var _is_dead: bool = false
 
 func _ready():
 	input_pickable = false
@@ -37,6 +43,13 @@ func _input(event):
 
 func _on_body_entered(_body):
 	var speed = linear_velocity.length()
+
+	# Sound
+	if speed > 50.0:
+		if bounce_sound:
+			bounce_sound.pitch_scale = 0.8 + (speed / max_force) * 0.4
+			bounce_sound.play()
+
 	
 	# Communicate with environment
 	if _body.has_method("hit"):
@@ -53,6 +66,35 @@ func _on_body_entered(_body):
 		
 		# Emit shake request
 		GameManager.camera_shake_request.emit(shake_strength)
+
+func shatter_and_respawn(spawn_position: Vector2):
+	if _is_dead: return
+	_is_dead = true
+
+	set_deferred("freeze", true)
+	linear_velocity = Vector2.ZERO
+	angular_velocity = 0.0
+
+	$Sprite2D.hide()
+	is_aiming = false
+	if aim_line:
+		aim_line.stop_aiming()
+	
+	if death_particles:
+		death_particles.restart()
+	
+	if death_sound:
+		death_sound.play()
+	GameManager.camera_shake_request.emit(30.0)
+
+	var tween = create_tween()
+	tween.tween_interval(1.2)
+	tween.tween_callback(func():
+		global_position = spawn_position
+		$Sprite2D.show()
+		set_deferred("freeze", false)
+		_is_dead = false
+	)
 
 func get_drag_vector() -> Vector2:
 	var drag_end = get_global_mouse_position()
@@ -83,3 +125,6 @@ func _shoot():
 	
 	apply_central_impulse(final_force)
 	player_shot.emit()
+	if shoot_sound:
+		shoot_sound.pitch_scale = 0.8 + (final_force.length() / max_force) * 0.4
+		shoot_sound.play()

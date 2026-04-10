@@ -16,6 +16,8 @@ signal camera_shake_request(strength: float)
 @export_range(0.0, 100.0, 1.0, "suffix:%") var max_boost: float = 100.0
 @export_range(0.0, 10.0, 0.1, "suffix:%/s") var boost_drain_rate: float = 3.0 # per s
 
+@onready var soundtrack: AudioStreamPlayer = $Soundtrack
+
 var is_timer_active: bool = false
 var is_game_running: bool = false
 var timer_seconds: float = 0.0
@@ -59,7 +61,7 @@ func start_game() -> void:
 	_init_run_state()
 	current_level_index = 0
 	time_ticked.emit(int(timer_seconds))
-	
+
 	var first_level = get_current_level_data()
 	if first_level:
 		_change_level(first_level)
@@ -111,16 +113,20 @@ func get_time_spent() -> float:
 	return game_time - timer_seconds
 
 func restart_current_level() -> void:
-	# TODO: just teleport player to spawn and reset boost
-	var current_level = get_current_level_data()
-	if current_level:
-		_change_level(current_level)
-	else:
-		push_error("Current level data not found. Cannot restart level.")
+	call_deferred("_teleport_player_to_spawn")
+
+func _teleport_player_to_spawn() -> void:
+	var player_node: Player = get_tree().get_first_node_in_group("player")
+	var spawn_marker: Marker2D = get_tree().get_first_node_in_group("spawn_point")
+	if not player_node or not spawn_marker:
+		push_error("Cannot restart level: Missing player or spawn point.")
+		return
+	player_node.shatter_and_respawn(spawn_marker.global_position)
 
 func _change_level(level: LevelData) -> void:
 	if level == null:
 		is_game_running = false
+		_end_game()
 		SceneChanger.change_scene_to_end_screen()
 		return
 	
@@ -134,6 +140,15 @@ func _init_run_state() -> void:
 	timer_seconds = 0.0
 	_last_tick_seconds = -1
 	print("Initialized Game State")
+	if soundtrack:
+		soundtrack.play()
+
+func _end_game() -> void:
+	is_game_running = false
+	is_timer_active = false
+	if soundtrack:
+		soundtrack.stop()
+	
 
 ## Internal game loop processing. Called from _process when game is running.
 func _process_game(delta: float) -> void:
@@ -156,6 +171,7 @@ func _timer_drain(delta: float) -> void:
 		is_timer_active = false
 		is_game_running = false
 		time_out.emit()
+		_end_game()
 		SceneChanger.change_scene_to_end_screen()
 	
 	# Emiting time tick signal every second.

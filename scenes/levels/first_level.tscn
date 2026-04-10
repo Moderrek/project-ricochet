@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://0dahmcdfnjd5" path="res://scenes/levels/base_level.tscn" id="1_1bbdw"]
 [ext_resource type="Texture2D" uid="uid://ctj13btnys8ks" path="res://assets/images/wall_test.png" id="2_gy01a"]
+[ext_resource type="Script" uid="uid://pmt3vrml7m1s" path="res://scenes/levels/level_camera.gd" id="2_mpghw"]
 [ext_resource type="PackedScene" uid="uid://bp4bmbtgpi3cn" path="res://scenes/collectibles/cez_coin/cez_coin.tscn" id="3_xbibw"]
 [ext_resource type="PackedScene" uid="uid://lvklfo0pscmv" path="res://scenes/interactables/vending_machine/vending_machine.tscn" id="4_qhf3p"]
 [ext_resource type="PackedScene" uid="uid://c2lckjp47l84q" path="res://scenes/interactables/pallet/pallet.tscn" id="5_3kh8m"]
@@ -36,6 +37,9 @@ sources/0 = SubResource("TileSetAtlasSource_3kh8m")
 
 [node name="PlayerSpawnMarker" parent="." index="0" unique_id=1507377149]
 position = Vector2(304, 709)
+
+[node name="LevelCamera" parent="." index="1" unique_id=602886328]
+script = ExtResource("2_mpghw")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="World" parent_id_path=PackedInt32Array(104736592) index="0" unique_id=185156666]
 position = Vector2(240.99998, 20.999998)

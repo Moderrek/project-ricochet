@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://d2rgn1galmcp" path="res://scenes/entities/player/player.gd" id="1_58kc7"]
 [ext_resource type="Texture2D" uid="uid://byp5m1ro6tas3" path="res://assets/images/player.png" id="2_58kc7"]
 [ext_resource type="PackedScene" uid="uid://crr81x7gnlhgu" path="res://scenes/entities/player/aim_line.tscn" id="3_bjvvg"]
+[ext_resource type="AudioStream" uid="uid://bwa5fcgv0ygix" path="res://assets/sounds/sfx_hit.ogg" id="4_nh4ur"]
+[ext_resource type="AudioStream" uid="uid://cfocvly8487f5" path="res://assets/sounds/sfx_break.ogg" id="5_bjvvg"]
+[ext_resource type="AudioStream" uid="uid://dnxle0fab2v85" path="res://assets/sounds/sfx_shoot.ogg" id="6_8akj5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rkbax"]
 friction = 0.0
@@ -12,6 +15,7 @@ bounce = 0.8
 radius = 32.0
 
 [node name="Player" type="RigidBody2D" unique_id=953439206 groups=["player"]]
+position = Vector2(1, 0)
 physics_material_override = SubResource("PhysicsMaterial_rkbax")
 gravity_scale = 0.0
 continuous_cd = 1
@@ -21,7 +25,7 @@ linear_damp = 2.0
 angular_damp = 2.0
 script = ExtResource("1_58kc7")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=883833528]
+[node name="HitParticles" type="CPUParticles2D" parent="." unique_id=883833528]
 emitting = false
 amount = 15
 lifetime = 0.3
@@ -36,8 +40,36 @@ scale_amount_max = 3.0
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=134253475]
 texture = ExtResource("2_58kc7")
 
+[node name="DeathParticles" type="CPUParticles2D" parent="." unique_id=1075091389]
+emitting = false
+amount = 15
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 32.0
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2046518984]
 shape = SubResource("CircleShape2D_onrkg")
 
 [node name="AimLine" parent="." unique_id=2122664174 instance=ExtResource("3_bjvvg")]
 max_bounces = 3
+
+[node name="BounceSound" type="AudioStreamPlayer2D" parent="." unique_id=156636392]
+stream = ExtResource("4_nh4ur")
+max_polyphony = 4
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=262353726]
+stream = ExtResource("5_bjvvg")
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=810637926]
+stream = ExtResource("6_8akj5")
+volume_db = -15.901
+max_polyphony = 4
