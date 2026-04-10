@@ -4,7 +4,7 @@ class_name HUD
 var _coin_tween: Tween
 var _boost_tween: Tween
 
-@onready var time_label = $Panel/TimeLabel
+@onready var time_label = $Panel/CenterContainer/TimeLabel
 @onready var coin_label = $Control/MarginContainer/HBoxContainer/CoinLabel
 @onready var boost_bar  = $BoostBar
 
@@ -16,6 +16,7 @@ func _ready():
 	GameManager.time_ticked.connect(_on_time_ticked)
 	
 	_update_coins(GameManager.current_collected_coins)
+	_on_time_ticked(int(GameManager.timer_seconds), int(GameManager.get_remaining_time()))
 	
 	boost_bar.max_value  = GameManager.max_boost
 	boost_bar.value      = GameManager.current_boost_level
@@ -23,7 +24,7 @@ func _ready():
 
 func _process(_delta):
 	if GameManager.is_timer_active:
-		if GameManager.timer_seconds <= 30.0:
+		if GameManager.get_remaining_time() <= 30.0:
 			var pulse = (sin(Time.get_ticks_msec() / 150.0) + 1.0) / 2.0
 			time_label.modulate = Color(1.0, pulse, pulse)
 		else:
@@ -48,14 +49,16 @@ func _on_coins_changed(total_collected_coins: int):
 	_coin_tween.tween_property(coin_label, "scale", Vector2(1.0, 1.0), 0.15).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	_coin_tween.parallel().tween_property(coin_label, "modulate", Color.WHITE, 0.15)
 
-func _on_time_ticked(current_seconds: int) -> void:
-	if current_seconds <= 0:
+func _on_time_ticked(current_seconds: int, remaining_seconds: int) -> void:
+	if not time_label:
+		return
+	if current_seconds == 0 or remaining_seconds < 0:
 		time_label.text = "--:--"
 		return
 
 	@warning_ignore("integer_division")
-	var minutes: int = current_seconds / 60
-	var seconds: int = current_seconds % 60
+	var minutes: int = remaining_seconds / 60
+	var seconds: int = remaining_seconds % 60
 
 	time_label.text = "%02d:%02d" % [minutes, seconds]
 
