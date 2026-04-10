@@ -126,6 +126,7 @@ layout_mode = 2
 text = "Rozpocznij"
 
 [node name="LockersButton" type="Button" parent="UILayer/MainMargin/MainLayout/ContentArea/MenuButtons" unique_id=575374972]
+visible = false
 layout_mode = 2
 text = "Szafki"
 

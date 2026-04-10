@@ -17,6 +17,7 @@ var is_shaking := false
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var spawn_point: Marker2D = $DropSpawnPoint
+@onready var working_noise: AudioStreamPlayer2D = $WorkingNoise
 
 func _ready() -> void:
 	# TODO: display warning about not set drop item scene.
@@ -31,6 +32,8 @@ func hit(impact_velocity: float) -> void:
 	
 	if hits_left > 0:
 		hits_left -= 1
+		if hits_left == 0 and working_noise:
+			working_noise.stop()
 		call_deferred("_spawn_coffee")
 
 func _play_shake_animation() -> void:

@@ -42,6 +42,7 @@ layout_mode = 2
 
 [node name="CoinLabel" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=277786247]
 layout_mode = 2
+tooltip_text = "Ilość zebranych monet"
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
 theme_override_constants/shadow_offset_x = 4
@@ -60,13 +61,18 @@ offset_bottom = 96.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0mwgc")
 
-[node name="TimeLabel" type="Label" parent="Panel" unique_id=1092580615]
-layout_mode = 0
-offset_left = 59.0
-offset_top = 18.0
-offset_right = 862.0
-offset_bottom = 75.0
+[node name="CenterContainer" type="CenterContainer" parent="Panel" unique_id=1249902653]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimeLabel" type="Label" parent="Panel/CenterContainer" unique_id=1092580615]
+layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Pozostały czas do końca gry"
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
 theme_override_constants/shadow_offset_x = 4
@@ -84,6 +90,7 @@ offset_top = -62.0
 offset_right = 509.0
 offset_bottom = -14.0
 grow_vertical = 0
+tooltip_text = "Poziom naładowania kawą"
 theme_override_styles/fill = SubResource("StyleBoxFlat_hqnrr")
 value = 59.36
 show_percentage = false

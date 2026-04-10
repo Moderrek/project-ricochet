@@ -4,8 +4,11 @@
 [ext_resource type="Script" uid="uid://5yn71kehvwfl" path="res://resources/data/photo_database.gd" id="2_g80v5"]
 [ext_resource type="Resource" uid="uid://m1qp4olugxv2" path="res://resources/photos/photo_schoolgame.tres" id="2_h2v75"]
 [ext_resource type="Resource" uid="uid://fpu51pga4u8p" path="res://resources/photos/photo_sztafeta_erasmus.tres" id="3_h2v75"]
+[ext_resource type="Resource" uid="uid://cqjnvmdn0x2iu" path="res://resources/photos/photo_druk.tres" id="4_qdf0i"]
+[ext_resource type="Resource" uid="uid://xppvq0rdieit" path="res://resources/photos/photo_boze_narodzenie.tres" id="5_btkmh"]
+[ext_resource type="Resource" uid="uid://dh2prswelm2vx" path="res://resources/photos/photo_dyrektorzy.tres" id="6_mvoao"]
 
 [resource]
 script = ExtResource("2_g80v5")
-photos = Array[ExtResource("1_spdtm")]([ExtResource("2_h2v75"), ExtResource("3_h2v75")])
+photos = Array[ExtResource("1_spdtm")]([ExtResource("2_h2v75"), ExtResource("3_h2v75"), ExtResource("4_qdf0i"), ExtResource("5_btkmh"), ExtResource("6_mvoao")])
 metadata/_custom_type_script = "uid://5yn71kehvwfl"

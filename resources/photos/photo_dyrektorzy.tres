@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PhotoData" format=3 uid="uid://dh2prswelm2vx"]
+
+[ext_resource type="Script" uid="uid://p7juw868vj6n" path="res://resources/data/photo_data.gd" id="1_385mu"]
+
+[resource]
+script = ExtResource("1_385mu")
+id = "dyrektorzy"
+title = "Dyrektorzy CKZiU"
+description = ""
+image_path = "uid://8dti20cilrjr"
+metadata/_custom_type_script = "uid://p7juw868vj6n"

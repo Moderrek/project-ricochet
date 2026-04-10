@@ -83,33 +83,6 @@ rotation = 1.3593768
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_3mnpy")
 
-[node name="CezCoin" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="0" unique_id=454780902 instance=ExtResource("3_1f54s")]
-position = Vector2(1, 202)
-
-[node name="CezCoin2" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="1" unique_id=1359555862 instance=ExtResource("3_1f54s")]
-position = Vector2(-189, -569)
-
-[node name="CezCoin4" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="2" unique_id=154153162 instance=ExtResource("3_1f54s")]
-position = Vector2(-71, -713)
-
-[node name="CezCoin3" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="3" unique_id=971922968 instance=ExtResource("3_1f54s")]
-position = Vector2(205, -641)
-
-[node name="Wall" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="4" unique_id=95733983 instance=ExtResource("4_2vy66")]
-position = Vector2(49.00003, -720)
-rotation = -0.5820912
-size = Vector2(300, 20)
-
-[node name="LevelEndArea" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="5" unique_id=1251197318 instance=ExtResource("5_rtok4")]
-position = Vector2(759, -839.00006)
-scale = Vector2(4.000005, 3.72)
-
-[node name="Coffee" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="6" unique_id=1227350045 instance=ExtResource("9_65guy")]
-position = Vector2(-189, -1021)
-
-[node name="Photo" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="7" unique_id=1049147030 instance=ExtResource("12_vhkxn")]
-position = Vector2(49, -793)
-
 [node name="TutorialUI" type="Control" parent="." index="5" unique_id=432197577]
 layout_mode = 3
 anchors_preset = 0
@@ -146,3 +119,30 @@ Przeciągnij w tył
 Puść, aby strzelić"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CezCoin" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="0" unique_id=454780902 instance=ExtResource("3_1f54s")]
+position = Vector2(1, 202)
+
+[node name="CezCoin2" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="1" unique_id=1359555862 instance=ExtResource("3_1f54s")]
+position = Vector2(-189, -569)
+
+[node name="CezCoin4" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="2" unique_id=154153162 instance=ExtResource("3_1f54s")]
+position = Vector2(-71, -713)
+
+[node name="CezCoin3" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="3" unique_id=971922968 instance=ExtResource("3_1f54s")]
+position = Vector2(205, -641)
+
+[node name="Wall" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="4" unique_id=95733983 instance=ExtResource("4_2vy66")]
+position = Vector2(49.00003, -720)
+rotation = -0.5820912
+size = Vector2(300, 20)
+
+[node name="LevelEndArea" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="5" unique_id=1251197318 instance=ExtResource("5_rtok4")]
+position = Vector2(759, -839.00006)
+scale = Vector2(4.000005, 3.72)
+
+[node name="Coffee" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="6" unique_id=1227350045 instance=ExtResource("9_65guy")]
+position = Vector2(-189, -1021)
+
+[node name="Photo" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="7" unique_id=1049147030 instance=ExtResource("12_vhkxn")]
+position = Vector2(49, -793)

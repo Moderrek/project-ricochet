@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PhotoData" format=3 uid="uid://cqjnvmdn0x2iu"]
+
+[ext_resource type="Script" uid="uid://p7juw868vj6n" path="res://resources/data/photo_data.gd" id="1_am2ko"]
+
+[resource]
+script = ExtResource("1_am2ko")
+id = "druk"
+title = "Uczniowie innej szkoły na lekcjach w CKZiU"
+description = "26 marca 2026 r.  nasza szkoła miała przyjemność gościć uczniów Technikum nr 9 w Łodzi – klasę drugą o profilu informatyczno-programistycznym. Nasi goście zwiedzili budynek szkoły, a następnie wzięli udział w zajęciach lekcyjnych razem z naszą klasą programistyczną."
+image_path = "uid://b0wq5teutkx1i"
+metadata/_custom_type_script = "uid://p7juw868vj6n"

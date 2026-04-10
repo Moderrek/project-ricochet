@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PhotoData" format=3 uid="uid://d3n0v8n0k3gpt"]
+
+[ext_resource type="Script" uid="uid://p7juw868vj6n" path="res://resources/data/photo_data.gd" id="1_pgowi"]
+
+[resource]
+script = ExtResource("1_pgowi")
+id = "walentyna"
+title = "Walentyna Tierieszkowa"
+description = "Walentina Władimirowna Tierieszkowa – radziecka kosmonautka, inżynierka, Bohater Związku Radzieckiego i Lotnik Kosmonauta ZSRR."
+image_path = "uid://dx477n7antysy"
+metadata/_custom_type_script = "uid://p7juw868vj6n"

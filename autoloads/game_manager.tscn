@@ -3,9 +3,14 @@
 [ext_resource type="Script" uid="uid://7ywrinrlb7ia" path="res://autoloads/game_manager.gd" id="1_3ovu6"]
 [ext_resource type="Script" uid="uid://dlaao106usovu" path="res://resources/data/level_data.gd" id="2_qaqf1"]
 [ext_resource type="Resource" uid="uid://cphqg0ol0qcdm" path="res://resources/levels/level_tutorial.tres" id="3_nc61q"]
-[ext_resource type="Resource" uid="uid://bqsy2ybagbp3" path="res://resources/levels/level_first.tres" id="4_25hud"]
+[ext_resource type="Resource" uid="uid://gxxu6v2glied" path="res://resources/levels/level_2.tres" id="5_25hud"]
 [ext_resource type="Resource" uid="uid://bnxug432kxfcn" path="res://resources/levels/level_test.tres" id="5_nc61q"]
+[ext_resource type="AudioStream" uid="uid://bfxg1byn2afdo" path="res://assets/sounds/soundtrack.ogg" id="6_25hud"]
 
 [node name="GameManager" type="Node" unique_id=2096355611]
 script = ExtResource("1_3ovu6")
-levels_data = Array[ExtResource("2_qaqf1")]([ExtResource("3_nc61q"), ExtResource("4_25hud"), ExtResource("5_nc61q")])
+levels_data = Array[ExtResource("2_qaqf1")]([ExtResource("3_nc61q"), ExtResource("5_nc61q"), ExtResource("5_25hud")])
+
+[node name="Soundtrack" type="AudioStreamPlayer" parent="." unique_id=227009377]
+stream = ExtResource("6_25hud")
+volume_db = -24.066

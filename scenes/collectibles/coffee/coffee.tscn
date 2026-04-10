@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://34u23spn7pd1" path="res://scenes/collectibles/coffee/coffee.gd" id="1_bggki"]
 [ext_resource type="Texture2D" uid="uid://tcpnulnchxbq" path="res://assets/images/coffee_spritesheet.png" id="1_wkfra"]
+[ext_resource type="AudioStream" uid="uid://c6kb4d78fyrpe" path="res://assets/sounds/sfx_gulp.ogg" id="2_7pb2e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bggki"]
 atlas = ExtResource("1_wkfra")
@@ -240,6 +241,7 @@ radius = 32.0
 
 [node name="Coffee" type="Area2D" unique_id=1227350045]
 script = ExtResource("1_bggki")
+pickup_sound = ExtResource("2_7pb2e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=53517861]
 sprite_frames = SubResource("SpriteFrames_apbd8")
@@ -250,3 +252,5 @@ frame_progress = 0.14045845
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1428137511]
 shape = SubResource("CircleShape2D_jggkj")
 debug_color = Color(0.94509804, 0.76862746, 0.05882353, 0.39215687)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=542097466]

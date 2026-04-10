@@ -1,7 +1,7 @@
 extends Node
 
 signal time_out
-signal time_ticked(current_seconds: int)
+signal time_ticked(current_seconds: int, remaining_seconds: int)
 signal coins_changed(total_coins_collected: int)
 signal boost_changed(current_boost_level: float)
 @warning_ignore("unused_signal") # signal is used in player and camera, but not emitted in GameManager itself
@@ -15,6 +15,8 @@ signal camera_shake_request(strength: float)
 @export_category("Boost Settings")
 @export_range(0.0, 100.0, 1.0, "suffix:%") var max_boost: float = 100.0
 @export_range(0.0, 10.0, 0.1, "suffix:%/s") var boost_drain_rate: float = 3.0 # per s
+
+@onready var soundtrack: AudioStreamPlayer = $Soundtrack
 
 var is_timer_active: bool = false
 var is_game_running: bool = false
@@ -45,8 +47,8 @@ func start_game() -> void:
 	print("Starting game...")
 	_init_run_state()
 	current_level_index = 0
-	time_ticked.emit(int(timer_seconds))
-	
+	time_ticked.emit(int(timer_seconds), int(get_remaining_time()))
+
 	var first_level = get_current_level_data()
 	if first_level:
 		_change_level(first_level)
@@ -95,19 +97,26 @@ func add_boost(amount: float) -> void:
 	boost_changed.emit(current_boost_level)
 
 func get_time_spent() -> float:
-	return game_time - timer_seconds
+	return timer_seconds
+
+func get_remaining_time() -> float:
+	return max(game_time - timer_seconds, 0.0)
 
 func restart_current_level() -> void:
-	# TODO: just teleport player to spawn and reset boost
-	var current_level = get_current_level_data()
-	if current_level:
-		_change_level(current_level)
-	else:
-		push_error("Current level data not found. Cannot restart level.")
+	call_deferred("_teleport_player_to_spawn")
+
+func _teleport_player_to_spawn() -> void:
+	var player_node: Player = get_tree().get_first_node_in_group("player")
+	var spawn_marker: Marker2D = get_tree().get_first_node_in_group("spawn_point")
+	if not player_node or not spawn_marker:
+		push_error("Cannot restart level: Missing player or spawn point.")
+		return
+	player_node.shatter_and_respawn(spawn_marker.global_position)
 
 func _change_level(level: LevelData) -> void:
 	if level == null:
 		is_game_running = false
+		_end_game()
 		SceneChanger.change_scene_to_end_screen()
 		return
 	
@@ -121,35 +130,45 @@ func _init_run_state() -> void:
 	timer_seconds = 0.0
 	_last_tick_seconds = -1
 	print("Initialized Game State")
+	if soundtrack:
+		soundtrack.play()
+
+func _end_game() -> void:
+	is_game_running = false
+	is_timer_active = false
+	if soundtrack:
+		soundtrack.stop()
+	
 
 ## Internal game loop processing. Called from _process when game is running.
 func _process_game(delta: float) -> void:
-	_timer_drain(delta)
+	_timer(delta)
 	_boost_drain(delta)
 
-func _timer_drain(delta: float) -> void:
+func _timer(delta: float) -> void:
 	if not is_timer_active:
 		return
-	if timer_seconds <= 0.0:
+	if timer_seconds >= game_time:
 		return
 	
 	# Draining time.
-	timer_seconds -= delta
+	timer_seconds += delta
 
 	# Checking for time out.
-	var time_over: bool = timer_seconds <= 0.0
+	var time_over: bool = timer_seconds >= game_time
 	if time_over:
-		timer_seconds = 0.0
+		timer_seconds = game_time
 		is_timer_active = false
 		is_game_running = false
 		time_out.emit()
+		_end_game()
 		SceneChanger.change_scene_to_end_screen()
 	
 	# Emiting time tick signal every second.
 	var current_sec = int(timer_seconds)
 	if current_sec != _last_tick_seconds:
 		_last_tick_seconds = current_sec
-		time_ticked.emit(current_sec)
+		time_ticked.emit(current_sec, int(get_remaining_time()))
 
 func _boost_drain(delta: float) -> void:
 	if current_boost_level <= 0.0:

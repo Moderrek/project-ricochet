@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PhotoData" format=3 uid="uid://xppvq0rdieit"]
+
+[ext_resource type="Script" uid="uid://p7juw868vj6n" path="res://resources/data/photo_data.gd" id="1_7bieo"]
+
+[resource]
+script = ExtResource("1_7bieo")
+id = "boze_narodzenie"
+title = "Najdłuższy szkolny stół wigilijny"
+description = "\"To było chyba największe szkolne spotkanie wigilijne. We wtorek, 20 grudnia po południu do wspólnego najdłuższego stołu na 1000 lub nawet więcej osób zasiedli uczniowie i nauczyciele szkoły przy ul. Żeromskiego 115 w Łodzi.\""
+image_path = "uid://dm0x0afqxxx43"
+metadata/_custom_type_script = "uid://p7juw868vj6n"
