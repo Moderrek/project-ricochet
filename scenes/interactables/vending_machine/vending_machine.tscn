@@ -25,7 +25,7 @@ position = Vector2(0, 68)
 
 [node name="WorkingNoise" type="AudioStreamPlayer2D" parent="." unique_id=76128194]
 stream = ExtResource("4_ggjxn")
-volume_db = -6.0
+volume_db = -20.0
 autoplay = true
 max_distance = 1000.0
 attenuation = 3.4822013

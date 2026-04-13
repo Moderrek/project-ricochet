@@ -8,7 +8,9 @@
 [ext_resource type="Script" uid="uid://2rbnt84b6r83" path="res://scenes/menus/cinematic_camera.gd" id="3_ng0o5"]
 [ext_resource type="Shader" uid="uid://5pn8jkwlkc30" path="res://shaders/background_blur.gdshader" id="4_8r73w"]
 [ext_resource type="Shader" uid="uid://itcqh3nb0wkl" path="res://shaders/vignette.gdshader" id="5_1hnlc"]
+[ext_resource type="FontFile" uid="uid://c4t6gw58eaj7x" path="res://assets/fonts/Rubik-Black.ttf" id="7_bre17"]
 [ext_resource type="AudioStream" uid="uid://r4ng60ge8lwt" path="res://assets/sounds/sfx_ui_hover.ogg" id="9_50h1w"]
+[ext_resource type="FontFile" uid="uid://7mkp4b5kldtl" path="res://assets/fonts/Rubik-Medium.ttf" id="10_88kup"]
 [ext_resource type="AudioStream" uid="uid://dv31algqn6khp" path="res://assets/sounds/sfx_ui_click.ogg" id="10_euy4r"]
 
 [sub_resource type="Curve2D" id="Curve2D_imvie"]
@@ -87,8 +89,12 @@ layout_mode = 2
 
 [node name="TitleLabel" type="Label" parent="UILayer/MainMargin/MainLayout/TopBar" unique_id=110136393]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("7_bre17")
 theme_override_font_sizes/font_size = 32
-text = "CKZiU: 3 Minuty do Dzwonka"
+text = "CKZiU
+ 3 Minuty do Dzwonka"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TopSpacer" type="Control" parent="UILayer/MainMargin/MainLayout/TopBar" unique_id=668834174]
 layout_mode = 2
@@ -163,6 +169,7 @@ stretch_mode = 6
 
 [node name="NewsTitle" type="Label" parent="UILayer/MainMargin/MainLayout/ContentArea/NewsCard/MarginContainer/VBoxContainer" unique_id=956951839]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("10_88kup")
 theme_override_font_sizes/font_size = 20
 text = "Konkurs \"School Games 2026\""
 horizontal_alignment = 1
@@ -186,13 +193,16 @@ stretch_mode = 5
 
 [node name="NewsButton" type="Button" parent="UILayer/MainMargin/MainLayout/ContentArea/NewsCard/MarginContainer/VBoxContainer" unique_id=640320816]
 layout_mode = 2
-text = "Czytaj i Odbierz"
+theme_override_fonts/font = ExtResource("10_88kup")
+text = "Przeczytaj i odbierz"
 
 [node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=1298044777]
 stream = ExtResource("9_50h1w")
+volume_db = -12.0
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=1066146521]
 stream = ExtResource("10_euy4r")
+volume_db = -6.0
 
 [node name="ClickParticles" type="CPUParticles2D" parent="." unique_id=1228607021]
 z_index = 4096

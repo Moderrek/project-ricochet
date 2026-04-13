@@ -64,12 +64,14 @@ max_bounces = 3
 
 [node name="BounceSound" type="AudioStreamPlayer2D" parent="." unique_id=156636392]
 stream = ExtResource("4_nh4ur")
+volume_db = -6.0
 max_polyphony = 4
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=262353726]
 stream = ExtResource("5_bjvvg")
+volume_db = -5.0
 
 [node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=810637926]
 stream = ExtResource("6_8akj5")
-volume_db = -15.901
+volume_db = -10.0
 max_polyphony = 4
