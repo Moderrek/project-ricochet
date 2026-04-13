@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bqivdiyrejdfk"]
 
 [ext_resource type="FontFile" uid="uid://c4t6gw58eaj7x" path="res://assets/fonts/Rubik-Black.ttf" id="1_atpf1"]
+[ext_resource type="Theme" uid="uid://dsthmqy2j18d5" path="res://resources/themes/soft_ui_theme.tres" id="1_ty7q8"]
 [ext_resource type="Script" uid="uid://c6bbrvlnkdijx" path="res://scenes/menus/end_screen.gd" id="1_yrivc"]
 [ext_resource type="Shader" uid="uid://mb272d4b0hl6" path="res://shaders/blueprint.gdshader" id="2_mi55a"]
 [ext_resource type="Shader" uid="uid://5pn8jkwlkc30" path="res://shaders/background_blur.gdshader" id="3_j3ecp"]
@@ -37,17 +38,85 @@ shadow_color = Color(0, 0, 0, 0.11764706)
 shadow_size = 15
 shadow_offset = Vector2(0, 8)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3ecp"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4x1j"]
 content_margin_left = 40.0
-content_margin_top = 15.0
+content_margin_top = 16.0
 content_margin_right = 40.0
-content_margin_bottom = 15.0
-bg_color = Color(0.8784314, 0.8980392, 0.9254902, 1)
-border_width_bottom = 6
+content_margin_bottom = 16.0
+bg_color = Color(0.8, 0.9333333, 1, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.11764706)
+shadow_size = 4
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6c3f0"]
+content_margin_left = 40.0
+content_margin_top = 16.0
+content_margin_right = 40.0
+content_margin_bottom = 16.0
+bg_color = Color(0.5867505, 0.8667829, 0.9999998, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.11764706)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dt0xn"]
+content_margin_left = 40.0
+content_margin_top = 16.0
+content_margin_right = 40.0
+content_margin_bottom = 16.0
+bg_color = Color(0.5882353, 0.8666667, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.11764706)
+shadow_size = 4
+shadow_offset = Vector2(0, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ty7q8"]
+content_margin_left = 40.0
+content_margin_top = 16.0
+content_margin_right = 40.0
+content_margin_bottom = 16.0
+bg_color = Color(1, 0.8, 0.8509804, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.11764706)
+shadow_size = 4
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4gkm"]
+content_margin_left = 40.0
+content_margin_top = 16.0
+content_margin_right = 40.0
+content_margin_bottom = 16.0
+bg_color = Color(1, 0.6912958, 0.776082, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.11764706)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tx5sm"]
+content_margin_left = 40.0
+content_margin_top = 16.0
+content_margin_right = 40.0
+content_margin_bottom = 16.0
+bg_color = Color(1, 0.6901961, 0.7764706, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.11764706)
+shadow_size = 4
+shadow_offset = Vector2(0, 8)
 
 [node name="EndScreen" type="Control" unique_id=1823632353]
 layout_mode = 3
@@ -56,6 +125,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_ty7q8")
 script = ExtResource("1_yrivc")
 
 [node name="Blueprint" type="ColorRect" parent="." unique_id=104360064]
@@ -131,18 +201,18 @@ layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="MenuButton" type="Button" parent="Center/Panel/Margin/VBoxContainer/HorizontalButtonContainer" unique_id=144198409]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.2509804, 0.2509804, 0.2509804, 1)
-theme_override_fonts/font = ExtResource("1_atpf1")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_j3ecp")
-text = "MENU"
-
 [node name="RetryButton" type="Button" parent="Center/Panel/Margin/VBoxContainer/HorizontalButtonContainer" unique_id=203912162]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.2509804, 0.2509804, 0.2509804, 1)
-theme_override_fonts/font = ExtResource("1_atpf1")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_j3ecp")
-text = "RETRY"
+theme = ExtResource("1_ty7q8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a4x1j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6c3f0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dt0xn")
+text = "Spróbuj ponownie"
+
+[node name="MenuButton" type="Button" parent="Center/Panel/Margin/VBoxContainer/HorizontalButtonContainer" unique_id=144198409]
+layout_mode = 2
+theme = ExtResource("1_ty7q8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ty7q8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k4gkm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tx5sm")
+text = "Powrót"

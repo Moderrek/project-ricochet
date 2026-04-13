@@ -43,6 +43,7 @@ func _input(event):
 
 func _on_body_entered(_body):
 	var speed = linear_velocity.length()
+	GameManager.total_wall_bounce_count += 1
 
 	# Sound
 	if speed > 50.0:
@@ -70,6 +71,7 @@ func _on_body_entered(_body):
 func shatter_and_respawn(spawn_position: Vector2):
 	if _is_dead: return
 	_is_dead = true
+	GameManager.total_death_count += 1
 
 	set_deferred("freeze", true)
 	linear_velocity = Vector2.ZERO
@@ -112,6 +114,7 @@ func get_aim_direction() -> Vector2:
 	return Vector2.ZERO
 
 func _shoot():
+	GameManager.total_shoot_count += 1
 	var drag_vector = get_drag_vector()
 	var current_multiplier = power_multiplier
 	

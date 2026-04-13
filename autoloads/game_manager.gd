@@ -24,6 +24,9 @@ var timer_seconds: float = 0.0
 var current_collected_coins: int = 0
 var current_boost_level: float = 0.0
 var current_level_index: int = 0
+var total_shoot_count: int = 0
+var total_wall_bounce_count: int = 0
+var total_death_count: int = 0
 
 var _last_tick_seconds: int = -1
 
@@ -129,6 +132,9 @@ func _init_run_state() -> void:
 	current_boost_level = 0.0
 	timer_seconds = 0.0
 	_last_tick_seconds = -1
+	total_shoot_count = 0
+	total_wall_bounce_count = 0
+	total_death_count = 0
 	print("Initialized Game State")
 	if soundtrack:
 		soundtrack.play()

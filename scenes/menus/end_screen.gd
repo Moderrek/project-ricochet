@@ -35,14 +35,16 @@ func _setup_screen():
 	var minutes: int = time_spent / 60
 	var seconds: int = time_spent % 60
 
-	var is_win: bool = GameManager.timer_seconds > 0.0
+	var is_win: bool = GameManager.timer_seconds < GameManager.game_time
 	if is_win:
 		title_label.text = TITLE_VICTORY_TEXT
 		title_label.add_theme_color_override("font_color", VICTORY_COLOR)
 	else:
 		title_label.text = TITLE_DEFEAT_TEXT
 		title_label.add_theme_color_override("font_color", DEFEAT_COLOR)
-	stats_label.text = "Zebrano monet: %d\nPokonano w: %02dmin %02ds" % [GameManager.current_collected_coins, minutes, seconds]
+	
+	var format = "Pokonano w %02dmin %02ds\n\nStrzałów: %d\nOdbić od ścian: %d\nŚmierci: %d\nZebrano monet: %d"
+	stats_label.text = format % [minutes, seconds, GameManager.total_shoot_count, GameManager.total_wall_bounce_count, GameManager.total_death_count, GameManager.current_collected_coins]
 
 	# Apply collected coins during game to total coins in save.
 	if GameManager.current_collected_coins > 0:
