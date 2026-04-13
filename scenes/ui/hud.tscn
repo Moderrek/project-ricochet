@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://e8n7jbo5e5lr"]
 
 [ext_resource type="Script" uid="uid://3sqmgyh37fsh" path="res://scenes/ui/hud.gd" id="1_0mwgc"]
+[ext_resource type="FontFile" uid="uid://7mkp4b5kldtl" path="res://assets/fonts/Rubik-Medium.ttf" id="2_bo48s"]
 [ext_resource type="FontFile" uid="uid://c4t6gw58eaj7x" path="res://assets/fonts/Rubik-Black.ttf" id="2_hqnrr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0mwgc"]
@@ -47,7 +48,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
 theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 4
-theme_override_fonts/font = ExtResource("2_hqnrr")
+theme_override_fonts/font = ExtResource("2_bo48s")
 theme_override_font_sizes/font_size = 48
 text = "Monety: 150"
 
@@ -79,7 +80,7 @@ theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 4
 theme_override_fonts/font = ExtResource("2_hqnrr")
 theme_override_font_sizes/font_size = 48
-text = "--:--"
+text = "01:23"
 
 [node name="BoostBar" type="ProgressBar" parent="." unique_id=1359085032]
 anchors_preset = 2
@@ -91,6 +92,8 @@ offset_right = 509.0
 offset_bottom = -14.0
 grow_vertical = 0
 tooltip_text = "Poziom naładowania kawą"
+theme_override_constants/outline_size = 3
 theme_override_styles/fill = SubResource("StyleBoxFlat_hqnrr")
-value = 59.36
+value = 59.0
+rounded = true
 show_percentage = false

@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://mb272d4b0hl6" path="res://shaders/blueprint.gdshader" id="2_mi55a"]
 [ext_resource type="Shader" uid="uid://5pn8jkwlkc30" path="res://shaders/background_blur.gdshader" id="3_j3ecp"]
 [ext_resource type="Shader" uid="uid://itcqh3nb0wkl" path="res://shaders/vignette.gdshader" id="3_mi55a"]
+[ext_resource type="FontFile" uid="uid://d4jp7c434y4rt" path="res://assets/fonts/Rubik-Regular.ttf" id="7_a4x1j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ty7q8"]
 shader = ExtResource("2_mi55a")
@@ -188,7 +189,7 @@ text = "KONIEC LEKCJI"
 [node name="StatsLabel" type="Label" parent="Center/Panel/Margin/VBoxContainer" unique_id=1859119767]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.33333334, 0.33333334, 0.33333334, 1)
-theme_override_fonts/font = ExtResource("1_atpf1")
+theme_override_fonts/font = ExtResource("7_a4x1j")
 theme_override_font_sizes/font_size = 32
 text = "5 monet | 1000 score"
 
