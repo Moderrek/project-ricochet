@@ -6,7 +6,7 @@ var _boost_tween: Tween
 
 @onready var time_label = $Panel/CenterContainer/TimeLabel
 @onready var coin_label = $Control/MarginContainer/HBoxContainer/CoinLabel
-@onready var boost_bar  = $BoostBar
+@onready var boost_bar_v2 = $BoostBarV2
 
 func _ready():
 	call_deferred("_setup_ui")
@@ -18,9 +18,8 @@ func _ready():
 	_update_coins(GameManager.current_collected_coins)
 	_on_time_ticked(int(GameManager.timer_seconds), int(GameManager.get_remaining_time()))
 	
-	boost_bar.max_value  = GameManager.max_boost
-	boost_bar.value      = GameManager.current_boost_level
-	boost_bar.modulate.a = 0.0
+	boost_bar_v2.set_fill_level(GameManager.current_boost_level / GameManager.max_boost)
+	boost_bar_v2.modulate.a = 0.0
 
 func _process(_delta):
 	if GameManager.is_timer_active:
@@ -63,13 +62,13 @@ func _on_time_ticked(current_seconds: int, remaining_seconds: int) -> void:
 	time_label.text = "%02d:%02d" % [minutes, seconds]
 
 func _on_boost_changed(current_boost_level: float) -> void:
-	boost_bar.value = current_boost_level
+	boost_bar_v2.set_fill_level(current_boost_level / GameManager.max_boost)
 	
 	if _boost_tween and _boost_tween.is_valid():
 		_boost_tween.kill()
 		
 	_boost_tween = create_tween()
-	if current_boost_level > 0 and boost_bar.modulate.a < 1.0:
-		_boost_tween.tween_property(boost_bar, "modulate:a", 1.0, 0.2)
-	elif current_boost_level <= 0 and boost_bar.modulate.a > 0.0:
-		_boost_tween.tween_property(boost_bar, "modulate:a", 0.0, 0.5)
+	if current_boost_level > 0 and boost_bar_v2.modulate.a < 1.0:
+		_boost_tween.tween_property(boost_bar_v2, "modulate:a", 1.0, 0.2)
+	elif current_boost_level <= 0 and boost_bar_v2.modulate.a > 0.0:
+		_boost_tween.tween_property(boost_bar_v2, "modulate:a", 0.0, 0.5)

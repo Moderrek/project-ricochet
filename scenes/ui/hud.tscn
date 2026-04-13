@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://3sqmgyh37fsh" path="res://scenes/ui/hud.gd" id="1_0mwgc"]
 [ext_resource type="FontFile" uid="uid://7mkp4b5kldtl" path="res://assets/fonts/Rubik-Medium.ttf" id="2_bo48s"]
 [ext_resource type="FontFile" uid="uid://c4t6gw58eaj7x" path="res://assets/fonts/Rubik-Black.ttf" id="2_hqnrr"]
+[ext_resource type="Shader" uid="uid://bseqx2px3emda" path="res://shaders/coffee.gdshader" id="4_136eg"]
+[ext_resource type="Script" uid="uid://dsb1xlcy6uwrx" path="res://scenes/ui/boost_bar_v_2.gd" id="5_136eg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0mwgc"]
 bg_color = Color(0.13319641, 0.13319641, 0.13319638, 0.8509804)
@@ -12,8 +14,15 @@ shadow_color = Color(0, 0, 0, 0.15)
 shadow_size = 12
 shadow_offset = Vector2(0, 8)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqnrr"]
-bg_color = Color(0.766427, 0.54483324, 0.38417402, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gss2c"]
+shader = ExtResource("4_136eg")
+shader_parameter/fill_amount = 1.0
+shader_parameter/energy_color = Color(0.95, 0.75, 0.1, 1)
+shader_parameter/bg_color = Color(0.15, 0.15, 0.15, 1)
+
+[sub_resource type="Gradient" id="Gradient_136eg"]
+offsets = PackedFloat32Array(0.41108546, 0.8498845, 0.99769056)
+colors = PackedColorArray(0.9490196, 0.7490196, 0.101960786, 1, 1, 1, 1, 0.6862745, 0.9977365, 0.86986107, 0.5416789, 0)
 
 [node name="HUD" type="CanvasLayer" unique_id=1381379692]
 script = ExtResource("1_0mwgc")
@@ -82,18 +91,34 @@ theme_override_fonts/font = ExtResource("2_hqnrr")
 theme_override_font_sizes/font_size = 48
 text = "01:23"
 
-[node name="BoostBar" type="ProgressBar" parent="." unique_id=1359085032]
+[node name="BoostBarV2" type="Control" parent="." unique_id=251678037]
+layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 9.0
-offset_top = -62.0
-offset_right = 509.0
-offset_bottom = -14.0
+offset_left = 20.0
+offset_top = -68.0
+offset_right = 500.0
+offset_bottom = -20.0
 grow_vertical = 0
-tooltip_text = "Poziom naładowania kawą"
-theme_override_constants/outline_size = 3
-theme_override_styles/fill = SubResource("StyleBoxFlat_hqnrr")
-value = 59.0
-rounded = true
-show_percentage = false
+script = ExtResource("5_136eg")
+
+[node name="FluidRect" type="Panel" parent="BoostBarV2" unique_id=1519781393]
+material = SubResource("ShaderMaterial_gss2c")
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 48.0
+
+[node name="DrainParticles" type="CPUParticles2D" parent="BoostBarV2" unique_id=496125688]
+position = Vector2(479, 20)
+amount = 20
+lifetime = 0.6
+emission_shape = 3
+emission_rect_extents = Vector2(2, 24)
+spread = 30.0
+gravity = Vector2(0, -50)
+initial_velocity_min = 30.0
+initial_velocity_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_136eg")
