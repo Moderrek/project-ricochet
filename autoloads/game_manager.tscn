@@ -13,4 +13,4 @@ levels_data = Array[ExtResource("2_qaqf1")]([ExtResource("3_nc61q"), ExtResource
 
 [node name="Soundtrack" type="AudioStreamPlayer" parent="." unique_id=227009377]
 stream = ExtResource("6_25hud")
-volume_db = -24.066
+volume_db = -18.0
