@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var resume_button = $VBoxContainer/ResumeButton
 @onready var main_menu_button = $VBoxContainer/MainMenuButton
 @onready var quit_button = $VBoxContainer/QuitButton
+@onready var retry_button = $VBoxContainer/RetryButton
 
 func _ready() -> void:
 	if resume_button:
@@ -11,6 +12,8 @@ func _ready() -> void:
 		main_menu_button.pressed.connect(_on_main_menu_pressed)
 	if quit_button:
 		quit_button.pressed.connect(_on_quit_pressed)
+	if retry_button:
+		retry_button.pressed.connect(_on_retry_pressed)
 
 	hide()
 
@@ -52,3 +55,11 @@ func _on_main_menu_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+func _on_retry_pressed() -> void:
+	get_tree().paused = false
+	hide()
+	Engine.time_scale = 1.0
+	GameManager.is_game_running = false
+	GameManager.is_timer_active = false
+	GameManager.start_game()

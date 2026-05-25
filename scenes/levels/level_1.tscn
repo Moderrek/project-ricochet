@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cidukxiliea8x"]
 
 [ext_resource type="PackedScene" uid="uid://0dahmcdfnjd5" path="res://scenes/levels/base_level.tscn" id="1_excbq"]
+[ext_resource type="Script" uid="uid://tid0bkj4um0o" path="res://scenes/levels/level_1.gd" id="2_dnkej"]
 [ext_resource type="Texture2D" uid="uid://ctj13btnys8ks" path="res://assets/images/wall_test.png" id="2_iav0o"]
 [ext_resource type="Texture2D" uid="uid://dphek2jkg6fc6" path="res://assets/images/arrow_up.png" id="3_dnkej"]
 [ext_resource type="Texture2D" uid="uid://i8oc6vj7ysmw" path="res://assets/images/arrow_turn_right.png" id="4_mm8aj"]
@@ -30,6 +31,7 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_cbu3j")
 sources/2 = SubResource("TileSetAtlasSource_ym01l")
 
 [node name="level_1" unique_id=1806712695 instance=ExtResource("1_excbq")]
+script = ExtResource("2_dnkej")
 
 [node name="ColorRect2" type="ColorRect" parent="." index="3" unique_id=225011112]
 offset_left = -6040.0

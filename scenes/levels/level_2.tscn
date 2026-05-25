@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dphek2jkg6fc6" path="res://assets/images/arrow_up.png" id="4"]
 [ext_resource type="PackedScene" uid="uid://lvklfo0pscmv" path="res://scenes/interactables/vending_machine/vending_machine.tscn" id="6_brxtv"]
 [ext_resource type="PackedScene" uid="uid://f0b327r50edc" path="res://scenes/interactables/level_end_area/level_end_area.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://c2lckjp47l84q" path="res://scenes/interactables/pallet/pallet.tscn" id="9_3p04p"]
 [ext_resource type="PackedScene" uid="uid://c7g3upf78s37y" path="res://scenes/collectibles/photo/photo.tscn" id="10_1yj8c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fiq81"]
@@ -110,61 +111,65 @@ scale = Vector2(0.4, 0.4)
 tile_map_data = PackedByteArray("AAD9/wEAAgAAAAAAAAD9/wIAAgAAAAAAAAACAAEAAgAAAAAAAAACAAIAAgAAAAAAAAD9/wMAAgAAAAAAAAD9/wQAAgAAAAAAAAACAAMAAgAAAAAAAAACAAQAAgAAAAAAAAADAAEAAgAAAAAAAAAEAAEAAgAAAAAAAAAFAAEAAgAAAAAAAAAGAAEAAgAAAAAAAAAHAAEAAgAAAAAAAAAIAAEAAgAAAAAAAAAJAAEAAgAAAAAAAAAKAAEAAgAAAAAAAAALAAEAAgAAAAAAAAD8/wEAAgAAAAAAAAD7/wEAAgAAAAAAAAD6/wEAAgAAAAAAAAD5/wEAAgAAAAAAAAD4/wEAAgAAAAAAAAD3/wEAAgAAAAAAAAD2/wEAAgAAAAAAAAD1/wEAAgAAAAAAAAACAPz/AgAAAAAAAAD9//z/AgAAAAAAAAD9//v/AgAAAAAAAAD9//r/AgAAAAAAAAD9//n/AgAAAAAAAAACAPv/AgAAAAAAAAACAPr/AgAAAAAAAAACAPn/AgAAAAAAAAD6//z/AgAAAAAAAAD6//v/AgAAAAAAAAD6//r/AgAAAAAAAAD6//n/AgAAAAAAAAAFAPz/AgAAAAAAAAAFAPv/AgAAAAAAAAAFAPr/AgAAAAAAAAAFAPn/AgAAAAAAAAAFAPj/AgAAAAAAAAAEAPj/AgAAAAAAAAADAPj/AgAAAAAAAAACAPj/AgAAAAAAAAD6//j/AgAAAAAAAAD9//j/AgAAAAAAAAD+//j/AgAAAAAAAAD///j/AgAAAAAAAAAAAPj/AgAAAAAAAAABAPj/AgAAAAAAAAAGAPz/AgAAAAAAAAAHAPz/AgAAAAAAAAAIAPz/AgAAAAAAAAAJAPz/AgAAAAAAAAAKAPz/AgAAAAAAAAALAPz/AgAAAAAAAAD5//z/AgAAAAAAAAD4//z/AgAAAAAAAAD3//z/AgAAAAAAAAD2//z/AgAAAAAAAAD1//z/AgAAAAAAAAD0//z/AgAAAAAAAAAMAPz/AgAAAAAAAAAMAP3/AgAAAAAAAAAMAP7/AgAAAAAAAAAMAP//AgAAAAAAAAAMAAAAAgAAAAAAAAAMAAEAAgAAAAAAAAD0/wEAAgAAAAAAAADz/wEAAgAAAAAAAADy/wEAAgAAAAAAAADx/wEAAgAAAAAAAAD0//v/AgAAAAAAAAD0//r/AgAAAAAAAAD0//n/AgAAAAAAAAD0//j/AgAAAAAAAADw/wEAAgAAAAAAAADv/wEAAgAAAAAAAADv/wAAAgAAAAAAAADv////AgAAAAAAAADv//7/AgAAAAAAAADv//3/AgAAAAAAAADv//z/AgAAAAAAAADv//v/AgAAAAAAAADv//r/AgAAAAAAAADv//n/AgAAAAAAAADv//j/AgAAAAAAAAD0//f/AgAAAAAAAAD0//b/AgAAAAAAAADv//f/AgAAAAAAAADv//b/AgAAAAAAAAD6//f/AgAAAAAAAAD6//b/AgAAAAAAAAD6//X/AgAAAAAAAAD7//X/AgAAAAAAAAD8//X/AgAAAAAAAAD9//X/AgAAAAAAAAD+//X/AgAAAAAAAAABAPX/AgAAAAAAAAACAPX/AgAAAAAAAAADAPX/AgAAAAAAAAAEAPX/AgAAAAAAAAAFAPX/AgAAAAAAAAAFAPb/AgAAAAAAAAAFAPf/AgAAAAAAAAD0//X/AgAAAAAAAAD0//T/AgAAAAAAAADv//X/AgAAAAAAAADv//T/AgAAAAAAAAD1//T/AgAAAAAAAAD2//T/AgAAAAAAAAD3//T/AgAAAAAAAAD3//P/AgAAAAAAAAD3//L/AgAAAAAAAAD3//H/AgAAAAAAAAD3//D/AgAAAAAAAAD2//D/AgAAAAAAAAD1//D/AgAAAAAAAAD0//D/AgAAAAAAAADv//D/AgAAAAAAAADu//T/AgAAAAAAAADt//T/AgAAAAAAAADs//T/AgAAAAAAAADu//D/AgAAAAAAAADt//D/AgAAAAAAAADs//D/AgAAAAAAAADs//P/AgAAAAAAAADs//L/AgAAAAAAAADs//H/AgAAAAAAAAD0/+//AgAAAAAAAAD0/+7/AgAAAAAAAAD0/+3/AgAAAAAAAADv/+//AgAAAAAAAADv/+7/AgAAAAAAAADv/+3/AgAAAAAAAADv/+z/AgAAAAAAAAD0/+z/AgAAAAAAAAD0/+v/AgAAAAAAAADz/+v/AgAAAAAAAADy/+v/AgAAAAAAAADx/+v/AgAAAAAAAADw/+v/AgAAAAAAAADv/+v/AgAAAAAAAAD9/wUAAgAAAAAAAAD9/wYAAgAAAAAAAAACAAUAAgAAAAAAAAACAAYAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_vdred")
 
-[node name="VendingMachine" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="0" unique_id=635205341 instance=ExtResource("6_brxtv")]
+[node name="Pallet" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="0" unique_id=1252356175 instance=ExtResource("9_3p04p")]
+position = Vector2(-1308.0001, -670)
+rotation = 0.84086674
+
+[node name="VendingMachine" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="1" unique_id=635205341 instance=ExtResource("6_brxtv")]
 position = Vector2(688, -383)
 
-[node name="CezCoin" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="1" unique_id=454780902 instance=ExtResource("3")]
+[node name="CezCoin" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="2" unique_id=454780902 instance=ExtResource("3")]
 position = Vector2(704, -647)
 
-[node name="CezCoin2" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="2" unique_id=1865364420 instance=ExtResource("3")]
+[node name="CezCoin2" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="3" unique_id=1865364420 instance=ExtResource("3")]
 position = Vector2(709, -533)
 
-[node name="CezCoin3" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="3" unique_id=1921843807 instance=ExtResource("3")]
+[node name="CezCoin3" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="4" unique_id=1921843807 instance=ExtResource("3")]
 position = Vector2(644, -583)
 
-[node name="CezCoin4" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="4" unique_id=1298764170 instance=ExtResource("3")]
+[node name="CezCoin4" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="5" unique_id=1298764170 instance=ExtResource("3")]
 position = Vector2(595, -649)
 
-[node name="CezCoin5" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="5" unique_id=2010019088 instance=ExtResource("3")]
+[node name="CezCoin5" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="6" unique_id=2010019088 instance=ExtResource("3")]
 position = Vector2(941, -78)
 
-[node name="CezCoin6" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="6" unique_id=2138496411 instance=ExtResource("3")]
+[node name="CezCoin6" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="7" unique_id=2138496411 instance=ExtResource("3")]
 position = Vector2(241, -1047)
 
-[node name="CezCoin7" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="7" unique_id=837065221 instance=ExtResource("3")]
+[node name="CezCoin7" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="8" unique_id=837065221 instance=ExtResource("3")]
 position = Vector2(-305, -64)
 
-[node name="CezCoin8" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="8" unique_id=253994355 instance=ExtResource("3")]
+[node name="CezCoin8" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="9" unique_id=253994355 instance=ExtResource("3")]
 position = Vector2(-398, -64)
 
-[node name="CezCoin9" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="9" unique_id=96030290 instance=ExtResource("3")]
+[node name="CezCoin9" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="10" unique_id=96030290 instance=ExtResource("3")]
 position = Vector2(-495, -64)
 
-[node name="CezCoin10" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="10" unique_id=1152960570 instance=ExtResource("3")]
+[node name="CezCoin10" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="11" unique_id=1152960570 instance=ExtResource("3")]
 position = Vector2(-1347, -64)
 
-[node name="CezCoin11" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="11" unique_id=792603891 instance=ExtResource("3")]
+[node name="CezCoin11" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="12" unique_id=792603891 instance=ExtResource("3")]
 position = Vector2(-1042, -376)
 
-[node name="CezCoin12" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="12" unique_id=191979019 instance=ExtResource("3")]
+[node name="CezCoin12" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="13" unique_id=191979019 instance=ExtResource("3")]
 position = Vector2(-1042, -472)
 
-[node name="CezCoin13" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="13" unique_id=1673807294 instance=ExtResource("3")]
+[node name="CezCoin13" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="14" unique_id=1673807294 instance=ExtResource("3")]
 position = Vector2(-1335, -1243)
 
-[node name="CezCoin14" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="14" unique_id=1908978505 instance=ExtResource("3")]
+[node name="CezCoin14" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="15" unique_id=1908978505 instance=ExtResource("3")]
 position = Vector2(-1199, -1570)
 
-[node name="CezCoin15" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="15" unique_id=924068032 instance=ExtResource("3")]
+[node name="CezCoin15" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="16" unique_id=924068032 instance=ExtResource("3")]
 position = Vector2(-1199, -1663)
 
-[node name="Photo" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="16" unique_id=1227350045 instance=ExtResource("10_1yj8c")]
+[node name="Photo" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="17" unique_id=1227350045 instance=ExtResource("10_1yj8c")]
 position = Vector2(690, -897)
 
-[node name="Photo2" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="17" unique_id=1000896202 instance=ExtResource("10_1yj8c")]
+[node name="Photo2" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="18" unique_id=1000896202 instance=ExtResource("10_1yj8c")]
 position = Vector2(913, 68)
 
-[node name="ArrowUp" type="Sprite2D" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="18" unique_id=1872959992]
+[node name="ArrowUp" type="Sprite2D" parent="Entities" parent_id_path=PackedInt32Array(1153031609) index="19" unique_id=1872959992]
 rotation = -1.0593233
 scale = Vector2(0.2, 0.181)
 texture = ExtResource("4")
@@ -174,4 +179,4 @@ script = ExtResource("2_ra442")
 metadata/_custom_type_script = "uid://day8giwpngo8g"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HazardArea2" index="0" unique_id=442207306]
-polygon = PackedVector2Array(-1199, -1454, -1310, -1353, -1194, -1264, -1062, -1345, -1132.75, -1401.2902)
+polygon = PackedVector2Array(-1199, -1454, -1275, -1372, -1251, -1299, -1194, -1264, -1140, -1332, -1043, -1367, -1134, -1422)
