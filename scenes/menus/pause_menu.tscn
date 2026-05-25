@@ -75,6 +75,10 @@ text = "Wznów"
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
+[node name="RetryButton" type="Button" parent="VBoxContainer" unique_id=2144398873]
+layout_mode = 2
+text = "Spróbuj ponownie"
+
 [node name="MainMenuButton" type="Button" parent="VBoxContainer" unique_id=1552448728]
 layout_mode = 2
 text = "Menu Główne"
