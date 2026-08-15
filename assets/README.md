@@ -1,14 +1,17 @@
-# Assets (Zasoby surowe)
+# Assets (Zasoby)
 
-Wszystkie surowe pliki graficzne, dźwiękowe i czcionki. Tutaj przechowywane są przed zintegrowaniem z grą w scenach Godot.
+Wszystkie surowe pliki graficzne, dźwiękowe i czcionki.
+Tutaj przechowywane są przed zintegrowaniem z grą w scenach Godot.
 
-**Ważne**: Pliki `.import` to metadane Godot - nie edytuj ich ręcznie.
+> [!IMPORTANT]
+>
+> Pliki `.import` to metadane Godot. Nie edytuj ich ręcznie.
 
 ---
 
 ## Czcionki (fonts/)
 
-Czcionki w formacie TTF (TrueType Font) używane w interfejsie.
+Czcionki w formacie TTF ([TrueType Font](https://en.wikipedia.org/wiki/TrueType)) używane w interfejsie.
 
 ### Dostępne czcionki
 
@@ -24,81 +27,41 @@ Czcionki w formacie TTF (TrueType Font) używane w interfejsie.
 
 ### Dodanie nowej czcionki
 
-1. Skopiuj plik `.ttf` do `fonts/`
+1. Skopiuj plik `*.ttf` do `fonts/`
 2. W edytorze Godot: Control node → Theme → Font Family → wybiórz czcionkę
-3. Godot automatycznie zaimpletuje `.import`
+3. Godot automatycznie wygeneruje `*.import`
 
 ---
 
 ## Ikony (icons/)
 
-Małe grafiki 64x64px na ikonki do Inspector'a w edytorze Godot (nie widoczne dla gracza).
+Małe grafiki 64x64px na ikonki do Inspector'a w edytorze Godot *(nie widoczne dla gracza)*.
 
-### Dostępne ikony
+Dodanie ikon do swoich skryptów zwiększa czytelność scen.
 
-```
-player_icon.png     - Ikona gracza (kula)
-coffee_icon.png     - Ikona kawy (collectible)
-coin_icon.png       - Ikona monety (cez coin)
-wall_icon.png       - Ikona ściany
-pallet_icon.png     - Ikona palety
-vending_icon.png    - Ikona automatu do kawy
-hazard_icon.png     - Ikona niebezpiecznej strefy
-```
+![Inspector z ikonkami](../docs/images/inspector-icons.png)
 
-### Jak działają
+Ikonki użyte w projekcie zostały zabarwione na kolor `#6393FF` (Godot Blue) oraz przeskalowane za pomocą GIMP z interpolacją NoHalo do rozdzielczości 64px x 64px.
 
-W skryptach:
+### Użycie w skryptach
+
+Aby dany węzeł był wyświetlany z ikoną musimy dołączyć do niego skrypt,
+który będzie miał zdefiniowaną adnotację `@icon` jak poniżej.
+
+Przykład:
 ```gdscript
 @icon("res://assets/icons/player_icon.png")
 extends RigidBody2D
 class_name Player
 ```
 
-Gdy otworzysz scenę w edytorze, ikona pojawia się obok nazwy klasy (czytelność).
-
-### Dodanie nowej ikony
-
-Tę samą składnię `@icon()` - Godot automatycznie wyświetli ikonę.
+Gdy otworzysz scenę w edytorze, ikona pojawia się obok nazwy klasy.
 
 ---
 
 ## Obrazki (images/)
 
-Sprites i grafiki do gry - to co widzi gracz.
-
-### Sprite sheets (animacje)
-
-- **cez_coin_spritesheet.png** - Animacja monety (rotacja)
-- **coffee_spritesheet.png** - Animacja kawy (bobowanie/rotacja)
-
-Użyte w collectibles do animacji zbierania.
-
-### Pojedyncze sprites
-
-- **player.png** - Gracz (kula)
-- **wall.png** - Ściana (tilemap texture)
-- **pallet.png** - Europalet
-- **vending.png** - Automat do kawy
-- **wall_test.png** - Alternatywna tekstura do testów
-
-### Rozmiary monet
-
-- **cez_coin_24x24.png** - Mała (interfejs, HUD)
-- **cez_coin_64x64.png** - Duża (w grze)
-
-### Inne grafiki
-
-- **arrow_up.png** - Strzałka do góry (możliwy UI element)
-- **arrow_turn_right.png** - Strzałka w prawo (możliwy UI element)
-- **camera.png** - Ikona kamery (UI)
-
-### Dodanie nowego sprite'a
-
-1. Skopiuj PNG do `images/`
-2. W edytorze: Utwórz Sprite2D node
-3. Sprite2D → Texture → Wybiórz plik
-4. Ustaw rozmiar i offset
+Obrazki to Sprite, Sprite Sheets, elementy interfejsu oraz inne grafiki do gry, które widzi gracz.
 
 ---
 
@@ -126,38 +89,12 @@ ambient_machine_noise.ogg - Hałas automatu (tło)
 
 Gra podczas całej rozgrywki, zatrzymuje się na ekranach menu.
 
-### Gdzie są przypisane
-
-```gdscript
-# Player.gd
-@onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
-@onready var bounce_sound: AudioStreamPlayer2D = $BounceSound
-@onready var death_sound: AudioStreamPlayer2D = $DeathSound
-
-# Collectibles
-@export var pickup_sound: AudioStream  # Przypisane w Inspector
-
-# Menu
-@onready var hover_sound: AudioStreamPlayer = $HoverSound
-@onready var click_sound: AudioStreamPlayer = $ClickSound
-
-# GameManager
-@onready var soundtrack: AudioStreamPlayer = $Soundtrack
-```
-
 ### Dodanie nowego dźwięku
 
 1. Konwertuj do OGG (Audacity: File → Export → OGG Vorbis)
 2. Skopiuj do `sounds/`
 3. W scenach: AudioStreamPlayer2D → Stream → Wybierz plik
-4. Godot zaimpletuje `.import`
-
-### Ustawienia OGG
-
-Dla gier zwykle:
-- Bitrate: 128 kbps
-- Channels: Mono (SFX) lub Stereo (Soundtrack)
-- Kwalość: 5-6/10 (wystarczająca dla gier)
+4. Godot wygeneruje `*.import`
 
 ---
 

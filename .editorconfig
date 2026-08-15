@@ -2,3 +2,14 @@ root = true
 
 [*]
 charset = utf-8
+
+[*.md]
+trim_trailing_whitespace = false
+indent_style = space
+
+[*.gd]
+indent_style = tab
+
+[*.gdshader]
+indent_style = tab
+
