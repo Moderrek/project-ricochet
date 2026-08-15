@@ -9,9 +9,11 @@
 </div>
 
 
-Edukacyjna gra strzelniczo-logiczna zbudowana na silniku [Godot](https://godotengine.org/).
+Edukacyjna gra strzelniczo-logiczna oparta na silniku [Godot](https://godotengine.org/).
 
-Projekt stworzony na konkurs [CKZiU "School Games 2026"](https://cez.lodz.pl/2026/03/25/konkurs-school-games-2026/) przez dwóch uczniów klasy 4TP (Programista) w 2025-2026 roku.
+![game-screenshot](./docs/images/game-screenshot.png)
+
+Projekt stworzony na konkurs [CKZiU "School Games 2026"](https://cez.lodz.pl/2026/03/25/konkurs-school-games-2026/) przez dwóch uczniów klasy 4TP (Programista) w roku szkolnym 2025-2026. Stworzenie tej gry zajeło trochę ponad miesiąc.
 
 Gra promocyjna dla Centrum Kształcenia Zawodowego i Ustawicznego w Łodzi, opublikowana jako open source do celów edukacyjnych.
 
@@ -22,11 +24,16 @@ Gra promocyjna dla Centrum Kształcenia Zawodowego i Ustawicznego w Łodzi, opub
 **CKZiU: 3 Minuty do Dzwonka** to gra, gdzie gracz wcielając się w kulę, musi celować i strzelać, aby poruszać się po poziomach szkoły CKZiU.
 
 Główne elementy:
-- **Mechanika celowania**: Kliknij gracza, przeciągnij mysz - system pokazuje trajektorię lotu z odbiciami od ścian
-- **Wzmocnienie kawy**: Zbierz kawę z automatu - zwiększa siłę strzału o 50%
-- **Monety szkolne**: Zbieraj Cez Coiny (monety szkolne)
-- **3 poziomy gry**: Tutorial (bez presji czasu), Level 1 (minutnik od pierwszego strzału), Level 2 (kontynuacja minutnika)
-- **Strefy zagrożenia**: Specjalne strefy śmiertelne wymagające precyzji
+- **Mechanika celowania**: Kliknij gracza, przeciągnij mysz - system pokazuje trajektorię lotu z odbiciami od ścian  
+  ![Celowanie](./docs/images/aim.png)
+- **Wzmocnienie kawy**: Zbierz kawę z automatu - zwiększa siłę strzału o 50%  
+  ![Pasek wzmocnienia](./docs/images/coffee.png)
+- **Monety szkolne**: Zbieraj Cez Coiny (monety szkolne)  
+  ![Moneta](./docs/images/icon-coin.png)
+- **3 poziomy gry**: Tutorial (bez presji czasu), Level 1 (minutnik od pierwszego strzału), Level 2 (kontynuacja minutnika)  
+  ![Level z poziomu edytora](./docs/images/editor-level.png)
+- **Strefy zagrożenia**: Specjalne strefy śmiertelne wymagające precyzji  
+  ![Strefa Zagrożenia](./docs/images/hazard-zone.png)
 
 ## Jak zagrać?
 
