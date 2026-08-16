@@ -40,3 +40,6 @@ func get_all_locked_photos() -> Array[PhotoData]:
 
 func _load_photos_from_save() -> void:
 	pass
+
+func is_any_photo_locked() -> bool:
+	return len(get_all_locked_photos()) > 0

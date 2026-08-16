@@ -8,14 +8,20 @@
     </p>
 </div>
 
+Zostały 3 minuty do dzwonka. Odbijaj się od ścian,
+wykorzystuj otoczenie i dostań się do celu, zanim skończy się czas.
 
-Edukacyjna gra strzelniczo-logiczna oparta na silniku [Godot](https://godotengine.org/).
+Gra zręcznościowo-logiczna stworzona przez uczniów CKZiU w Łodzi na konkurs School Games 2026.
 
-![game-screenshot](./docs/images/game-screenshot.png)
+![Rozgrywka w CKZiU: 3 Minuty do Dzwonka](./docs/images/gameplay.webp)
 
-Projekt stworzony na konkurs [CKZiU "School Games 2026"](https://cez.lodz.pl/2026/03/25/konkurs-school-games-2026/) przez dwóch uczniów klasy 4TP (Programista) w roku szkolnym 2025-2026. Stworzenie tej gry zajeło trochę ponad miesiąc.
+<p align="center">
+    <a href="https://cezgame.cloud/"><strong>Zagraj w przeglądarce</strong></a>
+</p>
 
-Gra promocyjna dla Centrum Kształcenia Zawodowego i Ustawicznego w Łodzi, opublikowana jako open source do celów edukacyjnych.
+Projekt stworzony na konkurs [CKZiU "School Games 2026"](https://cez.lodz.pl/2026/03/25/konkurs-school-games-2026/) przez dwóch uczniów klasy 4TP (Programista) w roku szkolnym 2025-2026.
+
+Gra promocyjna dla Centrum Kształcenia Zawodowego i Ustawicznego w Łodzi, opublikowana jako Open Source do celów edukacyjnych.
 
 **Autorzy**: Tymon Woźniak, Olga Orłowska
 
@@ -29,7 +35,7 @@ Główne elementy:
 - **Wzmocnienie kawy**: Zbierz kawę z automatu - zwiększa siłę strzału o 50%  
   ![Pasek wzmocnienia](./docs/images/coffee.png)
 - **Monety szkolne**: Zbieraj Cez Coiny (monety szkolne)  
-  ![Moneta](./docs/images/icon-coin.png)
+  ![Moneta](./docs/images/coin.gif)
 - **3 poziomy gry**: Tutorial (bez presji czasu), Level 1 (minutnik od pierwszego strzału), Level 2 (kontynuacja minutnika)  
   ![Level z poziomu edytora](./docs/images/editor-level.png)
 - **Strefy zagrożenia**: Specjalne strefy śmiertelne wymagające precyzji  

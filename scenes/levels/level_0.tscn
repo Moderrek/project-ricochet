@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://roygbhglbhmm"]
 
 [ext_resource type="PackedScene" uid="uid://0dahmcdfnjd5" path="res://scenes/levels/base_level.tscn" id="1_n2h5a"]
-[ext_resource type="Script" uid="uid://pmt3vrml7m1s" path="res://scenes/levels/level_camera.gd" id="2_6ayib"]
 [ext_resource type="Script" uid="uid://h5ip78ayu20b" path="res://scenes/levels/level_0.gd" id="2_34hum"]
 [ext_resource type="Shader" uid="uid://mb272d4b0hl6" path="res://shaders/blueprint.gdshader" id="2_53han"]
 [ext_resource type="PackedScene" uid="uid://bp4bmbtgpi3cn" path="res://scenes/collectibles/cez_coin/cez_coin.tscn" id="3_1f54s"]
@@ -37,9 +36,6 @@ script = ExtResource("2_34hum")
 
 [node name="PlayerSpawnMarker" parent="." index="0" unique_id=1507377149]
 position = Vector2(0, -97)
-
-[node name="LevelCamera" parent="." index="1" unique_id=602886328]
-script = ExtResource("2_6ayib")
 
 [node name="BlueprintBackground" type="ColorRect" parent="World" parent_id_path=PackedInt32Array(104736592) index="0" unique_id=1215941230]
 material = SubResource("ShaderMaterial_dume2")

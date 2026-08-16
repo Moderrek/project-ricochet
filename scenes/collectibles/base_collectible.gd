@@ -9,20 +9,15 @@ var _is_collected: bool = false
 var _collect_tween: Tween
 var _is_animating: bool = false
 
-func _ready() -> void:
-	body_entered.connect(_on_body_entered)
-
-func _on_body_entered(body: Node2D) -> void:
-	if not _is_collected and body.is_in_group("player"):
-		collect()
+func _on_collect() -> void: pass # virtual
 
 func collect() -> void:
 	if _is_collected:
 		return
+	
 	_is_collected = true
 	set_deferred("monitoring", false)
 
-	# play sound
 	if pickup_sound and audio_player:
 		audio_player.stream = pickup_sound
 		audio_player.play()
@@ -49,6 +44,12 @@ func play_collect_animation() -> void:
 
 	_collect_tween.finished.connect(_on_collect_animation_finished)
 	
+func _ready() -> void:
+	body_entered.connect(_on_body_entered)
+
+func _on_body_entered(body: Node2D) -> void:
+	if not _is_collected and body.is_in_group("player"):
+		collect()
 
 func _on_collect_animation_finished() -> void:
 	_is_animating = false
@@ -59,4 +60,3 @@ func _on_collect_sound_finished() -> void:
 	if not _is_animating:
 		queue_free()
 
-func _on_collect() -> void: pass # virtual
